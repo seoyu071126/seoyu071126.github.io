@@ -95,7 +95,7 @@
       border: 1px solid #eee;
     }
 
-    .dropdown-content a {
+    .dropdown-content a, .dropdown-content span {
       color: #333;
       padding: 8px 16px;
       text-decoration: none;
@@ -108,7 +108,11 @@
       transition: background 0.2s ease;
     }
 
-    .dropdown-content a i {
+    .dropdown-content span {
+      cursor: default;
+    }
+
+    .dropdown-content a i, .dropdown-content span i {
       font-size: 1rem;
       width: 16px;
       text-align: center;
@@ -183,14 +187,14 @@
     <nav class="nav-menu">
       <a href="./index.html" class="nav-link active">ABOUT</a>
 
-      <!-- PHOTOS Dropdown -->
+      <!-- PHOTOS Dropdown (Display handles only) -->
       <div class="dropdown">
         <a href="#" class="nav-link">PHOTOS ▾</a>
         <div class="dropdown-content">
-          <a href="#" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i> X</a>
-          <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i> Instagram</a>
-          <a href="#" title="Daum Cafe"><i class="fa-solid fa-mug-hot"></i> Daum Cafe</a>
-          <a href="#" title="Pluschat"><i class="fa-solid fa-comments"></i> Pluschat</a>
+          <span><i class="fa-brands fa-x-twitter" style="color: #000000;"></i> @USPEER_official</span>
+          <span><i class="fa-brands fa-instagram" style="color: #E1306C;"></i> @uspeer.official</span>
+          <span title="Daum Cafe"><i class="fa-solid fa-mug-hot" style="color: #41B6E6;"></i> Daum Cafe</span>
+          <span title="Pluschat"><i class="fa-solid fa-comments" style="color: #FFCD00;"></i> Pluschat</span>
         </div>
       </div>
 
