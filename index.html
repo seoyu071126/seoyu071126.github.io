@@ -95,7 +95,7 @@
       border: 1px solid #eee;
     }
 
-    .dropdown-content a, .dropdown-content span {
+    .dropdown-content a {
       color: #333;
       padding: 8px 16px;
       text-decoration: none;
@@ -108,11 +108,7 @@
       transition: background 0.2s ease;
     }
 
-    .dropdown-content span {
-      cursor: default;
-    }
-
-    .dropdown-content a i, .dropdown-content span i {
+    .dropdown-content a i {
       font-size: 1rem;
       width: 16px;
       text-align: center;
@@ -183,24 +179,53 @@
     <h1 class="site-title"><a href="./index.html" style="text-decoration: none; color: inherit;">선우의</a></h1>
     <p class="site-subtitle">서유토낑 🐰</p>
 
-    <!-- Navigation Menu with Dropdowns -->
+    <!-- Navigation Menu -->
     <nav class="nav-menu">
       <a href="./index.html" class="nav-link active">ABOUT</a>
 
-      <!-- PHOTOS Dropdown (Display handles only) -->
+      <!-- Instagram Menu -->
       <div class="dropdown">
-        <a href="#" class="nav-link">PHOTOS ▾</a>
+        <a href="#" class="nav-link"><i class="fa-brands fa-instagram" style="color: #E1306C; font-size: 1.1rem;"></i> ▾</a>
         <div class="dropdown-content">
-          <span><i class="fa-brands fa-x-twitter" style="color: #000000;"></i> @USPEER_official</span>
-          <span><i class="fa-brands fa-instagram" style="color: #E1306C;"></i> @uspeer.official</span>
-          <span><i class="fa-solid fa-mug-hot" style="color: #41B6E6;"></i> Daum Cafe</span>
-          <span><i class="fa-solid fa-comments" style="color: #FFCD00;"></i> Pluschat</span>
+          <a href="./instagram.html">View Posts</a>
         </div>
       </div>
-      
-      <!-- YOUTUBE Menu with Logo -->
+
+      <!-- X (Twitter) Menu -->
       <div class="dropdown">
-        <a href="#" class="nav-link"><i class="fa-brands fa-youtube" style="color: #FF0000;"></i> YOUTUBE ▾</a>
+        <a href="#" class="nav-link"><i class="fa-brands fa-x-twitter" style="color: #000000; font-size: 1.1rem;"></i> ▾</a>
+        <div class="dropdown-content">
+          <a href="./x.html">View Posts</a>
+        </div>
+      </div>
+
+      <!-- TikTok Menu -->
+      <div class="dropdown">
+        <a href="#" class="nav-link"><i class="fa-brands fa-tiktok" style="color: #000000; font-size: 1.1rem;"></i> ▾</a>
+        <div class="dropdown-content">
+          <a href="./tiktok.html">View Videos</a>
+        </div>
+      </div>
+
+      <!-- Daum Cafe Menu -->
+      <div class="dropdown">
+        <a href="#" class="nav-link">Daum ▾</a>
+        <div class="dropdown-content">
+          <a href="./daumcafe.html">Cafe Page</a>
+        </div>
+      </div>
+
+      <!-- Pluschat Menu -->
+      <div class="dropdown">
+        <a href="#" class="nav-link">Pluschat ▾</a>
+        <div class="dropdown-content">
+          <a href="./pluschat.html">Chat Page</a>
+        </div>
+      </div>
+
+      <!-- YOUTUBE Menu -->
+      <div class="dropdown">
+        <a href="#" class="nav-link"><i class="fa-brands fa-youtube" style="color: #FF0000; font-size: 1.1rem;"></i> ▾</a>
         <div class="dropdown-content">
           <a href="./cam.html"><i class="fa-brands fa-youtube" style="color: #FF0000;"></i> 직캠</a>
           <a href="./official.html"><i class="fa-brands fa-youtube" style="color: #FF0000;"></i> @USPEER OFFICIAL</a>
