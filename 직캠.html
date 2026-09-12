@@ -1,1 +1,194 @@
 
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>선우의 - 직캠</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    /* General Page Setup */
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    /* Header & Titles */
+    .header {
+      text-align: center;
+      padding: 40px 20px 20px;
+    }
+
+    .site-title {
+      font-family: 'Nanum Pen Script', cursive;
+      font-size: 3.5rem;
+      font-weight: 400;
+      margin-bottom: 0px;
+      margin-top: 0px;
+    }
+
+    .site-subtitle {
+      font-family: 'Nanum Pen Script', cursive;
+      font-size: 2rem;
+      color: #666;
+      margin-top: 5px;
+      margin-bottom: 20px;
+    }
+
+    /* Navigation Bar */
+    .nav-menu {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: #555;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      border: 1px solid #ddd;
+      background-color: #ffffff;
+      transition: all 0.2s ease;
+      display: inline-block;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      background-color: #222;
+      color: #fff;
+      border-color: #222;
+    }
+
+    /* Dropdown Menus */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #ffffff;
+      min-width: 140px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      z-index: 10;
+      padding: 6px 0;
+      border: 1px solid #eee;
+      margin-top: 4px;
+    }
+
+    .dropdown-content a {
+      color: #333;
+      padding: 8px 16px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.85rem;
+      text-align: left;
+      transition: background 0.2s ease;
+    }
+
+    .dropdown-content a i {
+      font-size: 1rem;
+      width: 16px;
+      text-align: center;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f5f5f5;
+      color: #000;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /* Card Styling */
+    .card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 16px;
+      max-width: 360px;
+      margin: 30px auto;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border: 1px solid #eee;
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+      display: block;
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      margin: 12px 0 6px;
+      line-height: 1.4;
+    }
+
+    .card p {
+      font-size: 0.85rem;
+      color: #888;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <h1 class="site-title"><a href="index.html" style="text-decoration: none; color: inherit;">선우의</a></h1>
+    <p class="site-subtitle">서유토낑 🐰</p>
+
+    <!-- Navigation Menu with Dropdowns -->
+    <nav class="nav-menu">
+      <a href="index.html" class="nav-link">ABOUT</a>
+
+      <!-- PHOTOS Dropdown -->
+      <div class="dropdown">
+        <a href="#" class="nav-link">PHOTOS ▾</a>
+        <div class="dropdown-content">
+          <a href="#" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i> X</a>
+          <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i> Instagram</a>
+          <a href="#" title="Daum Cafe"><i class="fa-solid fa-mug-hot"></i> Daum Cafe</a>
+          <a href="#" title="Pluschat"><i class="fa-solid fa-comments"></i> Pluschat</a>
+        </div>
+      </div>
+
+      <!-- VIDEOS Dropdown -->
+      <div class="dropdown">
+        <a href="직캠.html" class="nav-link active">VIDEOS ▾</a>
+        <div class="dropdown-content">
+          <a href="직캠.html">직캠</a>
+          <a href="#">공식</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Fancam Video Card -->
+  <div class="card">
+    <a href="https://youtu.be/8354c0Qp24c?si=XzO9JkI801wXTh1o" target="_blank">
+      <img src="https://img.youtube.com/vi/8354c0Qp24c/hqdefault.jpg" alt="Video Thumbnail">
+    </a>
+    <h3>[직캠] 260322 서유 (Seoyu) - Poppi Poppi @ Latency Debut Showcase</h3>
+    <p>2026.03.22</p>
+  </div>
+
+</body>
+</html>
