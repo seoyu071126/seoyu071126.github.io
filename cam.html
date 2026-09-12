@@ -214,9 +214,9 @@
 
   <!-- Year Filter Bar -->
   <div class="year-filter">
-    <button class="year-btn active" onclick="filterYear('all')">ALL</button>
-    <button class="year-btn" onclick="filterYear('2026')">2026</button>
-    <button class="year-btn" onclick="filterYear('2025')">2025</button>
+    <button class="year-btn active" onclick="filterYear('all', this)">ALL</button>
+    <button class="year-btn" onclick="filterYear('2026', this)">2026</button>
+    <button class="year-btn" onclick="filterYear('2025', this)">2025</button>
   </div>
 
   <!-- Fancam Video Cards Grid -->
@@ -235,16 +235,19 @@
 
   <!-- JavaScript for Year Filtering -->
   <script>
-    function filterYear(year) {
-      // Update active button underline
+    function filterYear(year, btnElement) {
+      // 1. Highlight the active button
       const buttons = document.querySelectorAll('.year-btn');
       buttons.forEach(btn => btn.classList.remove('active'));
-      event.target.classList.add('active');
+      if (btnElement) {
+        btnElement.classList.add('active');
+      }
 
-      // Show/Hide cards matching the selected year
+      // 2. Filter the cards based on data-year
       const cards = document.querySelectorAll('.card');
       cards.forEach(card => {
-        if (year === 'all' || card.getAttribute('data-year') === year) {
+        const cardYear = card.getAttribute('data-year');
+        if (year === 'all' || cardYear === year) {
           card.style.display = 'block';
         } else {
           card.style.display = 'none';
