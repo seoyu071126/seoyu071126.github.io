@@ -119,13 +119,44 @@
       display: block;
     }
 
+    /* Year Filter Bar */
+    .year-filter {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin: 25px 0 10px;
+    }
+
+    .year-btn {
+      background-color: transparent;
+      border: none;
+      color: #888;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s ease;
+    }
+
+    .year-btn:hover, .year-btn.active {
+      color: #000;
+      border-bottom-color: #000;
+    }
+
     /* Card Styling */
+    .card-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 360px;
+      margin: 20px auto 40px;
+    }
+
     .card {
       background: #ffffff;
       border-radius: 12px;
       padding: 16px;
-      max-width: 360px;
-      margin: 30px auto;
       box-shadow: 0 4px 12px rgba(0,0,0,0.05);
       border: 1px solid #eee;
     }
@@ -181,14 +212,46 @@
     </nav>
   </header>
 
-  <!-- Fancam Video Card -->
-  <div class="card">
-    <a href="https://www.youtube.com/watch?v=1S2X15eTtJ0" target="_blank">
-      <img src="https://img.youtube.com/vi/1S2X15eTtJ0/hqdefault.jpg" alt="Video Thumbnail">
-    </a>
-    <h3>[플리캠 4K] USPEER SEOYU ‘WICKED GAME’ (유스피어 서유 직캠) | Simply K-Pop EP.13 260703</h3>
-    <p>2026.07.03</p>
+  <!-- Year Filter Bar -->
+  <div class="year-filter">
+    <button class="year-btn active" onclick="filterYear('all')">ALL</button>
+    <button class="year-btn" onclick="filterYear('2026')">2026</button>
+    <button class="year-btn" onclick="filterYear('2025')">2025</button>
   </div>
+
+  <!-- Fancam Video Cards Grid -->
+  <div class="card-grid">
+
+    <!-- Card 1 (2026) -->
+    <div class="card" data-year="2026">
+      <a href="https://www.youtube.com/watch?v=1S2X15eTtJ0" target="_blank">
+        <img src="https://img.youtube.com/vi/1S2X15eTtJ0/hqdefault.jpg" alt="Video Thumbnail">
+      </a>
+      <h3>[플리캠 4K] USPEER SEOYU ‘WICKED GAME’ (유스피어 서유 직캠) | Simply K-Pop EP.13 260703</h3>
+      <p>2026.07.03</p>
+    </div>
+
+  </div>
+
+  <!-- JavaScript for Year Filtering -->
+  <script>
+    function filterYear(year) {
+      // Update active button underline
+      const buttons = document.querySelectorAll('.year-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      // Show/Hide cards matching the selected year
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        if (year === 'all' || card.getAttribute('data-year') === year) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
 
 </body>
 </html>
