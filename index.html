@@ -118,6 +118,58 @@
     .dropdown:hover .dropdown-content {
       display: block;
     }
+
+    /* About Section Styling */
+    .about-card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 24px;
+      max-width: 380px;
+      margin: 40px auto;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border: 1px solid #eee;
+      text-align: center;
+    }
+
+    .about-heading {
+      font-family: 'Nanum Pen Script', cursive;
+      font-size: 2.2rem;
+      margin-top: 0;
+      margin-bottom: 20px;
+      color: #222;
+    }
+
+    .social-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      text-align: left;
+    }
+
+    .social-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.95rem;
+      color: #444;
+      text-decoration: none;
+      padding: 10px 14px;
+      border-radius: 8px;
+      background-color: #f8f9fa;
+      transition: background 0.2s ease;
+    }
+
+    .social-item:hover {
+      background-color: #f0f0f0;
+      color: #000;
+    }
+
+    .social-item i {
+      font-size: 1.2rem;
+      width: 20px;
+      text-align: center;
+      color: #333;
+    }
   </style>
 </head>
 <body>
@@ -151,6 +203,28 @@
       </div>
     </nav>
   </header>
+
+  <!-- ABOUT Content -->
+  <main class="about-card">
+    <h2 class="about-heading">우리 선우위해</h2>
+    
+    <div class="social-links">
+      <a href="https://x.com/sunwoo071126" target="_blank" class="social-item">
+        <i class="fa-brands fa-x-twitter"></i>
+        <span>X: @sunwoo071126</span>
+      </a>
+
+      <a href="https://instagram.com/sunwoo071126" target="_blank" class="social-item">
+        <i class="fa-brands fa-instagram"></i>
+        <span>Instagram: @sunwoo071126</span>
+      </a>
+
+      <a href="https://youtube.com/@선우의1126" target="_blank" class="social-item">
+        <i class="fa-brands fa-youtube"></i>
+        <span>Youtube: @선우의1126</span>
+      </a>
+    </div>
+  </main>
 
 </body>
 </html>
