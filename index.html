@@ -18,6 +18,9 @@
       margin: 0;
       padding: 0;
       color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
     /* Header & Titles */
@@ -101,7 +104,7 @@
       gap: 10px;
       font-size: 0.85rem;
       text-align: left;
-      white-space: nowrap; /* Prevents text from breaking into multiple lines */
+      white-space: nowrap;
       transition: background 0.2s ease;
     }
 
@@ -126,6 +129,7 @@
       margin: 40px auto;
       padding: 0 20px;
       text-align: center;
+      flex: 1;
     }
 
     /* Social Links List Styling */
@@ -157,6 +161,16 @@
       width: 24px;
       text-align: center;
     }
+
+    /* Footer / Copyright */
+    .footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.8rem;
+      color: #888;
+      border-top: 1px solid #eee;
+      background-color: #fff;
+    }
   </style>
 </head>
 <body>
@@ -180,7 +194,7 @@
         </div>
       </div>
 
-      <!-- VIDEOS Dropdown (Fixed Links) -->
+      <!-- VIDEOS Dropdown -->
       <div class="dropdown">
         <a href="#" class="nav-link">VIDEOS ▾</a>
         <div class="dropdown-content">
@@ -199,14 +213,19 @@
       <a href="https://twitter.com/sunwoo071126" target="_blank" class="social-link-item">
         <i class="fa-brands fa-x-twitter" style="color: #000000;"></i> @sunwoo071126
       </a>
-      <a href="https://instagram.com/sunwoo071126" target="_blank" class="social-link-item">
-        <i class="fa-brands fa-instagram" style="color: #E1306C;"></i> @sunwoo071126
+      <a href="https://instagram.com/sun071126" target="_blank" class="social-link-item">
+        <i class="fa-brands fa-instagram" style="color: #E1306C;"></i> @sun071126
       </a>
       <a href="https://youtube.com/@선우의1126" target="_blank" class="social-link-item">
         <i class="fa-brands fa-youtube" style="color: #FF0000;"></i> @선우의1126
       </a>
     </div>
   </main>
+
+  <!-- Footer / Copyright Section -->
+  <footer class="footer">
+    <p>&copy; ©선우의. All rights reserved.</p>
+  </footer>
 
 </body>
 </html>
