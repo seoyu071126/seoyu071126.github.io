@@ -144,13 +144,27 @@
       border-bottom-color: #000;
     }
 
-    /* Card Styling */
+    /* Card Grid (4 per row on desktop, responsive for mobile) */
     .card-grid {
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
       gap: 20px;
-      max-width: 360px;
+      max-width: 1200px;
       margin: 20px auto 40px;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 1024px) {
+      .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .card-grid {
+        grid-template-columns: repeat(1, 1fr);
+      }
     }
 
     .card {
@@ -159,6 +173,7 @@
       padding: 16px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.05);
       border: 1px solid #eee;
+      box-sizing: border-box;
     }
 
     .card img {
@@ -168,7 +183,7 @@
     }
 
     .card h3 {
-      font-size: 1rem;
+      font-size: 0.95rem;
       margin: 12px 0 6px;
       line-height: 1.4;
     }
@@ -219,7 +234,7 @@
     <button class="year-btn" onclick="filterYear('2025', this)">2025</button>
   </div>
 
-  <!-- Fancam Video Cards Grid -->
+  <!-- Fancam Video Cards Grid (4 per row) -->
   <div class="card-grid">
 
     <!-- Card 1 (2026.07.03) -->
