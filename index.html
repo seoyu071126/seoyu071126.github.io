@@ -127,6 +127,36 @@
       padding: 0 20px;
       text-align: center;
     }
+
+    /* Social Links List Styling */
+    .social-links {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    .social-link-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #333;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: opacity 0.2s ease;
+    }
+
+    .social-link-item:hover {
+      opacity: 0.7;
+    }
+
+    .social-link-item i {
+      font-size: 1.2rem;
+      width: 24px;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -163,7 +193,19 @@
 
   <main class="content-container">
     <h2>우리 선우위해</h2>
-    <p>X @sunwoo071126 Instagram @sun071126 Youtube @선우의1126</p>
+    
+    <!-- Social Media Accounts List -->
+    <div class="social-links">
+      <a href="https://twitter.com/sunwoo071126" target="_blank" class="social-link-item">
+        <i class="fa-brands fa-x-twitter" style="color: #000000;"></i> @sunwoo071126
+      </a>
+      <a href="https://instagram.com/sun071126" target="_blank" class="social-link-item">
+        <i class="fa-brands fa-instagram" style="color: #E1306C;"></i> @sun071126
+      </a>
+      <a href="https://youtube.com/@선우의1126" target="_blank" class="social-link-item">
+        <i class="fa-brands fa-youtube" style="color: #FF0000;"></i> @선우의1126
+      </a>
+    </div>
   </main>
 
 </body>
