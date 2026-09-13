@@ -1,1 +1,366 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>선우의 - Pluschat Archive</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    /* General Page Setup */
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Header & Titles */
+    .header {
+      text-align: center;
+      padding: 40px 20px 20px;
+    }
+
+    .site-title {
+      font-family: 'Nanum Pen Script', cursive;
+      font-size: 3.5rem;
+      font-weight: 400;
+      margin-bottom: 0px;
+      margin-top: 0px;
+    }
+
+    .site-subtitle {
+      font-family: 'Nanum Pen Script', cursive;
+      font-size: 2rem;
+      color: #666;
+      margin-top: 5px;
+      margin-bottom: 20px;
+    }
+
+    /* Navigation Bar */
+    .nav-menu {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: #555;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      border: 1px solid #ddd;
+      background-color: #ffffff;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Daum Logo Navbar Styling */
+    .nav-link img {
+      height: 1.1rem;
+      width: auto;
+      object-fit: contain;
+      vertical-align: middle;
+      display: inline-block;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      background-color: #222;
+      color: #fff;
+      border-color: #222;
+    }
+
+    /* Dropdown Menus */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      padding-bottom: 12px;
+      margin-bottom: -12px;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #ffffff;
+      min-width: 180px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      z-index: 10;
+      padding: 6px 0;
+      border: 1px solid #eee;
+    }
+
+    .dropdown-content a {
+      color: #333;
+      padding: 8px 16px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.85rem;
+      text-align: left;
+      white-space: nowrap;
+      transition: background 0.2s ease;
+    }
+
+    .dropdown-content a i {
+      font-size: 1rem;
+      width: 16px;
+      text-align: center;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f5f5f5;
+      color: #000;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /* Year Filter Buttons */
+    .filter-container {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin: 30px 0 25px 0;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background-color: #ffffff;
+      border: 1px solid #ddd;
+      color: #555;
+      padding: 6px 14px;
+      border-radius: 16px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .filter-btn:hover {
+      background-color: #eee;
+    }
+
+    .filter-btn.active {
+      background-color: #222;
+      color: #fff;
+      border-color: #222;
+    }
+
+    /* Content Container & 4-Column Grid Layout */
+    .content-container {
+      max-width: 1200px;
+      margin: 0 auto 40px auto;
+      padding: 0 20px;
+      flex: 1;
+      width: 100%;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    @media (max-width: 1024px) {
+      .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Individual Card Styling (Standard Square 1:1) */
+    .card {
+      background: #ffffff;
+      border: 1px solid #dbdbdb;
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      display: block;
+      background-color: #111;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .card a {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .card h3 {
+      font-size: 0.95rem;
+      font-weight: 500;
+      padding: 12px 14px 4px 14px;
+      line-height: 1.4;
+      color: #111;
+    }
+
+    .card p {
+      font-size: 0.8rem;
+      color: #8e8e8e;
+      padding: 0 14px 14px 14px;
+      margin: 0;
+    }
+
+    /* Footer / Copyright */
+    .footer {
+      text-align: center;
+      padding: 12px 20px;
+      font-size: 0.8rem;
+      color: #888;
+      border-top: 1px solid #eee;
+      background-color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <h1 class="site-title"><a href="./index.html" style="text-decoration: none; color: inherit;">선우의</a></h1>
+    <p class="site-subtitle">서유토낑 🐰</p>
+
+    <!-- Navigation Menu -->
+    <nav class="nav-menu">
+      <a href="./index.html" class="nav-link">ABOUT</a>
+
+      <!-- X (Twitter) Menu -->
+      <div class="dropdown">
+        <a href="#" class="nav-link"><i class="fa-brands fa-x-twitter" style="color: #000000; font-size: 1.1rem;"></i> ▾</a>
+        <div class="dropdown-content">
+          <a href="./x.html"><i class="fa-brands fa-x-twitter" style="color: #000000;"></i> @USPEER_official</a>
+        </div>
+      </div>
+
+      <!-- Instagram Menu -->
+      <div class="dropdown">
+        <a href="#" class="nav-link"><i class="fa-brands fa-instagram" style="color: #E1306C; font-size: 1.1rem;"></i> ▾</a>
+        <div class="dropdown-content">
+          <a href="./instagram.html"><i class="fa-brands fa-instagram" style="color: #E1306C;"></i> @uspeer.official</a>
+        </div>
+      </div>
+      
+       <!-- YOUTUBE Menu -->
+      <div class="dropdown">
+        <a href="#" class="nav-link"><i class="fa-brands fa-youtube" style="color: #FF0000; font-size: 1.1rem;"></i> ▾</a>
+        <div class="dropdown-content">
+          <a href="./official.html"><i class="fa-brands fa-youtube" style="color: #FF0000;"></i> @USPEER OFFICIAL</a>
+          <a href="./cam.html"><i class="fa-brands fa-youtube" style="color: #FF0000;"></i> 직캠</a>
+        </div>
+      </div>
+      
+      <!-- TikTok Menu -->
+      <div class="dropdown">
+        <a href="#" class="nav-link"><i class="fa-brands fa-tiktok" style="color: #000000; font-size: 1.1rem;"></i> ▾</a>
+        <div class="dropdown-content">
+          <a href="./tiktok.html"><i class="fa-brands fa-tiktok" style="color: #000000;"></i> @uspeer.official</a>
+        </div>
+      </div>
+
+      <!-- Pluschat Menu (Active on this page) -->
+      <div class="dropdown">
+        <a href="#" class="nav-link active">Pluschat ▾</a>
+        <div class="dropdown-content">
+          <a href="./pluschat.html">Chat Page</a>
+        </div>
+      </div>
+
+       <!-- Daum Cafe Menu -->
+      <div class="dropdown">
+        <a href="#" class="nav-link">
+          <img src="https://image.pngaaa.com/92/6011092-middle.png" alt="Daum"> ▾
+        </a>
+        <div class="dropdown-content">
+          <a href="./daumcafe.html">From.USPEER</a>
+          <a href="./specialdiary.html">Special Diary</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="content-container">
+
+    <!-- Year Filter Buttons -->
+    <div class="filter-container">
+      <button class="filter-btn active" onclick="filterSelection('all', this)">All</button>
+      <button class="filter-btn" onclick="filterSelection('2026', this)">2026</button>
+      <button class="filter-btn" onclick="filterSelection('2025', this)">2025</button>
+    </div>
+
+    <!-- Card Grid Container -->
+    <div class="card-grid">
+     
+      <!-- Sample Pluschat Card -->
+      <div class="card" data-year="2026">
+        <a href="#" target="_blank">
+          <img src="./pluschat1.jpg" alt="Pluschat Message">
+        </a>
+        <h3>Sample Pluschat Update</h3>
+        <p>2026.09.13</p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer / Copyright Section -->
+  <footer class="footer">
+    <p>&copy; 2026 선우의. All rights reserved.</p>
+  </footer>
+
+  <!-- Year Filter JavaScript -->
+  <script>
+    function filterSelection(year, btn) {
+      const cards = document.querySelectorAll('.card');
+      const buttons = document.querySelectorAll('.filter-btn');
+
+      buttons.forEach(b => b.classList.remove('active'));
+      if (btn) {
+        btn.classList.add('active');
+      }
+
+      cards.forEach(card => {
+        if (year === 'all' || card.getAttribute('data-year') === year) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
