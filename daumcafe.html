@@ -313,9 +313,9 @@
 
     <!-- Year Filter Buttons -->
     <div class="filter-container">
-      <button class="filter-btn active" onclick="filterSelection('all')">All</button>
-      <button class="filter-btn" onclick="filterSelection('2026')">2026</button>
-      <button class="filter-btn" onclick="filterSelection('2025')">2025</button>
+      <button class="filter-btn active" onclick="filterSelection('all', this)">All</button>
+      <button class="filter-btn" onclick="filterSelection('2026', this)">2026</button>
+      <button class="filter-btn" onclick="filterSelection('2025', this)">2025</button>
     </div>
 
     <!-- Card Grid Container -->
@@ -518,15 +518,21 @@
     <p>&copy; 2026 선우의. All rights reserved.</p>
   </footer>
 
-  <!-- Year Filter JavaScript (Matches Instagram page logic) -->
+  <!-- Year Filter JavaScript -->
   <script>
-    function filterSelection(year) {
+    function filterSelection(year, btn) {
       const cards = document.querySelectorAll('.card');
       const buttons = document.querySelectorAll('.filter-btn');
 
-      buttons.forEach(btn => btn.classList.remove('active'));
-      event.target.classList.add('active');
+      // Remove active class from all buttons
+      buttons.forEach(b => b.classList.remove('active'));
+      
+      // Add active class to the clicked button
+      if (btn) {
+        btn.classList.add('active');
+      }
 
+      // Show or hide cards based on year
       cards.forEach(card => {
         if (year === 'all' || card.getAttribute('data-year') === year) {
           card.style.display = 'flex';
