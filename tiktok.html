@@ -11,46 +11,48 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
-.tiktok-card {
-  position: relative;
-  cursor: pointer;
-}
+/* TikTok Card Specific Adjustments */
+    .card.tiktok-card {
+      padding: 0 !important; /* Removes internal padding so thumbnails and players touch the border */
+      gap: 0 !important;
+    }
 
-.video-placeholder {
-  position: relative;
-  width: 100%;
-  border-radius: 8px;
-  overflow: hidden;
-}
+    /* Before clicking: Thumbnail fills the card completely with no awkward gaps */
+    .card.tiktok-card .video-placeholder {
+      width: 100%;
+      margin: 0;
+      line-height: 0; /* Prevents hidden inline spacing under the image */
+    }
 
-.video-placeholder img {
-  width: 100%;
-  display: block;
-  aspect-ratio: 9/16; /* Matches TikTok vertical format */
-  object-fit: cover;
-}
+    .card.tiktok-card .video-placeholder img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
 
-.play-overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(0, 0, 0, 0.6);
-  color: white;
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  font-size: 18px;
-  pointer-events: none;
-  transition: background 0.2s;
-}
+    /* After clicking: The embed fills the card frame edge-to-edge */
+    .card.tiktok-card .video-container {
+      width: 100%;
+      margin: 0;
+      line-height: 0;
+    }
 
-.video-placeholder:hover .play-overlay {
-  background: rgba(254, 44, 85, 0.9); /* TikTok accent color */
-}
+    .card.tiktok-card .video-container iframe,
+    .card.tiktok-card blockquote.tiktok-embed {
+      margin: 0 !important;
+      width: 100% !important;
+    }
+
+    /* Keep the date neatly padded at the bottom */
+    .card.tiktok-card p {
+      padding: 10px 14px !important;
+      margin: 0 !important;
+      background: #ffffff;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
     
     /* General Page Setup */
     body {
