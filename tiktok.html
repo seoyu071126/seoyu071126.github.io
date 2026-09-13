@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
-/* Let the TikTok card adapt its height naturally and match TikTok's width */
+/* Keep the card's invisible layout structure (retains width and spacing) but remove visual borders/backgrounds */
     .card.tiktok-card {
       padding: 0 !important;
       gap: 0 !important;
@@ -19,26 +19,28 @@
       width: 325px !important;
       max-width: 100% !important;
       margin: 0 auto !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
     }
 
-    /* Before clicking: Thumbnail displays at its natural image proportion with no bottom gaps */
+    /* Before clicking: Clean thumbnail with rounded corners */
     .card.tiktok-card .video-placeholder {
-      width: 100%;
-      margin: 0;
-      line-height: 0;
+      width: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      display: block !important;
+      line-height: 0 !important;
     }
 
     .card.tiktok-card .video-placeholder img {
       width: 100% !important;
       height: auto !important;
-      aspect-ratio: auto !important;
-      object-fit: contain !important;
-      display: block;
-      border-top-left-radius: 8px;
-      border-top-right-radius: 8px;
+      display: block !important;
+      border-radius: 8px !important;
     }
 
-    /* After clicking: Force the TikTok embed and iframe to respect the card's width boundary */
+    /* After clicking: Active player container stays neatly framed without visual card boxes */
     .card.tiktok-card .video-container {
       width: 100% !important;
       margin: 0 !important;
@@ -53,13 +55,12 @@
       margin: 0 !important;
     }
 
-    /* Keep the date nicely spaced at the bottom */
+    /* Date sits cleanly underneath with a transparent background */
     .card.tiktok-card p {
-      padding: 10px 14px !important;
-      margin: 0 !important;
-      background: #ffffff;
-      border-bottom-left-radius: 8px;
-      border-bottom-right-radius: 8px;
+      background: transparent !important;
+      padding: 8px 4px !important;
+      margin: 4px 0 0 0 !important;
+      text-align: left;
     }
     
     /* General Page Setup */
