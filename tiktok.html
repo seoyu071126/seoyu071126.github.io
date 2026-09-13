@@ -252,9 +252,17 @@
       background-color: #111;
     }
 
-    /* Forced 9:16 Aspect Ratio for TikTok Cards */
+    /* REMOVE the forced 9:16 restriction so the placeholder uses natural image dimensions */
     .card.tiktok-card img {
-      aspect-ratio: 9 / 16 !important;
+      aspect-ratio: auto !important;
+      height: auto;
+    }
+
+    /* Ensure the video container fits the natural embed without extra padding */
+    .video-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
     }
 
     .card:hover {
