@@ -409,6 +409,25 @@
         </div>
         <p>2026.09.11</p>
       </div>
+
+      <!-- TikTok Embed Card 0 (Click-to-Load) -->
+      <div class="card tiktok-card" data-year="2026">
+        
+        <!-- The Clickable Thumbnail (Visible by default) -->
+        <div class="video-placeholder" onclick="activateTikTok(this)">
+          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Preview">
+          <div class="play-overlay">▶</div>
+        </div>
+
+        <!-- The Official Embed (Hidden until clicked) -->
+        <div class="video-container" style="display: none;">
+          <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@uspeer.official/video/7684189390062488848" data-video-id="7684189390062488848" data-embed-from="embed_page" style="max-width:605px; min-width:325px;">
+            <section></section>
+          </blockquote>
+        </div>
+
+        <p>2026.09.11</p>
+      </div>  
         
       <!-- TikTok Post 1 -->
       <div class="card tiktok-card" data-year="2026">
@@ -1719,17 +1738,16 @@
 
   <!-- Step 3: Add the click-to-load script right here -->
 <script>
-  function loadTikTokEmbed(element) {
-    const card = element.closest('.tiktok-card');
-    const videoId = card.getAttribute('data-video-id');
+  function activateTikTok(placeholderElement) {
+    const card = placeholderElement.closest('.tiktok-card');
+    const placeholder = card.querySelector('.video-placeholder');
+    const container = card.querySelector('.video-container');
     
-    card.innerHTML = `
-      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@uspeer.official/video/${videoId}" data-video-id="${videoId}" data-embed-from="embed_page" style="max-width:605px; min-width:325px;">
-        <section></section>
-      </blockquote>
-      <p>2026.09.11</p>
-    `;
+    // Hide thumbnail and show the embed container
+    placeholder.style.display = 'none';
+    container.style.display = 'block';
     
+    // Tell TikTok to render the player
     if (window.tiktokEmbed) {
       window.tiktokEmbed.lib.load();
     }
