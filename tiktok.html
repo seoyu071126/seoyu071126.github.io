@@ -11,41 +11,46 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
-/* TikTok Card Specific Adjustments */
+/* Let the TikTok card adapt its height naturally */
     .card.tiktok-card {
-      padding: 0 !important; /* Removes internal padding so thumbnails and players touch the border */
+      padding: 0 !important;
       gap: 0 !important;
+      height: auto !important;
     }
 
-    /* Before clicking: Thumbnail fills the card completely with no awkward gaps */
+    /* Before clicking: Thumbnail displays at its natural image proportion with no bottom gaps */
     .card.tiktok-card .video-placeholder {
-      width: 100%;
-      margin: 0;
-      line-height: 0; /* Prevents hidden inline spacing under the image */
-    }
-
-    .card.tiktok-card .video-placeholder img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-top-left-radius: 8px;
-      border-top-right-radius: 8px;
-    }
-
-    /* After clicking: The embed fills the card frame edge-to-edge */
-    .card.tiktok-card .video-container {
       width: 100%;
       margin: 0;
       line-height: 0;
     }
 
-    .card.tiktok-card .video-container iframe,
-    .card.tiktok-card blockquote.tiktok-embed {
-      margin: 0 !important;
+    .card.tiktok-card .video-placeholder img {
       width: 100% !important;
+      height: auto !important;
+      aspect-ratio: auto !important; /* Removes forced 9:16 crop */
+      object-fit: contain !important;
+      display: block;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
     }
 
-    /* Keep the date neatly padded at the bottom */
+    /* After clicking: Force the TikTok embed and iframe to respect the card's width boundary */
+    .card.tiktok-card .video-container {
+      width: 100% !important;
+      margin: 0 !important;
+      display: flex;
+      justify-content: center;
+    }
+
+    .card.tiktok-card .video-container iframe,
+    .card.tiktok-card .video-container blockquote.tiktok-embed {
+      max-width: 100% !important;
+      width: 100% !important;
+      margin: 0 !important;
+    }
+
+    /* Keep the date nicely spaced at the bottom */
     .card.tiktok-card p {
       padding: 10px 14px !important;
       margin: 0 !important;
