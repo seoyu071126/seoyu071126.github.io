@@ -11,6 +11,47 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
+.tiktok-card {
+  position: relative;
+  cursor: pointer;
+}
+
+.video-placeholder {
+  position: relative;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.video-placeholder img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 9/16; /* Matches TikTok vertical format */
+  object-fit: cover;
+}
+
+.play-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 18px;
+  pointer-events: none;
+  transition: background 0.2s;
+}
+
+.video-placeholder:hover .play-overlay {
+  background: rgba(254, 44, 85, 0.9); /* TikTok accent color */
+}
+    
     /* General Page Setup */
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -359,7 +400,16 @@
     <p>2026.09.11</p>
   </div>
 
-
+      <!-- TikTok Embed Card 0 (Click-to-Load) -->
+      <div class="card tiktok-card" data-year="2026" data-video-id="7684189390062488848">
+        <div class="video-placeholder" onclick="loadTikTokEmbed(this)">
+          <!-- Put your thumbnail image link here -->
+          <img src="https://p16-common-sign.tiktokcdn.com/tos-alisg-p-0037/oIiCJFFo6QDyj2DAncFgftE4qHQmV9ABcae7cB~tplv-tiktokx-origin.image?dr=14575&x-expires=1789480800&x-signature=cHcmQtgfggWqTsGGPUwFOep1TCo%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=my3" alt="TikTok Preview">
+          <div class="play-overlay">▶</div>
+        </div>
+        <p>2026.09.11</p>
+      </div>
+        
       <!-- TikTok Post 1 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7679409557013105941" target="_blank">
@@ -1667,8 +1717,27 @@
     </div>
   </main>
 
-  <!-- TikTok Embed Library (Add this once near the bottom) -->
-  <script async src="https://www.tiktok.com/embed.js"></script>
+  <!-- Step 3: Add the click-to-load script right here -->
+<script>
+  function loadTikTokEmbed(element) {
+    const card = element.closest('.tiktok-card');
+    const videoId = card.getAttribute('data-video-id');
+    
+    card.innerHTML = `
+      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@uspeer.official/video/${videoId}" data-video-id="${videoId}" data-embed-from="embed_page" style="max-width:605px; min-width:325px;">
+        <section></section>
+      </blockquote>
+      <p>2026.09.11</p>
+    `;
+    
+    if (window.tiktokEmbed) {
+      window.tiktokEmbed.lib.load();
+    }
+  }
+</script>
+
+<!-- The official TikTok embed script -->
+<script async src="https://www.tiktok.com/embed.js"></script>
 </body>
 </html>
           
