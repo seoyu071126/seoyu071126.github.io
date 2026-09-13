@@ -21,21 +21,30 @@
       margin: 0 auto !important;
     }
 
-    /* Before clicking: Thumbnail displays at its natural image proportion with no bottom gaps */
+   /* Before clicking: Make the placeholder frame stick directly to the date */
     .card.tiktok-card .video-placeholder {
-      width: 100%;
-      margin: 0;
-      line-height: 0;
+      width: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      display: block !important;
+      line-height: 0 !important;
     }
 
     .card.tiktok-card .video-placeholder img {
       width: 100% !important;
       height: auto !important;
-      aspect-ratio: auto !important;
-      object-fit: contain !important;
-      display: block;
-      border-top-left-radius: 8px;
-      border-top-right-radius: 8px;
+      display: block !important;
+      border-radius: 8px 8px 0 0 !important; /* Rounds only the top corners */
+      margin-bottom: 0 !important;
+    }
+
+    /* Ensure the date container sits tight right below it */
+    .card.tiktok-card p {
+      margin-top: 0 !important;
+      padding: 10px 14px !important;
+      background: #ffffff;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
     }
 
     /* After clicking: Force the TikTok embed and iframe to respect the card's width boundary */
