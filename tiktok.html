@@ -211,9 +211,9 @@
       background-color: #111;
     }
 
-    /* ADD THIS SPECIFIC RULE BELOW IT FOR TIKTOK */
-    .tiktok-card img {
-      aspect-ratio: 9 / 16;
+    /* Forced 9:16 Aspect Ratio for TikTok Cards */
+    .card.tiktok-card img {
+      aspect-ratio: 9 / 16 !important;
     }
 
     .card:hover {
@@ -225,14 +225,6 @@
       text-decoration: none;
       color: inherit;
       display: block;
-    }
-
-    .card img {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      display: block;
-      background-color: #111;
     }
 
     .card h3 {
@@ -345,6 +337,8 @@
         <h3>:( 👍👎</h3>
         <p>2026.09.11</p>
       </div>
+
+    </div>
   </main>
 
   <!-- Footer / Copyright Section -->
