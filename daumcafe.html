@@ -123,10 +123,40 @@
       display: block;
     }
 
-    /* Content Container & Card Grid */
+    /* Year Filter Buttons */
+    .filter-container {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin: 30px 0 25px 0;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background-color: #ffffff;
+      border: 1px solid #ddd;
+      color: #555;
+      padding: 6px 14px;
+      border-radius: 16px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .filter-btn:hover {
+      background-color: #eee;
+    }
+
+    .filter-btn.active {
+      background-color: #222;
+      color: #fff;
+      border-color: #222;
+    }
+
+    /* Content Container & 4-Column Grid Layout */
     .content-container {
-      max-width: 1000px;
-      margin: 40px auto;
+      max-width: 1200px;
+      margin: 0 auto 40px auto;
       padding: 0 20px;
       flex: 1;
       width: 100%;
@@ -134,8 +164,21 @@
 
     .card-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
       gap: 20px;
+    }
+
+    /* Responsive adjustment for smaller screens */
+    @media (max-width: 1024px) {
+      .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* Individual Card Styling */
@@ -256,6 +299,14 @@
   </header>
 
   <main class="content-container">
+
+    <!-- Year Filter Buttons -->
+    <div class="filter-container">
+      <button class="filter-btn active" onclick="filterSelection('all')">All</button>
+      <button class="filter-btn" onclick="filterSelection('2026')">2026</button>
+      <button class="filter-btn" onclick="filterSelection('2025')">2025</button>
+    </div>
+
     <!-- Card Grid Container -->
     <div class="card-grid">
 
@@ -275,6 +326,25 @@
   <footer class="footer">
     <p>&copy; 2026 선우의. All rights reserved.</p>
   </footer>
+
+  <!-- Year Filter JavaScript (Matches Instagram page logic) -->
+  <script>
+    function filterSelection(year) {
+      const cards = document.querySelectorAll('.card');
+      const buttons = document.querySelectorAll('.filter-btn');
+
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      cards.forEach(card => {
+        if (year === 'all' || card.getAttribute('data-year') === year) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
 
 </body>
 </html>
