@@ -267,6 +267,12 @@
       height: auto;
     }
 
+    .video-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
     .card:hover {
       transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
@@ -323,14 +329,6 @@
 
     .video-placeholder:hover .play-overlay {
       background: rgba(254, 44, 85, 0.9);
-    }
-
-    .video-container {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
     }
     
     /* Footer / Copyright */
@@ -1734,21 +1732,29 @@
     <p>&copy; 2026 . All rights reserved.</p>
   </footer>
 
-  <!-- Scripts -->
+  <!-- Click-to-Load Script -->
   <script>
     function activateTikTok(placeholderElement) {
       const card = placeholderElement.closest('.tiktok-card');
       const placeholder = card.querySelector('.video-placeholder');
       const container = card.querySelector('.video-container');
       
+      // Hide thumbnail and show the embed container
       placeholder.style.display = 'none';
       container.style.display = 'block';
       
+      // Tell TikTok to render the player
       if (window.tiktokEmbed) {
         window.tiktokEmbed.lib.load();
       }
     }
+  </script>
 
+  <!-- The official TikTok embed script -->
+  <script async src="https://www.tiktok.com/embed.js"></script>
+
+  <!-- Year Filter JavaScript -->
+  <script>
     function filterSelection(year, btn) {
       const cards = document.querySelectorAll('.card');
       const buttons = document.querySelectorAll('.filter-btn');
@@ -1768,7 +1774,5 @@
     }
   </script>
 
-  <!-- The official TikTok embed script -->
-  <script async src="https://www.tiktok.com/embed.js"></script>
 </body>
 </html>
