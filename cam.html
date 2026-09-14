@@ -158,17 +158,27 @@
       border-bottom-color: #000;
     }
 
-    /* Card Grid using Flexbox to lock exact card size across all filters */
+    /* Card Grid - Strict 4-column Grid to keep left-alignment and identical card sizes */
     .card-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center; /* Centers cards nicely even if a row has fewer items */
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
       gap: 20px;
       max-width: 1200px;
       margin: 20px auto 40px;
       padding: 0 20px;
       box-sizing: border-box;
-      flex: 1;
+    }
+
+    @media (max-width: 1024px) {
+      .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .card-grid {
+        grid-template-columns: repeat(1, 1fr);
+      }
     }
 
     .card {
@@ -180,24 +190,6 @@
       box-sizing: border-box;
       cursor: pointer;
       transition: transform 0.2s ease;
-      
-      /* Locks individual card width precisely to 4 items per row */
-      flex: 1 1 calc(25% - 15px);
-      max-width: calc(25% - 15px);
-    }
-
-    @media (max-width: 1024px) {
-      .card {
-        flex: 1 1 calc(50% - 10px);
-        max-width: calc(50% - 10px);
-      }
-    }
-
-    @media (max-width: 600px) {
-      .card {
-        flex: 1 1 100%;
-        max-width: 100%;
-      }
     }
 
     .card:hover {
