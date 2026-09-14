@@ -146,11 +146,23 @@
     /* --- NEW SIDE-BY-SIDE & PHOTO CSS STYLES --- */
     .about-layout {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 40px;
+      align-items: flex-start;  /* Aligns items to the top */
+      justify-content: flex-start; /* Pushes everything to the left */
+      gap: 50px;                /* Space between the photo and text column */
       margin-top: 30px;
-      flex-wrap: wrap;
+    }
+
+    /* Creates a dedicated column for the title and social links */
+    .text-column {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;  /* Aligns the Korean title and links to the left */
+      text-align: left;
+    }
+
+    .text-column h2 {
+      margin-top: 0;
+      margin-bottom: 20px;
     }
 
     .photo-container {
@@ -171,7 +183,7 @@
     .photo-container img {
       width: 100%;
       height: auto;
-      border-radius: 8px; /* Optional: keeps a smooth corner on the image itself */
+      border-radius: 8px;
       display: block;
     }
     /* ------------------------------------------ */
