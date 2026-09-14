@@ -216,19 +216,25 @@
       border-color: #222;
     }
 
-    /* Content Container & 4-Column Grid Layout */
+   /* Content Container & 4-Column Grid Layout */
     .content-container {
-      max-width: 1200px;
+      max-width: 1400px;       /* Expanded to match the wider grid layout */
       margin: 0 auto 40px auto;
       padding: 0 20px;
       flex: 1;
       width: 100%;
+      box-sizing: border-box;
     }
 
     .card-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
+      justify-content: center; /* Centers the grid items if there's extra space */
+      justify-items: center;   /* Centers each card within its grid cell */
       gap: 20px;
+      max-width: 100%;
+      width: 100%;
+      margin: 0 auto;          /* Centers the grid block */
     }
 
     @media (max-width: 1024px) {
