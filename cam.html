@@ -197,6 +197,11 @@
       transform: translateY(-4px);
     }
 
+    /* Helper class to hide filtered out cards properly without breaking grid sizing */
+    .card.hidden {
+      display: none !important;
+    }
+
     .card img {
       width: 100%;
       aspect-ratio: 16 / 9;
@@ -418,14 +423,14 @@
         btnElement.classList.add('active');
       }
 
-      // 2. Filter the cards based on data-year
+      // 2. Filter cards using the .hidden class instead of overriding inline display
       const cards = document.querySelectorAll('.card');
       cards.forEach(card => {
         const cardYear = card.getAttribute('data-year');
         if (year === 'all' || cardYear === year) {
-          card.style.display = 'block';
+          card.classList.remove('hidden');
         } else {
-          card.style.display = 'none';
+          card.classList.add('hidden');
         }
       });
     }
@@ -442,7 +447,7 @@
     function closeVideoForce() {
       const modal = document.getElementById('videoModal');
       const iframe = document.getElementById('youtubeIframe');
-      iframe.src = ''; // Stops the video/audio playback
+      iframe.src = ''; 
       modal.style.display = 'none';
     }
 
