@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>선우의 - TikTok Archive</title>
+  <title> - TikTok Archive</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
-/* Let the TikTok card adapt its height naturally and match TikTok's width */
+    /* Let the TikTok card adapt its height naturally and match TikTok's width */
     .card.tiktok-card {
       padding: 0 !important;
       gap: 0 !important;
@@ -262,17 +262,9 @@
       background-color: #111;
     }
 
-    /* REMOVE the forced 9:16 restriction so the placeholder uses natural image dimensions */
     .card.tiktok-card img {
       aspect-ratio: auto !important;
       height: auto;
-    }
-
-    /* Ensure the video container fits the natural embed without extra padding */
-    .video-container {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
     }
 
     .card:hover {
@@ -302,7 +294,6 @@
     }
 
     /* --- Click-to-Load TikTok Additions --- */
-    
     .tiktok-card {
       cursor: pointer;
     }
@@ -331,12 +322,13 @@
     }
 
     .video-placeholder:hover .play-overlay {
-      background: rgba(254, 44, 85, 0.9); /* TikTok pink accent */
+      background: rgba(254, 44, 85, 0.9);
     }
 
     .video-container {
       width: 100%;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
     }
@@ -355,8 +347,8 @@
 <body>
 
   <header class="header">
-    <h1 class="site-title"><a href="./index.html" style="text-decoration: none; color: inherit;">선우의</a></h1>
-    <p class="site-subtitle">서유토낑 🐰</p>
+    <h1 class="site-title"><a href="./index.html" style="text-decoration: none; color: inherit;"></a></h1>
+    <p class="site-subtitle"> </p>
 
     <!-- Navigation Menu -->
     <nav class="nav-menu">
@@ -364,7 +356,7 @@
 
       <!-- X (Twitter) Menu -->
       <div class="dropdown">
-        <a href="#" class="nav-link"><i class="fa-brands fa-x-twitter" style="color: #000000; font-size: 1.1rem;"></i> ▾</a>
+        <a href="#" class="nav-link"><i class="fa-brands fa-x-twitter" style="color: #000000; font-size: 1.1rem;"></i> </a>
         <div class="dropdown-content">
           <a href="./x.html"><i class="fa-brands fa-x-twitter" style="color: #000000;"></i> @USPEER_official</a>
         </div>
@@ -372,7 +364,7 @@
 
       <!-- Instagram Menu -->
       <div class="dropdown">
-        <a href="#" class="nav-link"><i class="fa-brands fa-instagram" style="color: #E1306C; font-size: 1.1rem;"></i> ▾</a>
+        <a href="#" class="nav-link"><i class="fa-brands fa-instagram" style="color: #E1306C; font-size: 1.1rem;"></i> </a>
         <div class="dropdown-content">
           <a href="./instagram.html"><i class="fa-brands fa-instagram" style="color: #E1306C;"></i> @uspeer.official</a>
         </div>
@@ -380,16 +372,16 @@
       
        <!-- YOUTUBE Menu -->
       <div class="dropdown">
-        <a href="#" class="nav-link"><i class="fa-brands fa-youtube" style="color: #FF0000; font-size: 1.1rem;"></i> ▾</a>
+        <a href="#" class="nav-link"><i class="fa-brands fa-youtube" style="color: #FF0000; font-size: 1.1rem;"></i> </a>
         <div class="dropdown-content">
           <a href="./official.html"><i class="fa-brands fa-youtube" style="color: #FF0000;"></i> @USPEER OFFICIAL</a>
-          <a href="./cam.html"><i class="fa-brands fa-youtube" style="color: #FF0000;"></i> 직캠</a>
+          <a href="./cam.html"><i class="fa-brands fa-youtube" style="color: #FF0000;"></i> </a>
         </div>
       </div>
       
       <!-- TikTok Menu (Active on this page) -->
       <div class="dropdown">
-        <a href="#" class="nav-link active"><i class="fa-brands fa-tiktok" style="color: #000000; font-size: 1.1rem;"></i> ▾</a>
+        <a href="#" class="nav-link active"><i class="fa-brands fa-tiktok" style="color: #000000; font-size: 1.1rem;"></i> </a>
         <div class="dropdown-content">
           <a href="./tiktok.html"><i class="fa-brands fa-tiktok" style="color: #000000;"></i> @uspeer.official</a>
         </div>
@@ -397,7 +389,7 @@
 
       <!-- Pluschat Menu -->
       <div class="dropdown">
-        <a href="#" class="nav-link">Pluschat ▾</a>
+        <a href="#" class="nav-link">Pluschat </a>
         <div class="dropdown-content">
           <a href="./pluschat.html">Chat Page</a>
         </div>
@@ -406,7 +398,7 @@
        <!-- Daum Cafe Menu -->
       <div class="dropdown">
         <a href="#" class="nav-link">
-          <img src="https://image.pngaaa.com/92/6011092-middle.png" alt="Daum"> ▾
+          <img src="https://image.pngaaa.com/92/6011092-middle.png" alt="Daum"> 
         </a>
         <div class="dropdown-content">
           <a href="./daumcafe.html">From.USPEER</a>
@@ -434,7 +426,7 @@
         <!-- The Clickable Thumbnail (Visible by default) -->
         <div class="video-placeholder" onclick="activateTikTok(this)">
           <img src="https://p16-common-sign.tiktokcdn.com/tos-alisg-p-0037/oIiCJFFo6QDyj2DAncFgftE4qHQmV9ABcae7cB~tplv-tiktokx-origin.image?dr=14575&x-expires=1789480800&x-signature=cHcmQtgfggWqTsGGPUwFOep1TCo%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=my3" alt="TikTok Preview">
-          <div class="play-overlay">▶</div>
+          <div class="play-overlay"></div>
         </div>
 
         <!-- The Official Embed (Hidden until clicked) -->
@@ -452,7 +444,7 @@
         <a href="https://www.tiktok.com/@uspeer.official/video/7679409557013105941" target="_blank">
           <img src="https://p16-common-sign.tiktokcdn.com/tos-alisg-p-0037/o0AYy1VA5N7iCmiIPZIALZAqEvwfii3S0iSIlB~tplv-tiktokx-origin.image?dr=14575&x-expires=1789506000&x-signature=FQu11w0qzVyNDgyqgdNBJKnTi9o%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=my3" alt="TikTok Video">
         </a>
-        <h3>Now tell me who's the fairest?✨</h3>
+        <h3>Now tell me who's the fairest?</h3>
         <p>2026.08.29</p>
       </div>
         
@@ -461,7 +453,7 @@
         <a href="https://www.tiktok.com/@uspeer.official/video/7677543517886876949" target="_blank">
           <img src="https://p16-common-sign.tiktokcdn.com/tos-alisg-p-0037/oQFIE0LGuQGOzyDAoosAeoIeVYQ4jftD4NlDOC~tplv-tiktokx-origin.image?dr=14575&x-expires=1789506000&x-signature=HkVdUKDY3IK9byOQWWNEBVu%2BxDs%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=my3" alt="TikTok Video">
         </a>
-        <h3>Cool🐰🐹</h3>
+        <h3>Cool</h3>
         <p>2026.08.24</p>
       </div>
 
@@ -470,7 +462,7 @@
         <a href="https://www.tiktok.com/@uspeer.official/video/7677226814460202261" target="_blank">
           <img src="https://p19-common-sign.tiktokcdn.com/tos-alisg-p-0037/owcEoftSQsnEUCiB4VSDfBmRzyAFEmvgZgsqQa~tplv-tiktokx-origin.image?dr=14575&x-expires=1789506000&x-signature=zpMT%2FhTVH0VAKsK0qufWsAlb7yc%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=my3" alt="TikTok Video">
         </a>
-        <h3>Every Time USPEER❤️‍🔥</h3>
+        <h3>Every Time USPEER</h3>
         <p>2026.08.23</p>
       </div>
 
@@ -479,7 +471,7 @@
         <a href="https://www.tiktok.com/@uspeer.official/video/7676477761472433429" target="_blank">
           <img src="https://p16-common-sign.tiktokcdn.com/tos-alisg-p-0037/o4RjBafDUQo0RlqESpNiEiCFQBeAtEOEFCLdQg~tplv-tiktokx-origin.image?dr=14575&x-expires=1789506000&x-signature=R2Susypy8PN%2BTF8Z%2FGPtOU38nX4%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=my3" alt="TikTok Video">
         </a>
-        <h3>Random Switch🎲</h3>
+        <h3>Random Switch</h3>
         <p>2026.08.21</p>
       </div>
 
@@ -488,7 +480,7 @@
         <a href="https://www.tiktok.com/@uspeer.official/video/7674582454270774549" target="_blank">
           <img src="https://p16-common-sign.tiktokcdn.com/tos-alisg-p-0037/oQ2fT3EQQGAqfDBfKmFQBByLABeAkRAmDFlGCz~tplv-tiktokx-origin.image?dr=14575&x-expires=1789506000&x-signature=JW0HrXIOyGCSuUSELJ7B55qeuKI%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=my3" alt="TikTok Video">
         </a>
-        <h3>🐶🐾🎶</h3>
+        <h3></h3>
         <p>2026.08.16</p>
       </div>
 
@@ -497,7 +489,7 @@
         <a href="https://www.tiktok.com/@uspeer.official/video/7672669889999539476" target="_blank">
           <img src="https://p16-common-sign.tiktokcdn.com/tos-alisg-p-0037/oExeDff8IE7oIKzcDCUAFCd6I1jsAOgL9D3jLz~tplv-tiktokx-origin.image?dr=14575&x-expires=1789506000&x-signature=qrAh6mxyXQQ0YVrAbW80XyLc0oA%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=my3" alt="TikTok Video">
         </a>
-        <h3>Call me maybe📞🖤</h3>
+        <h3>Call me maybe</h3>
         <p>2026.08.11</p>
       </div>
 
@@ -506,7 +498,7 @@
         <a href="https://www.tiktok.com/@uspeer.official/video/7672203582296395029" target="_blank">
           <img src="https://p16-common-sign.tiktokcdn.com/tos-alisg-p-0037/okJ5obPEEzjYDQ6QACFUAJFDAAovfD3IfSeIVw~tplv-tiktokx-origin.image?dr=14575&x-expires=1789506000&x-signature=cjW3BwA1APd3ep7CpOBQRF9xTMs%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=my3" alt="TikTok Video">
         </a>
-        <h3>Everybody Dance Now💃</h3>
+        <h3>Everybody Dance Now</h3>
         <p>2026.08.10</p>
       </div>
 
@@ -515,77 +507,77 @@
         <a href="https://www.tiktok.com/@uspeer.official/video/7669789977701616916" target="_blank">
           <img src="https://p16-common-sign.tiktokcdn.com/tos-alisg-p-0037/ogcDF5wFEJpBIWFgqWyATkJf4EfRBgEcwIBh7X~tplv-tiktokx-origin.image?dr=14575&x-expires=1789506000&x-signature=pVUXVceYND8CsZmXR7gw4%2BF51ds%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=my3" alt="TikTok Video">
         </a>
-        <h3>갈비뼈 사이사이가 ⚡️찌릿찌릿⚡️한 느낌</h3>
+        <h3>   </h3>
         <p>2026.08.03</p>
       </div>
 
       <!-- TikTok Post 9 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7669325539911437588" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>I wanna kiss n tell 💋📞</h3>
+        <h3>I wanna kiss n tell </h3>
         <p>2026.08.02</p>
       </div>
 
       <!-- TikTok Post 10 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7666768440815783189" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>일로아2ㅎㅎ❤️</h3>
+        <h3>2</h3>
         <p>2026.07.26</p>
       </div>
 
       <!-- TikTok Post 11 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7666079868676803860" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>뭐해? 어디야?</h3>
+        <h3>? ?</h3>
         <p>2026.07.24</p>
       </div>
 
       <!-- TikTok Post 12 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7666018611919736084" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>#PARKDAHYE  님과 함께 훅🌬️ 바람을 불어🍃</h3>
+        <h3>#PARKDAHYE      </h3>
         <p>2026.07.24</p>
       </div>
 
       <!-- TikTok Post 13 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7664986036249955605" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>서로즈 기다리셨나요?🥴</h3>
+        <h3> ?</h3>
         <p>2026.07.21</p>
       </div>
 
       <!-- TikTok Post 14 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7664550300648295697" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>🫵ㅎㅎ일로아~❤️</h3>
+        <h3>~</h3>
         <p>2026.07.20</p>
       </div>
 
       <!-- TikTok Post 15 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7664139516013301012" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>#LEEMINHYUK  선배님과 함께 훅🌬️ 바람을 불어🍃</h3>
+        <h3>#LEEMINHYUK      </h3>
         <p>2026.07.19</p>
       </div>
 
       <!-- TikTok Post 16 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7663875340485397780" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
         <h3>She's so #BAD</h3>
         <p>2026.07.18</p>
@@ -594,331 +586,331 @@
       <!-- TikTok Post 17 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7661871187164679444" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>#JL  님과 함께 훅🌬️ 바람을 불어🍃</h3>
+        <h3>#JL      </h3>
         <p>2026.07.13</p>
       </div>
 
       <!-- TikTok Post 18 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7661625554075929877" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>Love is 4 Walls ♡゛</h3>
+        <h3>Love is 4 Walls </h3>
         <p>2026.07.12</p>
       </div>
 
       <!-- TikTok Post 19 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7659677306251676949" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>🍏🏹 with #ANTON  선배님✨</h3>
+        <h3> with #ANTON  </h3>
         <p>2026.07.07</p>
       </div>
 
       <!-- TikTok Post 20 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7659321801608023317" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>하지 하지 하지마❌</h3>
+        <h3>  </h3>
         <p>2026.07.06</p>
       </div>
 
       <!-- TikTok Post 21 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7659061451323182356" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>#개그콘서트  선배님들과 함께 훅🌬️ 바람을 불어🍃</h3>
+        <h3>#      </h3>
         <p>2026.07.06</p>
       </div>
 
       <!-- TikTok Post 22 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7658675787842850069" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>나는 좀 다를걸🦷💓</h3>
+        <h3>  </h3>
         <p>2026.07.04</p>
       </div>
 
       <!-- TikTok Post 23 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7658525868494638356" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>#Sumin  선배님과 함께 훅🌬️ 바람을 불어🍃</h3>
+        <h3>#Sumin      </h3>
         <p>2026.07.04</p>
       </div>
 
       <!-- TikTok Post 24 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7658608557385878804" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>#KIMRIWON  선배님과 함께 훅🌬️ 바람을 불어🍃</h3>
+        <h3>#KIMRIWON      </h3>
         <p>2026.07.04</p>
       </div>
 
       <!-- TikTok Post 25 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7657984953392598292" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>GG EZ 🎮👾</h3>
+        <h3>GG EZ </h3>
         <p>2026.07.03</p>
       </div>
 
       <!-- TikTok Post 26 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7657510192183119125" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>Oh, Cupid is out of arrows🍏🏹</h3>
+        <h3>Oh, Cupid is out of arrows</h3>
         <p>2026.07.02</p>
       </div>
 
       <!-- TikTok Post 27 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7657507749294558485" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>따라해!</h3>
+        <h3>!</h3>
         <p>2026.07.02</p>
       </div>
 
       <!-- TikTok Post 28 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7657396461872614677" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>Shake it, shake it💃</h3>
+        <h3>Shake it, shake it</h3>
         <p>2026.07.01</p>
       </div>
 
       <!-- TikTok Post 29 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7657359185465658644" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>따 - 따랏 - 따따💘</h3>
+        <h3> -  - </h3>
         <p>2026.07.01</p>
       </div>
 
       <!-- TikTok Post 30 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7657354497710099733" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>미...미안😔 </h3>
+        <h3>... </h3>
         <p>2026.07.01</p>
       </div>
 
       <!-- TikTok Post 31 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7657195565360401685" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>다이죠부이데쇼🐱🐰✌️</h3>
+        <h3></h3>
         <p>2026.06.30</p>
       </div>
 
       <!-- TikTok Post 32 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7656291121601072405" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>같이 바람불기😘😉</h3>
+        <h3> </h3>
         <p>2026.06.28</p>
       </div>
 
       <!-- TikTok Post 33 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7655895068879932692" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>୨୧ 비밀로 전부 해줄게 약속해🍏⸝⸝﹗</h3>
+        <h3>    </h3>
         <p>2026.06.27</p>
       </div>
 
       <!-- TikTok Post 34 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7655515677129788693" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>서로즈와 함께 훅🌬️ 바람을 불어🍃</h3>
+        <h3>    </h3>
         <p>2026.06.26</p>
       </div>
 
       <!-- TikTok Post 35 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7655280561627614484" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>유스티 내 마음을 받아줘💐</h3>
+        <h3>   </h3>
         <p>2026.06.25</p>
       </div>
 
       <!-- TikTok Post 36 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7654829757741206805" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>/ᐠ⑅マ ᥥ⑅ᥥ 𓈒𓂂𓏸🍏</h3>
+        <h3>/  </h3>
         <p>2026.06.24</p>
       </div>
 
       <!-- TikTok Post 37 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7654130934677228820" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>사랑이란 Pool🫧</h3>
+        <h3> Pool</h3>
         <p>2026.06.22</p>
       </div>
 
       <!-- TikTok Post 38 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7654088552531217672" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>날씨 끝내주는 오후, 우리를 찾아봐👀</h3>
+        <h3>  ,  </h3>
         <p>2026.06.22</p>
       </div>
 
       <!-- TikTok Post 39 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7653844403252972807" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>Wicked game 지금이야✨</h3>
+        <h3>Wicked game </h3>
         <p>2026.06.21</p>
       </div>
 
       <!-- TikTok Post 40 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7653738550927576340" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>살짝 쿡 심장을 찔러🍏💘</h3>
+        <h3>   </h3>
         <p>2026.06.21</p>
       </div>
 
       <!-- TikTok Post 41 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7652744689191374081" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>유스피어와 함께 월드컵 응원! ⚽🙌</h3>
+        <h3>   ! </h3>
         <p>2026.06.18</p>
       </div>
 
       <!-- TikTok Post 42 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7652200285489745159" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>USPEER (유스피어) 'WICKED GAME' MV ⠀ 🔗 https://youtu.be/iEXktZOXcNo 💘 2026.06.17 6PM (KST) </h3>
+        <h3>USPEER () 'WICKED GAME' MV   https://youtu.be/iEXktZOXcNo  2026.06.17 6PM (KST) </h3>
         <p>2026.06.17</p>
       </div>
 
       <!-- TikTok Post 43 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7651512604296301844" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>USPEER 'WICKED GAME' OFFICIAL MV TEASER ⠀ 🔗 https://youtu.be/iIv_Cf38CuY 💘 2026.06.17 6PM (KST)</h3>
+        <h3>USPEER 'WICKED GAME' OFFICIAL MV TEASER   https://youtu.be/iIv_Cf38CuY  2026.06.17 6PM (KST)</h3>
         <p>2026.06.15</p>
       </div>
 
       <!-- TikTok Post 44 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7650148826875120912" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>WICKED GAME : MV TRAILER 💘 ⠀ USPEER 1st MINI ALBUM [BITE DISTRICT] ➫ 2026.06.17 6PM (KST) </h3>
+        <h3>WICKED GAME : MV TRAILER   USPEER 1st MINI ALBUM [BITE DISTRICT]  2026.06.17 6PM (KST) </h3>
         <p>2026.06.12</p>
       </div>
 
       <!-- TikTok Post 45 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7649410492582104321" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>[BITE DISTRICT] : HIGHLIGHT MEDLEY 💿 ⠀ USPEER 1st MINI ALBUM [BITE DISTRICT] ➫ 2026.06.17 6PM (KST) </h3>
+        <h3>[BITE DISTRICT] : HIGHLIGHT MEDLEY   USPEER 1st MINI ALBUM [BITE DISTRICT]  2026.06.17 6PM (KST) </h3>
         <p>2026.06.09</p>
       </div>
 
       <!-- TikTok Post 46 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7649336821926743312" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>CONCEPT FILM : DISTRICT ver. 🍀 ⠀ USPEER 1st MINI ALBUM [BITE DISTRICT] ➫ 2026.06.17 6PM (KST)</h3>
+        <h3>CONCEPT FILM : DISTRICT ver.   USPEER 1st MINI ALBUM [BITE DISTRICT]  2026.06.17 6PM (KST)</h3>
         <p>2026.06.09</p>
       </div>
 
       <!-- TikTok Post 47 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7648599330491747605" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>CONCEPT FILM : STATIC ver. 💚 ⠀ USPEER 1st MINI ALBUM [BITE DISTRICT] ➫ 2026.06.17 6PM (KST) </h3>
+        <h3>CONCEPT FILM : STATIC ver.   USPEER 1st MINI ALBUM [BITE DISTRICT]  2026.06.17 6PM (KST) </h3>
         <p>2026.06.07</p>
       </div>
 
       <!-- TikTok Post 48 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7647906241582353681" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>[BITE DISTRICT] : TRACK SPOILER 🎧 ⠀ USPEER 1st MINI ALBUM [BITE DISTRICT] ➫ 2026.06.17 6PM (KST) </h3>
+        <h3>[BITE DISTRICT] : TRACK SPOILER   USPEER 1st MINI ALBUM [BITE DISTRICT]  2026.06.17 6PM (KST) </h3>
         <p>2026.06.06</p>
       </div>
 
       <!-- TikTok Post 49 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7647856666574097681" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>윳피로그 Let's go ˚.✦</h3>
+        <h3> Let's go .</h3>
         <p>2026.06.05</p>
       </div>
 
       <!-- TikTok Post 50 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7647849462336900368" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>USPEER 1ST ANNIVERSARY FANMEETING <2026 TEAM US> D-1 SPOILER⭐</h3>
+        <h3>USPEER 1ST ANNIVERSARY FANMEETING <2026 TEAM US> D-1 SPOILER</h3>
         <p>2026.06.05</p>
       </div>
 
       <!-- TikTok Post 51 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7647848801809566977" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>CONCEPT FILM : KINETIC ver. 🍏 ⠀ USPEER 1st MINI ALBUM [BITE DISTRICT] ➫ 2026.06.17 6PM (KST) </h3>
+        <h3>CONCEPT FILM : KINETIC ver.   USPEER 1st MINI ALBUM [BITE DISTRICT]  2026.06.17 6PM (KST) </h3>
         <p>2026.06.05</p>
       </div>
 
       <!-- TikTok Post 52 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7646429676839128321" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>[BITE DISTRICT] ALBUM SPOILER🍏 ⠀ USPEER 1st MINI ALBUM [BITE DISTRICT] ➫ 2026.06.17 6PM (KST)</h3>
+        <h3>[BITE DISTRICT] ALBUM SPOILER  USPEER 1st MINI ALBUM [BITE DISTRICT]  2026.06.17 6PM (KST)</h3>
         <p>2026.06.02</p>
       </div>
 
       <!-- TikTok Post 53 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7645615339425828116" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
         <h3>USPEER 1ST ANNIVERSARY FANMEETING <2026 TEAM US> Teaser </h3>
         <p>2026.05.30</p>
@@ -927,592 +919,592 @@
       <!-- TikTok Post 54 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7644917564946124053" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>COMING SOON🍏 USPEER 1st MINI ALBUM [BITE DISTRICT] ➫ 2026.06.17 6PM (KST)</h3>
+        <h3>COMING SOON USPEER 1st MINI ALBUM [BITE DISTRICT]  2026.06.17 6PM (KST)</h3>
         <p>2026.05.29</p>
       </div>
 
       <!-- TikTok Post 55 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7643031382356266256" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>USPEER 1ST ANNIVERSARY FANMEETING <2026 TEAM US> ⠀ ✔️<2026 TEAM US> PR Video</h3>
+        <h3>USPEER 1ST ANNIVERSARY FANMEETING <2026 TEAM US>  <2026 TEAM US> PR Video</h3>
         <p>2026.05.23</p>
       </div>
 
       <!-- TikTok Post 56 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7641598934674164993" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>😉</h3>
+        <h3></h3>
         <p>2026.05.19</p>
       </div>
 
       <!-- TikTok Post 57 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7641232971558587665" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>𝙃𝙚𝙡𝙡𝙤 07𝙯</h3>
+        <h3> 07</h3>
         <p>2026.05.18</p>
       </div>
 
       <!-- TikTok Post 58 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7640494947409382657" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>⤜♡⤞</h3>
+        <h3></h3>
         <p>2026.05.16</p>
       </div>
 
       <!-- TikTok Post 59 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7640099745196690705" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>mosi mosi🛸☎️</h3>
+        <h3>mosi mosi</h3>
         <p>2026.05.15</p>
       </div>
 
       <!-- TikTok Post 60 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7637836828019674384" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>캐릭터 맞추기🐰</h3>
+        <h3> </h3>
         <p>2026.05.09</p>
       </div>
 
       <!-- TikTok Post 61 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7637497816511810832" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>Watch me🍀</h3>
+        <h3>Watch me</h3>
         <p>2026.05.08</p>
       </div>
 
       <!-- TikTok Post 62 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7626715478408400129" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>SWIM 🏊🌊</h3>
+        <h3>SWIM </h3>
         <p>2026.04.09</p>
       </div>
 
       <!-- TikTok Post 63 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7625965132962630928" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>문 닫아 봐🚪</h3>
+        <h3>  </h3>
         <p>2026.04.07</p>
       </div>
 
       <!-- TikTok Post 64 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7624471915826040085" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>🍎 x 2</h3>
+        <h3> x 2</h3>
         <p>2026.04.03</p>
       </div>
 
       <!-- TikTok Post 65 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7616681148068072721" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>tell me you like it🍓°⋆° ｡୨୧˚ </h3>
+        <h3>tell me you like it°°  </h3>
         <p>2026.03.14</p>
       </div>
 
       <!-- TikTok Post 66 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7610686672979774741" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>바빠?😤</h3>
+        <h3>?</h3>
         <p>2026.02.25</p>
       </div>
 
       <!-- TikTok Post 67 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7608888116702661909" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>ᐢ⩌.⩌ᐢっ=͟͟͞͞ ⭐️‧⁺</h3>
+        <h3>.= </h3>
         <p>2026.02.22</p>
       </div>
 
       <!-- TikTok Post 68 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7606685719376956688" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>07즈도 Okay okay💘</h3>
+        <h3>07 Okay okay</h3>
         <p>2026.02.18</p>
       </div>
 
       <!-- TikTok Post 69 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7606672139097263376" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>설에도 계속 되는 막내 놀리기😂 유스피어 (USPEER) 2026 설날 미션 게임</h3>
+        <h3>      (USPEER) 2026   </h3>
         <p>2026.02.17</p>
       </div>
 
       <!-- TikTok Post 70 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7606670968353770769" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>백덤블링 세배는 나름 쉬워요🫢 유스피어(USPEER) 2026 설날 밸런스 게임</h3>
+        <h3>    (USPEER) 2026   </h3>
         <p>2026.02.16</p>
       </div>
 
       <!-- TikTok Post 71 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7606661052293664001" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>설날 인사🙇‍♀️💌</h3>
+        <h3> </h3>
         <p>2026.02.15</p>
       </div>
 
       <!-- TikTok Post 72 -->
       <div class="card tiktok-card" data-year="2026">
         <a href="https://www.tiktok.com/@uspeer.official/video/7606633604134882561" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>고마워 사랑해 행복만 줄게요🍭💗⋆｡˚ </h3>
+        <h3>    </h3>
         <p>2026.02.14</p>
       </div>
 
       <!-- TikTok Post 73 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7589943801511152916" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>COME ON USP ٩(^ᗜ^ )و ´- </h3>
+        <h3>COME ON USP (^^ ) ´- </h3>
         <p>2025.12.31</p>
       </div>
 
       <!-- TikTok Post 74 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7589185401953258759" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>WHERE YOU AT⋆ﾟ☾ ｡⋆.ᵎᵎ</h3>
+        <h3>WHERE YOU AT .</h3>
         <p>2025.12.29</p>
       </div>
 
       <!-- TikTok Post 75 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7587747408294006034" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>Christmas gift 🎄🎁💝</h3>
+        <h3>Christmas gift </h3>
         <p>2025.12.25</p>
       </div>
 
       <!-- TikTok Post 76 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7587670190196919573" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>윳피처럼 달콤하다는데 ( ៸៸ › ⩊ ‹ ៸៸)♡ 🍭</h3>
+        <h3>  (  ›  ‹ ) </h3>
         <p>2025.12.25</p>
       </div>
 
       <!-- TikTok Post 77 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7587623742457613576" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>All I Want for Christmas Is You💝</h3>
+        <h3>All I Want for Christmas Is You</h3>
         <p>2025.12.25</p>
       </div>
 
       <!-- TikTok Post 78 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7587345213992094984" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>미리 메리 크리스마스🎄🎅🏻🎁</h3>
+        <h3>  </h3>
         <p>2025.12.24</p>
       </div>
 
       <!-- TikTok Post 79 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7586225499462962439" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>Underneath The Tree🎄</h3>
+        <h3>Underneath The Tree</h3>
         <p>2025.12.21</p>
       </div>
 
       <!-- TikTok Post 80 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7585861781164199175" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>𝘬𝘪𝘴𝘴 𝘮𝘺 𝘢𝘴𝘴 𝘨𝘰𝘰𝘥𝘣𝘺𝘦 🎶</h3>
+        <h3>    </h3>
         <p>2025.12.20</p>
       </div>
 
       <!-- TikTok Post 81 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7582492676352642311" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>🦊🐰🐍﻿ ┈ˏˋ♥´ˎ┈</h3>
+        <h3> ´</h3>
         <p>2025.12.11</p>
       </div>
 
       <!-- TikTok Post 82 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7579878069121387794" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>그래.나는.힙합.토끼🤟🏻</h3>
+        <h3>...</h3>
         <p>2025.12.04</p>
       </div>
 
       <!-- TikTok Post 83 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7577388535829810439" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>유스피어의 첫눈❄</h3>
+        <h3> </h3>
         <p>2025.11.27</p>
       </div>
 
       <!-- TikTok Post 84 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7576924559455063303" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>내 사랑은 U (SEO)YU °. ♡ .°</h3>
+        <h3>  U (SEO)YU °.  .°</h3>
         <p>2025.11.26</p>
       </div>
 
       <!-- TikTok Post 85 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7573153864099056914" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>Don't you sweat it, baby 🎶❣️</h3>
+        <h3>Don't you sweat it, baby </h3>
         <p>2025.11.16</p>
       </div>
 
       <!-- TikTok Post 86 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7572874224663006471" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>Wait hold up❗</h3>
+        <h3>Wait hold up</h3>
         <p>2025.11.15</p>
       </div>
 
       <!-- TikTok Post 87 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7571776081473129746" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>넌 뭘 입어도 예쁘니까 - ̗̀ෆ(˶’ᵕ‘˶)ෆ ̖́-</h3>
+        <h3>    - (’‘) -</h3>
         <p>2025.11.12</p>
       </div>
 
       <!-- TikTok Post 88 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7571358623759076616" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>Eat it up eat it 🍝🫢</h3>
+        <h3>Eat it up eat it </h3>
         <p>2025.11.11</p>
       </div>
 
       <!-- TikTok Post 89 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7569534177670974738" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>ღ˘◡˘ற♡.｡oO </h3>
+        <h3>.oO </h3>
         <p>2025.11.06</p>
       </div>
 
       <!-- TikTok Post 90 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7567717201508191495" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>tell me what you like🫵</h3>
+        <h3>tell me what you like</h3>
         <p>2025.11.01</p>
       </div>
 
       <!-- TikTok Post 91 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7566951903536450824" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>1 2 3 4💘</h3>
+        <h3>1 2 3 4</h3>
         <p>2025.10.30</p>
       </div>
 
       <!-- TikTok Post 92 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7556229251054308615" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>너무해 ᕙ(•̀‸•́‶)ᕗ</h3>
+        <h3> (••)</h3>
         <p>2025.10.01</p>
       </div>
 
       <!-- TikTok Post 93 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7556167316317146375" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>FaSHioN〰️</h3>
+        <h3>FaSHioN</h3>
         <p>2025.10.01</p>
       </div>
 
       <!-- TikTok Post 94 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7551358660312665360" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>𝑰 𝒂𝒎 𝒂 𝑹𝒊𝒄𝒉𝑴𝒂𝒏</h3>
+        <h3>   </h3>
         <p>2025.09.18</p>
       </div>
 
       <!-- TikTok Post 95 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7546511500580637959" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>Surf🌊</h3>
+        <h3>Surf</h3>
         <p>2025.09.05</p>
       </div>
 
       <!-- TikTok Post 96 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7540945084288716033" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>⏭Replay</h3>
+        <h3>Replay</h3>
         <p>2025.08.21</p>
       </div>
 
       <!-- TikTok Post 97 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7538331754734652679" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>러시안 룰렛💘💥</h3>
+        <h3> </h3>
         <p>2025.08.14</p>
       </div>
 
       <!-- TikTok Post 98 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7536831945037188360" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>지금 #윤  선배님에 집중💥</h3>
+        <h3> #   </h3>
         <p>2025.08.10</p>
       </div>
 
       <!-- TikTok Post 99 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7536586155635051794" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>가요대전 Summer 🏃‍➡️❤️‍🔥</h3>
+        <h3> Summer </h3>
         <p>2025.08.09</p>
       </div>
 
       <!-- TikTok Post 100 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7534265583307902215" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>🐰😎</h3>
+        <h3></h3>
         <p>2025.08.03</p>
       </div>
 
       <!-- TikTok Post 101 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7533832946529094913" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>TᗩᗰᗩGOTᑕᕼI⸝*⸝*⸝*</h3>
+        <h3>TGOTI***</h3>
         <p>2025.08.02</p>
       </div>
 
       <!-- TikTok Post 102 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7532781181159492872" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>ૢ꒰⸝⸝ɞ̴̶̷ ·̮ ‹⸝⸝✿꒱ </h3>
+        <h3> · ‹ </h3>
         <p>2025.07.30</p>
       </div>
 
       <!-- TikTok Post 103 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7530933326706674962" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>❥𓂃𓏧</h3>
+        <h3></h3>
         <p>2025.07.25</p>
       </div>
 
       <!-- TikTok Post 104 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7529827685430856967" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>𝑻𝒉𝒊𝒔 𝑰𝒔 🐰</h3>
+        <h3>  </h3>
         <p>2025.07.22</p>
       </div>
 
       <!-- TikTok Post 105 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7529766071604088071" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>대기실에 아무 물건이나 가져오기😝</h3>
+        <h3>   </h3>
         <p>2025.07.22</p>
       </div>
 
       <!-- TikTok Post 106 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7527987956037029128" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>愛してるって言ってよ</h3>
+        <h3></h3>
         <p>2025.07.17</p>
       </div>
 
       <!-- TikTok Post 107 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7526517707299130632" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>댓글 예쁘게 달아줘🙂</h3>
+        <h3>  </h3>
         <p>2025.07.13</p>
       </div>
 
       <!-- TikTok Post 108 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7525011629788892432" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>Just move your body 🐸🐰🐹</h3>
+        <h3>Just move your body </h3>
         <p>2025.07.09</p>
       </div>
 
       <!-- TikTok Post 109 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7524246244085009671" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>My pookie ⋆˚🐝˖°</h3>
+        <h3>My pookie °</h3>
         <p>2025.07.07</p>
       </div>
 
       <!-- TikTok Post 110 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7520968311287401735" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>#신우  선배님 🆗 𝙇𝙞𝙠𝙚 𝙖 𝙯𝙤𝙤𝙢જ⁀➴🏎️</h3>
+        <h3>#      </h3>
         <p>2025.06.28</p>
       </div>
 
       <!-- TikTok Post 111 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7518975095650405650" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>지금 #시윤  선배님에 집중💥</h3>
+        <h3> #   </h3>
         <p>2025.06.23</p>
       </div>
 
       <!-- TikTok Post 112 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7518379473042181383" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>지금 #강다니엘  선배님에 집중💥</h3>
+        <h3> #   </h3>
         <p>2025.06.21</p>
       </div>
 
       <!-- TikTok Post 113 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7516747385024941330" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>#아몬드초콜릿  🐰🐹🪽</h3>
+        <h3>#  </h3>
         <p>2025.06.17</p>
       </div>
 
       <!-- TikTok Post 114 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7516011730565221640" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>It is what it is🎶</h3>
+        <h3>It is what it is</h3>
         <p>2025.06.15</p>
       </div>
 
       <!-- TikTok Post 115 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7515723954128981265" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>いらいら 💢</h3>
+        <h3> </h3>
         <p>2025.06.14</p>
       </div>
 
       <!-- TikTok Post 116 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7515417675602906386" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>#유빈  선배님 🆗 𝙇𝙞𝙠𝙚 𝙖 𝙯𝙤𝙤𝙢જ⁀➴🏎️</h3>
+        <h3>#      </h3>
         <p>2025.06.13</p>
       </div>
 
       <!-- TikTok Post 117 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7514892743106202898" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>Telepathy⚡︎♡‍✩°｡⋆꩜</h3>
+        <h3>Telepathy°</h3>
         <p>2025.06.12</p>
       </div>
 
       <!-- TikTok Post 118 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7514675615623138568" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>지금 서유 로아에게 집중😘</h3>
+        <h3>   </h3>
         <p>2025.06.11</p>
       </div>
 
       <!-- TikTok Post 119 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7514644583561628936" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
         <h3>ZOOM easy ver. (feat.07z)</h3>
         <p>2025.06.11</p>
@@ -1521,25 +1513,25 @@
       <!-- TikTok Post 120 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7514180847113702672" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>˙˚ ᕱ⑅ᕱ ɞ˚˙🔍</h3>
+        <h3>  </h3>
         <p>2025.06.10</p>
       </div>
 
       <!-- TikTok Post 121 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7513948778597076241" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>#효정  선배님 🆗 𝙇𝙞𝙠𝙚 𝙖 𝙯𝙤𝙤𝙢જ⁀➴🏎️</h3>
+        <h3>#      </h3>
         <p>2025.06.09</p>
       </div>
 
       <!-- TikTok Post 122 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7513879482147540242" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
         <h3>07z breathe, you breathe</h3>
         <p>2025.06.09</p>
@@ -1548,34 +1540,34 @@
       <!-- TikTok Post 123 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7512077782705261825" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>𝘽𝙀𝙎𝙏 𝙁𝙍𝙄𝙀𝙉𝘿 𝙁𝙊𝙍𝙀𝙑𝙀𝙍˚₊·—̳͟͞͞♥</h3>
+        <h3>  ·—</h3>
         <p>2025.06.04</p>
       </div>
 
       <!-- TikTok Post 124 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7511923214700825874" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>Run fast toward debut🏃🏻🏃🏻🏃🏻</h3>
+        <h3>Run fast toward debut</h3>
         <p>2025.06.04</p>
       </div>
 
       <!-- TikTok Post 125 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7510160755954617608" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>𝗪𝗲 𝗷𝘂𝘀𝘁 𝗸𝗲𝗲𝗽 𝗼𝘂𝗿 𝘁𝗲𝗺𝗽𝗼💥</h3>
+        <h3>    </h3>
         <p>2025.05.30</p>
       </div>
 
       <!-- TikTok Post 126 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7510067868571061512" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
         <h3>5 4 3 2 1... Touch down!</h3>
         <p>2025.05.30</p>
@@ -1584,189 +1576,179 @@
       <!-- TikTok Post 127 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7509791159615524104" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>USPEER (유스피어) 1st SINGLE ALBUM [SPEED ZONE] ZOOM💿 COMING SOON 2025.06.04 6PM (KST)</h3>
+        <h3>USPEER () 1st SINGLE ALBUM [SPEED ZONE] ZOOM COMING SOON 2025.06.04 6PM (KST)</h3>
         <p>2025.05.29</p>
       </div>
 
       <!-- TikTok Post 128 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7507841456132885776" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>한림즈 Shake It To The Max 😎</h3>
+        <h3> Shake It To The Max </h3>
         <p>2025.05.24</p>
       </div>
 
       <!-- TikTok Post 129 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7503496820220366088" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>かわいいだけじゃだめですか?</h3>
+        <h3>?</h3>
         <p>2025.05.12</p>
       </div>
 
       <!-- TikTok Post 130 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7502368492969118983" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>もしもし まだ 𝕚 𝕝𝕠𝕧𝕖 𝕪𝕠𝕦 ෆ</h3>
+        <h3>     </h3>
         <p>2025.05.09</p>
       </div>
 
       <!-- TikTok Post 131 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7501625576478788872" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>𝗪𝗔𝗥𝗠𝗜𝗡𝗚 𝗨𝗣!</h3>
+        <h3> !</h3>
         <p>2025.05.07</p>
       </div>
 
       <!-- TikTok Post 132 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7501254375399099665" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>#승희  선배님에게 𝙎𝙩𝙚𝙥 𝙗𝙮 𝙎𝙩𝙚𝙥 👣</h3>
+        <h3>#      </h3>
         <p>2025.05.06</p>
       </div>
 
       <!-- TikTok Post 133 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7499770700689837328" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>ブl㉢HㅎΗ, цSPёёR Łifё .ᐟ</h3>
+        <h3>lH, SPR if .</h3>
         <p>2025.05.02</p>
       </div>
 
       <!-- TikTok Post 134 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7498657029699996936" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>🚲🌸🍃</h3>
+        <h3></h3>
         <p>2025.04.29</p>
       </div>
 
       <!-- TikTok Post 135 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7497173228775869714" target="_blank">
-          <img src="<https://p16-common-sign.tiktokcdn.com/tos-alisg-avt-0068/b0ad88f42e28e855dc9875a75ad783d2~tplv-tiktokx-cropcenter:720:720.jpeg?dr=14579&amp;refresh_token=6fbb248e&amp;x-expires=1789498800&amp;x-signature=Se3Z0LY9LfTJIRNVrX%2B2SANr4Yc%3D&amp;t=4d5b0474&amp;ps=13740610&amp;shp=a5d48078&amp;shcp=81f88b70&amp;idc=my3" alt="TikTok Video">
+          <img src="https://p16-common-sign.tiktokcdn.com/tos-alisg-avt-0068/b0ad88f42e28e855dc9875a75ad783d2~tplv-tiktokx-cropcenter:720:720.jpeg?dr=14579&amp;refresh_token=6fbb248e&amp;x-expires=1789498800&amp;x-signature=Se3Z0LY9LfTJIRNVrX%2B2SANr4Yc%3D&amp;t=4d5b0474&amp;ps=13740610&amp;shp=a5d48078&amp;shcp=81f88b70&amp;idc=my3" alt="TikTok Video">
         </a>
-        <h3>HOME;RUN UP!🏠=͟͟͞͞ ³₃</h3>
+        <h3>HOME;RUN UP!= ³</h3>
         <p>2025.04.25</p>
       </div>
 
       <!-- TikTok Post 136 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7494575171332836615" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>Like ParadoXXX ✘ᴗ✘</h3>
+        <h3>Like ParadoXXX </h3>
         <p>2025.04.18</p>
       </div>
 
       <!-- TikTok Post 137 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7494111255960063239" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>何が好き?˖° ♡+:｡</h3>
+        <h3>?° +:</h3>
         <p>2025.04.17</p>
       </div>
 
       <!-- TikTok Post 138 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7492997892609789202" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>USPEER will rock you ⊹₊ ⌁</h3>
+        <h3>USPEER will rock you  </h3>
         <p>2025.04.14</p>
       </div>
 
       <!-- TikTok Post 139 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7491977870491847954" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>ⓇⓊⓃ ⓊⓅ! ⒸⒽⒺⒺⓇ ⓊⓅ! ᜊ(꒪ˊ꒳ˋ꒪)</h3>
+        <h3> !  ! ()</h3>
         <p>2025.04.11</p>
       </div>
 
       <!-- TikTok Post 140 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7491250928582937874" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>✧⁺⸜SEO YU Player Outfit Change⸝⁺✧</h3>
+        <h3>SEO YU Player Outfit Change</h3>
         <p>2025.04.09</p>
       </div>
 
       <!-- TikTok Post 141 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7490029135020969222" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>like ______ .ᐣ</h3>
+        <h3>like ______ .</h3>
         <p>2025.04.06</p>
       </div>
 
       <!-- TikTok Post 142 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7489364400101510406" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>𝙐𝙎𝙋𝙀𝙀𝙍 𝙍𝙐𝙉 𝙐𝙋 𝙎𝙏𝘼𝙍𝙏 . ݁₊ ⊹ ݁˖ . ݁✶</h3>
+        <h3>    .    . </h3>
         <p>2025.04.04</p>
       </div>
 
       <!-- TikTok Post 143 -->
       <div class="card tiktok-card" data-year="2025">
         <a href="https://www.tiktok.com/@uspeer.official/video/7485019652335176978" target="_blank">
-          <img src="<!-- PUT THUMBNAIL LINK HERE -->" alt="TikTok Video">
+          <img src="" alt="TikTok Video">
         </a>
-        <h3>USPEER (유스피어) Official Logo Motion</h3>
+        <h3>USPEER () Official Logo Motion</h3>
         <p>2025.03.23</p>
       </div>
 
     </div>
   </main>
 
-  <!-- Step 3: Add the click-to-load script right here -->
-<script>
-  function activateTikTok(placeholderElement) {
-    const card = placeholderElement.closest('.tiktok-card');
-    const placeholder = card.querySelector('.video-placeholder');
-    const container = card.querySelector('.video-container');
-    
-    // Hide thumbnail and show the embed container
-    placeholder.style.display = 'none';
-    container.style.display = 'block';
-    
-    // Tell TikTok to render the player
-    if (window.tiktokEmbed) {
-      window.tiktokEmbed.lib.load();
-    }
-  }
-</script>
-
-<!-- The official TikTok embed script -->
-<script async src="https://www.tiktok.com/embed.js"></script>
-</body>
-</html>
-          
   <!-- Footer / Copyright Section -->
   <footer class="footer">
-    <p>&copy; 2026 선우의. All rights reserved.</p>
+    <p>&copy; 2026 . All rights reserved.</p>
   </footer>
 
-  <!-- Year Filter JavaScript -->
+  <!-- Scripts -->
   <script>
+    function activateTikTok(placeholderElement) {
+      const card = placeholderElement.closest('.tiktok-card');
+      const placeholder = card.querySelector('.video-placeholder');
+      const container = card.querySelector('.video-container');
+      
+      placeholder.style.display = 'none';
+      container.style.display = 'block';
+      
+      if (window.tiktokEmbed) {
+        window.tiktokEmbed.lib.load();
+      }
+    }
+
     function filterSelection(year, btn) {
       const cards = document.querySelectorAll('.card');
       const buttons = document.querySelectorAll('.filter-btn');
@@ -1786,5 +1768,7 @@
     }
   </script>
 
+  <!-- The official TikTok embed script -->
+  <script async src="https://www.tiktok.com/embed.js"></script>
 </body>
 </html>
