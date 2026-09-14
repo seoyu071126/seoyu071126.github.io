@@ -68,7 +68,6 @@
       gap: 4px;
     }
 
-    /* Daum Logo Navbar Styling */
     .nav-link img {
       height: 1.1rem;
       width: auto;
@@ -144,12 +143,46 @@
       flex: 1;
     }
 
+    /* --- NEW SIDE-BY-SIDE & PHOTO CSS STYLES --- */
+    .about-layout {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    .photo-container {
+      width: 150px;
+      padding: 8px 8px 18px 8px;
+      background: #ffffff;
+      border: 1px solid #eaeaea;
+      border-radius: 6px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      transform: rotate(-4deg);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .photo-container:hover {
+      transform: rotate(0deg) scale(1.03);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+    }
+
+    .photo-container img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+      display: block;
+    }
+    /* ------------------------------------------ */
+
     /* Social Links List Styling */
     .social-links {
-      display: inline-flex;
+      display: flex;
       flex-direction: column;
       gap: 12px;
-      margin-top: 20px;
       text-align: left;
     }
 
@@ -252,22 +285,25 @@
   <main class="content-container">
     <h2>우리 선우위해</h2>
     
-    <!-- Tilted Photo Container -->
-    <div class="photo-container">
-        <img src="IMG_3449.png" alt="Sunwoo photo">
-    </div>
+    <!-- Side-by-side wrapper -->
+    <div class="about-layout">
+      <!-- Smaller Tilted Photo -->
+      <div class="photo-container">
+        <img src="my-photo.jpg" alt="Sunwoo photo">
+      </div>
 
-    <!-- Social Media Accounts List -->
-    <div class="social-links">
-      <a href="https://twitter.com/sunwoo071126" target="_blank" class="social-link-item">
-        <i class="fa-brands fa-x-twitter" style="color: #000000;"></i> @sunwoo071126
-      </a>
-      <a href="https://instagram.com/sunwoo071126" target="_blank" class="social-link-item">
-        <i class="fa-brands fa-instagram" style="color: #E1306C;"></i> @sunwoo071126
-      </a>
-      <a href="https://youtube.com/@선우의1126" target="_blank" class="social-link-item">
-        <i class="fa-brands fa-youtube" style="color: #FF0000;"></i> @선우의1126
-      </a>
+      <!-- Social Media Accounts List -->
+      <div class="social-links">
+        <a href="https://twitter.com/sunwoo071126" target="_blank" class="social-link-item">
+          <i class="fa-brands fa-x-twitter" style="color: #000000;"></i> @sunwoo071126
+        </a>
+        <a href="https://instagram.com/sunwoo071126" target="_blank" class="social-link-item">
+          <i class="fa-brands fa-instagram" style="color: #E1306C;"></i> @sunwoo071126
+        </a>
+        <a href="https://youtube.com/@선우의1126" target="_blank" class="social-link-item">
+          <i class="fa-brands fa-youtube" style="color: #FF0000;"></i> @선우의1126
+        </a>
+      </div>
     </div>
   </main>
 
