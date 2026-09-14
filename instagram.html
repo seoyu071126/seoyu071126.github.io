@@ -163,13 +163,14 @@
     .card-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
+      justify-content: center; /* Centers the grid items if there's extra space */
+      justify-items: center;   /* Centers each card within its grid cell */
       gap: 20px;
-      max-width: 1440px;
+      max-width: 1400px;       /* Adjust this max-width based on how wide you want the block to spread */
       width: 100%;
-      margin: 20px auto 40px;
-      padding: 0 30px;
+      margin: 20px auto 40px;  /* 'auto' on the left and right centers the whole block */
+      padding: 0 20px;
       box-sizing: border-box;
-      flex: 1;
     }
 
     @media (max-width: 1200px) {
