@@ -180,6 +180,14 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 20px;
     }
+
+    .card img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      display: block;
+      background-color: #111;
+    }
     
     @media (max-width: 1024px) {
       .card-grid {
@@ -204,9 +212,15 @@
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
     .card img {
       width: 100%;
-      aspect-ratio: 1 / 1;
+      aspect-ratio: 4 / 5;
       object-fit: cover;
       display: block;
       background-color: #111;
