@@ -1586,29 +1586,38 @@
   <script>
   document.addEventListener("DOMContentLoaded", function() {
     const tweetCards = document.querySelectorAll('.card');
+    
+    // Track script loading state to prevent race conditions
+    let isScriptLoading = false;
 
     const observer = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const card = entry.target;
 
-          // Load Twitter widgets.js globally if it hasn't been loaded yet
-          if (!window.twttr) {
-            let script = document.createElement('script');
-            script.src = "https://platform.twitter.com/widgets.js";
-            script.async = true;
-            script.charset = "utf-8";
-            
-            // Once the script loads, tell Twitter to render the tweet inside this card
-            script.onload = function() {
-              if (window.twttr && window.twttr.widgets) {
-                window.twttr.widgets.load(card);
-              }
-            };
-            document.body.appendChild(script);
-          } else {
-            // If the script is already loaded, just render this specific card's tweet
+          // If Twitter widgets are already fully loaded and ready
+          if (window.twttr && window.twttr.widgets) {
             window.twttr.widgets.load(card);
+          } 
+          else {
+            // If the script isn't loaded yet, make sure we only inject it ONCE
+            if (!isScriptLoading) {
+              isScriptLoading = true;
+              let script = document.createElement('script');
+              script.src = "https://platform.twitter.com/widgets.js";
+              script.async = true;
+              script.charset = "utf-8";
+              
+              script.onload = function() {
+                // Once fully loaded, scan the ENTIRE document (or all intersected cards)
+                if (window.twttr && window.twttr.widgets) {
+                  window.twttr.widgets.load();
+                }
+              };
+              document.body.appendChild(script);
+            }
+            // If script is currently downloading, this card will automatically 
+            // be picked up by window.twttr.widgets.load() once script.onload fires.
           }
 
           // Stop observing this card once it has been triggered
@@ -1616,7 +1625,7 @@
         }
       });
     }, { 
-      rootMargin: "200px 0px" // Starts loading when the user is 200px away from the card
+      rootMargin: "200px 0px" // Starts loading when the user is 200px away
     });
 
     // Start observing all your tweet cards
