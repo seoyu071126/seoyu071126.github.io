@@ -1582,8 +1582,48 @@
     }
   </script>
 
-  <!-- Twitter Widget Script (Loaded once globally) -->
-  <script async src="https://platform.x.com/widgets.js" charset="utf-8"></script>
 
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const tweetCards = document.querySelectorAll('.card');
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const card = entry.target;
+
+          // Load Twitter widgets.js globally if it hasn't been loaded yet
+          if (!window.twttr) {
+            let script = document.createElement('script');
+            script.src = "https://platform.twitter.com/widgets.js";
+            script.async = true;
+            script.charset = "utf-8";
+            
+            // Once the script loads, tell Twitter to render the tweet inside this card
+            script.onload = function() {
+              if (window.twttr && window.twttr.widgets) {
+                window.twttr.widgets.load(card);
+              }
+            };
+            document.body.appendChild(script);
+          } else {
+            // If the script is already loaded, just render this specific card's tweet
+            window.twttr.widgets.load(card);
+          }
+
+          // Stop observing this card once it has been triggered
+          observer.unobserve(card);
+        }
+      });
+    }, { 
+      rootMargin: "200px 0px" // Starts loading when the user is 200px away from the card
+    });
+
+    // Start observing all your tweet cards
+    tweetCards.forEach(card => {
+      observer.observe(card);
+    });
+  });
+</script>
 </body>
 </html>
