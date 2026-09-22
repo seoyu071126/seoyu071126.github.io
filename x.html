@@ -1584,55 +1584,53 @@
 
 
   <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const tweetCards = document.querySelectorAll('.card');
-    
-    // Track script loading state to prevent race conditions
-    let isScriptLoading = false;
+document.addEventListener("DOMContentLoaded", function () {
+  const tweetCards = document.querySelectorAll('.card');
+  let scriptLoading = false;
+  let batchTimer = null;
 
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const card = entry.target;
+  function processBatch() {
+    if (window.twttr && window.twttr.widgets) {
+      window.twttr.widgets.load(); // scans the whole doc once per batch
+    }
+  }
 
-          // If Twitter widgets are already fully loaded and ready
-          if (window.twttr && window.twttr.widgets) {
-            window.twttr.widgets.load(card);
-          } 
-          else {
-            // If the script isn't loaded yet, make sure we only inject it ONCE
-            if (!isScriptLoading) {
-              isScriptLoading = true;
-              let script = document.createElement('script');
-              script.src = "https://platform.twitter.com/widgets.js";
-              script.async = true;
-              script.charset = "utf-8";
-              
-              script.onload = function() {
-                // Once fully loaded, scan the ENTIRE document (or all intersected cards)
-                if (window.twttr && window.twttr.widgets) {
-                  window.twttr.widgets.load();
-                }
-              };
-              document.body.appendChild(script);
-            }
-            // If script is currently downloading, this card will automatically 
-            // be picked up by window.twttr.widgets.load() once script.onload fires.
-          }
+  function queueBatch() {
+    clearTimeout(batchTimer);
+    batchTimer = setTimeout(processBatch, 400); // group intersections together
+  }
 
-          // Stop observing this card once it has been triggered
-          observer.unobserve(card);
-        }
-      });
-    }, { 
-      rootMargin: "200px 0px" // Starts loading when the user is 200px away
+  function ensureScript() {
+    if (window.twttr && window.twttr.widgets) {
+      processBatch();
+      return;
+    }
+    if (scriptLoading) return;
+    scriptLoading = true;
+    const script = document.createElement('script');
+    script.src = "https://platform.twitter.com/widgets.js";
+    script.async = true;
+    script.charset = "utf-8";
+    script.onload = processBatch;
+    document.body.appendChild(script);
+  }
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    let anyIntersecting = false;
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        anyIntersecting = true;
+        obs.unobserve(entry.target);
+      }
     });
+    if (anyIntersecting) {
+      ensureScript();
+      queueBatch();
+    }
+  }, { rootMargin: "200px 0px" });
 
-    // Start observing all your tweet cards
-    tweetCards.forEach(card => {
-      observer.observe(card);
-    });
-  });
+  tweetCards.forEach(card => observer.observe(card));
+});
 </script>
 </body>
 </html>
