@@ -1586,23 +1586,30 @@
   <script>
 document.addEventListener("DOMContentLoaded", function () {
   const tweetCards = document.querySelectorAll('.card');
+  const queue = [];
   let scriptLoading = false;
-  let batchTimer = null;
+  let processing = false;
 
-  function processBatch() {
-    if (window.twttr && window.twttr.widgets) {
-      window.twttr.widgets.load(); // scans the whole doc once per batch
-    }
-  }
+  const CHUNK_SIZE = 3;     // how many tweets to request per wave
+  const CHUNK_DELAY = 1200; // ms between waves
 
-  function queueBatch() {
-    clearTimeout(batchTimer);
-    batchTimer = setTimeout(processBatch, 400); // group intersections together
+  function processQueue() {
+    if (processing || queue.length === 0) return;
+    if (!(window.twttr && window.twttr.widgets)) return;
+
+    processing = true;
+    const chunk = queue.splice(0, CHUNK_SIZE);
+    chunk.forEach(card => window.twttr.widgets.load(card));
+
+    setTimeout(() => {
+      processing = false;
+      processQueue();
+    }, CHUNK_DELAY);
   }
 
   function ensureScript() {
     if (window.twttr && window.twttr.widgets) {
-      processBatch();
+      processQueue();
       return;
     }
     if (scriptLoading) return;
@@ -1611,23 +1618,19 @@ document.addEventListener("DOMContentLoaded", function () {
     script.src = "https://platform.twitter.com/widgets.js";
     script.async = true;
     script.charset = "utf-8";
-    script.onload = processBatch;
+    script.onload = processQueue;
     document.body.appendChild(script);
   }
 
   const observer = new IntersectionObserver((entries, obs) => {
-    let anyIntersecting = false;
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        anyIntersecting = true;
+        queue.push(entry.target);
         obs.unobserve(entry.target);
       }
     });
-    if (anyIntersecting) {
-      ensureScript();
-      queueBatch();
-    }
-  }, { rootMargin: "200px 0px" });
+    ensureScript();
+  }, { rootMargin: "100px 0px" });
 
   tweetCards.forEach(card => observer.observe(card));
 });
