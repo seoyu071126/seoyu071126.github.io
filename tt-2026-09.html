@@ -463,15 +463,6 @@
     </div>
   </main>
 
-  <!-- TikTok Click-to-Play Card -->
-    <div class="card" data-year="2026">
-      <div class="tiktok-card" onclick="loadTikTok(this, '7687237925968334100')">
-        <!-- Thumbnail image placeholder (you can use a screenshot of the video) -->
-        <img src="https://placehold.co/325x578/111/fff?text=TikTok+Video" alt="TikTok Preview">
-        <div class="play-button"><i class="fa-solid fa-play"></i></div>
-      </div>
-      <p>2026.09.14</p>
-    </div>
 
   <!-- Footer / Copyright Section -->
   <footer class="footer">
@@ -481,18 +472,6 @@
   
   <!-- Tiktok Embed Script -->
   <script async src="https://www.tiktok.com/embed.js"></script>
-
-  <script>
-    function loadTikTok(container, videoId) {
-      container.innerHTML = `
-        <iframe src="https://www.tiktok.com/embed/v2/${videoId}?autoplay=1" 
-                style="width:100%; height:100%; border:none; position:absolute; top:0; left:0;" 
-                allow="encrypted-media;" 
-                allowfullscreen>
-        </iframe>
-      `;
-    }
-  </script>
 
 </body>
 </html>
