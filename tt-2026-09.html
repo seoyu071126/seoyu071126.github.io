@@ -177,7 +177,7 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 20px;
-      max-width: 1450px;
+      max-width: 1600px;
       margin: 30px auto;
       padding: 0 20px;
       flex: 1;
@@ -197,7 +197,7 @@
       }
     }
 
-    /* Individual Card Styling for Embedded Instagram Posts */
+    /* Individual Card Styling for Embedded Posts */
     .card {
       background: #ffffff;
       border: 1px solid #dbdbdb;
@@ -214,11 +214,6 @@
     .card:hover {
       transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    }
-
-    .card .instagram-media {
-      margin: 0 !important;
-      width: 100% !important;
     }
 
     .card p {
@@ -252,7 +247,7 @@
     <nav class="nav-menu">
       <a href="./index.html" class="nav-link">ABOUT</a>
 
-     <!-- REPLACE YOUR ENTIRE X (TWITTER) DROPDOWN BLOCK WITH THIS: -->
+    <!-- X (Twitter) Dropdown -->
     <div class="dropdown">
       <a href="#" class="nav-link"><i class="fa-brands fa-x-twitter" style="color: #000000; font-size: 1.1rem;"></i></a>
       <div class="dropdown-content">
@@ -270,7 +265,7 @@
                 <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; margin-left: auto; color: #888;"></i>
               </a>
               <div class="nested-content">
-                <a href="./2026-09.html" style="font-weight: bold; background: #f5f5f5;">2026.09</a>
+                <a href="./2026-09.html">2026.09</a>
                 <a href="./2026-08.html">2026.08</a>
                 <a href="./2026-07.html">2026.07</a>
                 <a href="./2026-06.html">2026.06</a>
@@ -319,14 +314,14 @@
             </a>
             <div class="nested-content">
             
-                 <!-- 2026 Year Group -->
+               <!-- 2026 Year Group -->
             <div class="nested-dropdown">
               <a href="#">
                 2026 
                 <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; margin-left: auto; color: #888;"></i>
               </a>
               <div class="nested-content">
-                <a href="./ig-2026-09.html" style="font-weight: bold; background: #f5f5f5;">2026.09</a>
+                <a href="./ig-2026-09.html">2026.09</a>
                 <a href="./ig-2026-08.html">2026.08</a>
                 <a href="./ig-2026-07.html">2026.07</a>
                 <a href="./ig-2026-06.html">2026.06</a>
@@ -359,10 +354,10 @@
               </div>
             </div>
 
+            </div>
           </div>
         </div>
       </div>
-    </div>
       
       <!-- YOUTUBE Menu -->
       <div class="dropdown">
@@ -373,9 +368,9 @@
         </div>
       </div>
       
-      <!-- TikTok Menu -->
+      <!-- TikTok Menu (Active) -->
       <div class="dropdown">
-        <a href="#" class="nav-link"><i class="fa-brands fa-tiktok" style="color: #000000; font-size: 1.1rem;"></i></a>
+        <a href="#" class="nav-link active"><i class="fa-brands fa-tiktok" style="color: #000000; font-size: 1.1rem;"></i></a>
         <div class="dropdown-content">
           <div class="nested-dropdown">
             <a href="#">
@@ -390,7 +385,7 @@
                   <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; margin-left: auto; color: #888;"></i>
                 </a>
                 <div class="nested-content">
-                  <a href="./tt-2026-09.html">2026.09</a>
+                  <a href="./tt-2026-09.html" style="font-weight: bold; background: #f5f5f5;">2026.09</a>
                   <a href="./tt-2026-08.html">2026.08</a>
                   <a href="./tt-2026-07.html">2026.07</a>
                   <a href="./tt-2026-06.html">2026.06</a>
@@ -447,25 +442,25 @@
     </nav>
   </header>
 
+  <!-- Main Content wrapper to ensure flexbox footer push works -->
+  <main>
     <!-- Card Grid Container -->
     <div class="card-grid">
-      
-     <!-- TikTok Embed Card -->
-    <div class="card" data-year="2026">
-      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@uspeer.official/video/7687237925968334100" data-video-id="7687237925968334100" style="max-width: 605px; min-width: 325px; width: 100%; margin: 0 !important;">
-        <section>
-          <a target="_blank" title="@uspeer.official" href="https://www.tiktok.com/@uspeer.official?refer=embed">@uspeer.official</a> hipsong떠😎 
-          <a title="uspeer" target="_blank" href="https://www.tiktok.com/tag/uspeer?refer=embed">#USPEER</a> 
-          <a title="유스피어" target="_blank" href="https://www.tiktok.com/tag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?refer=embed">#유스피어</a> 
-          <a title="seoyu" target="_blank" href="https://www.tiktok.com/tag/seoyu?refer=embed">#SEOYU</a> 
-          <a title="서유" target="_blank" href="https://www.tiktok.com/tag/%EC%84%9C%EC%9C%A0?refer=embed">#서유</a> 
-          <a target="_blank" title="♬ Hip Song - Rain" href="https://www.tiktok.com/music/Hip-Song-7637408137037383681?refer=embed">♬ Hip Song - Rain</a>
-        </section>
-      </blockquote>
-      <p>2026.09.14</p>
+       <!-- TikTok Embed Card -->
+       <div class="card" data-year="2026">
+         <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@uspeer.official/video/7687237925968334100" data-video-id="7687237925968334100" data-autoplay="false" style="max-width: 605px; min-width: 325px; width: 100%; margin: 0 !important;">
+           <section>
+             <a target="_blank" title="@uspeer.official" href="https://www.tiktok.com/@uspeer.official?refer=embed">@uspeer.official</a> hipsong떠😎 
+             <a title="uspeer" target="_blank" href="https://www.tiktok.com/tag/uspeer?refer=embed">#USPEER</a> 
+             <a title="유스피어" target="_blank" href="https://www.tiktok.com/tag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?refer=embed">#유스피어</a> 
+             <a title="seoyu" target="_blank" href="https://www.tiktok.com/tag/seoyu?refer=embed">#SEOYU</a> 
+             <a title="서유" target="_blank" href="https://www.tiktok.com/tag/%EC%84%9C%EC%9C%A0?refer=embed">#서유</a> 
+             <a target="_blank" title="♬ Hip Song - Rain" href="https://www.tiktok.com/music/Hip-Song-7637408137037383681?refer=embed">♬ Hip Song - Rain</a>
+           </section>
+         </blockquote>
+         <p>2026.09.14</p>
+       </div>
     </div>
-        
-      
   </main>
 
   <!-- Footer / Copyright Section -->
