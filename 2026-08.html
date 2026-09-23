@@ -576,30 +576,7 @@
     <p>&copy; 2026 . All rights reserved.</p>
   </footer>
 
-  <!-- Lazy Loading Intersection Observer Script for Twitter Widgets -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            // Load Twitter widgets script dynamically when scrolling near content
-            const script = document.createElement('script');
-            script.src = "https://platform.twitter.com/widgets.js";
-            script.charset = "utf-8";
-            script.async = true;
-            document.body.appendChild(script);
-            
-            // Stop observing once triggered
-            observer.disconnect();
-          }
-        });
-      }, { rootMargin: '200px' }); // Triggers loading 200px before reaching the tweets
-
-      const firstCard = document.querySelector('.card');
-      if (firstCard) {
-        observer.observe(firstCard);
-      }
-    });
-  </script>
+  <!-- Regular Twitter Widget Script -->
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
 </html>
