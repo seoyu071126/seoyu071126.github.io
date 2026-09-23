@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>선우의 - X Archive</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    /* General Page Setup */
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Header & Titles */
+    .header {
+      text-align: center;
+      padding: 40px 20px 20px;
+    }
+
+    .site-title {
+      font-family: 'Nanum Pen Script', cursive;
+      font-size: 3.5rem;
+      font-weight: 400;
+      margin-bottom: 0px;
+      margin-top: 0px;
+    }
+
+    .site-subtitle {
+      font-family: 'Nanum Pen Script', cursive;
+      font-size: 2rem;
+      color: #666;
+      margin-top: 5px;
+      margin-bottom: 20px;
+    }
+
+    /* Navigation Bar */
+    .nav-menu {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: #555;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      border: 1px solid #ddd;
+      background-color: #ffffff;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Daum Logo Navbar Styling */
+    .nav-link img {
+      height: 1.1rem;
+      width: auto;
+      object-fit: contain;
+      vertical-align: middle;
+      display: inline-block;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      background-color: #222;
+      color: #fff;
+      border-color: #222;
+    }
+
+    /* Dropdown Menus */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      padding-bottom: 12px;
+      margin-bottom: -12px;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #ffffff;
+      width: max-content;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      z-index: 10;
+      padding: 6px 0;
+      border: 1px solid #eee;
+    }
+
+    .dropdown-content a {
+      color: #333;
+      padding: 8px 16px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.85rem;
+      text-align: left;
+      width: auto;
+      white-space: nowrap;
+      transition: background 0.2s ease;
+    }
+
+    .dropdown-content a i {
+      font-size: 1rem;
+      width: 16px;
+      text-align: center;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f5f5f5;
+      color: #000;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    
+    /* Year Filter Buttons */
+    .filter-container {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin: 30px 0 25px 0;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background-color: #ffffff;
+      border: 1px solid #ddd;
+      color: #555;
+      padding: 6px 14px;
+      border-radius: 16px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .filter-btn:hover {
+      background-color: #eee;
+    }
+
+    .filter-btn.active {
+      background-color: #222;
+      color: #fff;
+      border-color: #222;
+    }
+
+    /* Content Container & 4-Column Grid Layout */
+    .content-container {
+      max-width: 1200px;
+      margin: 0 auto 40px auto;
+      padding: 0 20px;
+      flex: 1;
+      width: 100%;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    @media (max-width: 1024px) {
+      .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Individual Card Styling for Embedded Tweets */
+    .card {
+      background: #ffffff;
+      border: 1px solid #dbdbdb;
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 8px;
+      box-sizing: border-box;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Ensure Twitter embed fits neatly inside the card */
+    .card .twitter-tweet {
+      margin: 0 !important;
+      width: 100% !important;
+    }
+
+    /* Footer / Copyright */
+    .footer {
+      text-align: center;
+      padding: 12px 20px;
+      font-size: 0.8rem;
+      color: #888;
+      border-top: 1px solid #eee;
+      background-color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <h1 class="site-title"><a href="./index.html" style="text-decoration: none; color: inherit;">선우의</a></h1>
+    <p class="site-subtitle">서유토낑 🐰</p>
+
+    <!-- Navigation Menu -->
+    <nav class="nav-menu">
+      <a href="./index.html" class="nav-link">ABOUT</a>
+
+      <!-- X (Twitter) Menu (Active on this page) -->
+      <div class="dropdown">
+        <a href="#" class="nav-link active"><i class="fa-brands fa-x-twitter" style="color: #000000; font-size: 1.1rem;"></i></a>
+        <div class="dropdown-content">
+          <a href="./x.html"><i class="fa-brands fa-x-twitter" style="color: #000000;"></i> @USPEER_official</a>
+        </div>
+      </div>
+
+      <!-- Instagram Menu -->
+      <div class="dropdown">
+        <a href="#" class="nav-link"><i class="fa-brands fa-instagram" style="color: #E1306C; font-size: 1.1rem;"></i></a>
+        <div class="dropdown-content">
+          <a href="./instagram.html"><i class="fa-brands fa-instagram" style="color: #E1306C;"></i> @uspeer.official</a>
+        </div>
+      </div>
+      
+       <!-- YOUTUBE Menu -->
+      <div class="dropdown">
+        <a href="#" class="nav-link"><i class="fa-brands fa-youtube" style="color: #FF0000; font-size: 1.1rem;"></i></a>
+        <div class="dropdown-content">
+          <a href="./official.html"><i class="fa-brands fa-youtube" style="color: #FF0000;"></i> @USPEER OFFICIAL</a>
+          <a href="./cam.html"><i class="fa-brands fa-youtube" style="color: #FF0000;"></i> 직캠</a>
+        </div>
+      </div>
+      
+      <!-- TikTok Menu -->
+      <div class="dropdown">
+        <a href="#" class="nav-link"><i class="fa-brands fa-tiktok" style="color: #000000; font-size: 1.1rem;"></i></a>
+        <div class="dropdown-content">
+          <a href="./tiktok.html"><i class="fa-brands fa-tiktok" style="color: #000000;"></i> @uspeer.official</a>
+        </div>
+      </div>
+
+      <!-- Pluschat Menu -->
+      <div class="dropdown">
+        <a href="#" class="nav-link">
+          <img src="https://i.namu.wiki/i/n6k0rEoVv5NN6cKXIxptlaonwHqJ_EAcqwRY5hF8_kn5J9v64p1azoLoyftKUNcURwuAakqpyPkfWYLDwI36Dw.svg" alt="Pluschat"></a>
+        <div class="dropdown-content">
+          <a href="./pluschat.html">떠🩷</a>
+        </div>
+      </div>
+
+       <!-- Daum Cafe Menu -->
+      <div class="dropdown">
+        <a href="#" class="nav-link">
+          <img src="https://t1.daumcdn.net/cafe_image/cafetop/2024/ico_logo.svg" alt="Daum"></a>
+        <div class="dropdown-content">
+          <a href="./daumcafe.html">From.USPEER</a>
+          <a href="./uspeerdiary.html">Uspeer Diary</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="content-container">
+
+    <!-- Year Filter Buttons -->
+    <div class="filter-container">
+      <button class="filter-btn active" onclick="filterSelection('all', this)">All</button>
+      <button class="filter-btn" onclick="filterSelection('2026', this)">2026</button>
+      <button class="filter-btn" onclick="filterSelection('2025', this)">2025</button>
+    </div>
+
+    <!-- Card Grid Container -->
+    <div class="card-grid">
+         
+      <!-- Embedded X/Twitter Post Card (2026.08.30) -->
+      <div class="card" data-year="2026">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="ko" dir="ltr">[📸] <a href="https://x.com/hashtag/USPEER_DAY?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER_DAY</a> | 260830<br>⠀<br>USPEER 1st MINI ALBUM [BITE DISTRICT] 발매 기념 팬사인회<br>⠀<a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a><a href="https://x.com/hashtag/WICKEDGAME?src=hash&amp;ref_src=twsrc%5Etfw">#WICKEDGAME</a> <a href="https://x.com/hashtag/USPEER_BITEDISTRICT?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER_BITEDISTRICT</a> <a href="https://t.co/QHbDKpRcXH">pic.twitter.com/QHbDKpRcXH</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2093983619916464208?ref_src=twsrc%5Etfw">August 30, 2026</a>
+        </blockquote>
+      </div>
+
+      <!-- Embedded X/Twitter Post Card (2026.08.29) -->
+      <div class="card" data-year="2026">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="en" dir="ltr">Now tell me who&#39;s the fairest?✨<br><br>🔗 <a href="https://t.co/z0QHzfmQ49">https://t.co/z0QHzfmQ49</a><br>🔗 <a href="https://t.co/G9apR9zHxr">https://t.co/G9apR9zHxr</a><br>🔗 <a href="https://t.co/bGc6qRHWMm">https://t.co/bGc6qRHWMm</a><a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a><a href="https://x.com/hashtag/SEOYU?src=hash&amp;ref_src=twsrc%5Etfw">#SEOYU</a> <a href="https://x.com/hashtag/%EC%84%9C%EC%9C%A0?src=hash&amp;ref_src=twsrc%5Etfw">#서유</a> <a href="https://t.co/YB063mGxyB">pic.twitter.com/YB063mGxyB</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2093685560498086140?ref_src=twsrc%5Etfw">August 29, 2026</a>
+        </blockquote>
+      </div>
+
+      <!-- Embedded X/Twitter Post Card (2026.08.29) -->
+      <div class="card" data-year="2026">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="ko" dir="ltr">유스티🩷🩷🥹<a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a><a href="https://x.com/hashtag/SEOYU?src=hash&amp;ref_src=twsrc%5Etfw">#SEOYU</a> <a href="https://x.com/hashtag/%EC%84%9C%EC%9C%A0?src=hash&amp;ref_src=twsrc%5Etfw">#서유</a> <a href="https://t.co/kqvfImSmgj">pic.twitter.com/kqvfImSmgj</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2093634274272653357?ref_src=twsrc%5Etfw">August 29, 2026</a>
+        </blockquote>
+      </div>
+
+      <!-- Embedded X/Twitter Post Card (2026.08.29) -->
+      <div class="card" data-year="2026">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="ko" dir="ltr">[📸] <a href="https://x.com/hashtag/USPEER_DAY?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER_DAY</a> | 260829<br>⠀<br>USPEER 1st MINI ALBUM [BITE DISTRICT] 발매 기념 팬사인회<br>⠀<a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a><a href="https://x.com/hashtag/WICKEDGAME?src=hash&amp;ref_src=twsrc%5Etfw">#WICKEDGAME</a> <a href="https://x.com/hashtag/USPEER_BITEDISTRICT?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER_BITEDISTRICT</a> <a href="https://t.co/wa5NMBWofr">pic.twitter.com/wa5NMBWofr</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2093622867485499900?ref_src=twsrc%5Etfw">August 29, 2026</a>
+        </blockquote>
+      </div>
+
+      <!-- Embedded X/Twitter Post Card (2026.08.28) -->
+      <div class="card" data-year="2026">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="ko" dir="ltr">[📸] <a href="https://x.com/hashtag/USPEER_DAY?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER_DAY</a> | 260828<br>⠀<br>USPEER 1st MINI ALBUM [BITE DISTRICT] 발매 기념 팬사인회<br>⠀<a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a><a href="https://x.com/hashtag/WICKEDGAME?src=hash&amp;ref_src=twsrc%5Etfw">#WICKEDGAME</a> <a href="https://x.com/hashtag/USPEER_BITEDISTRICT?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER_BITEDISTRICT</a> <a href="https://t.co/S6yRDxzYr7">pic.twitter.com/S6yRDxzYr7</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2093326746397626846?ref_src=twsrc%5Etfw">August 28, 2026</a>
+        </blockquote>
+      </div>
+
+      <!-- Embedded X/Twitter Post Card (2026.08.28) -->
+      <div class="card" data-year="2026">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="ko" dir="ltr">[📸] <a href="https://x.com/hashtag/USPEER_DAY?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER_DAY</a> | 260828<br>⠀<br>제8회 뉴시스 한류 엑스포 (2026 K-EXPO)<br>⠀<a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a> <a href="https://t.co/sunAy2Ibbb">pic.twitter.com/sunAy2Ibbb</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2093283708631720346?ref_src=twsrc%5Etfw">August 28, 2026</a>
+        </blockquote>
+      </div>
+
+      <!-- Embedded X/Twitter Post Card (2026.08.26) -->
+      <div class="card" data-year="2026">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="qme" dir="ltr">🩷🐰<a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a><a href="https://x.com/hashtag/SEOYU?src=hash&amp;ref_src=twsrc%5Etfw">#SEOYU</a> <a href="https://x.com/hashtag/%EC%84%9C%EC%9C%A0?src=hash&amp;ref_src=twsrc%5Etfw">#서유</a> <a href="https://t.co/zCYfGL9M9m">pic.twitter.com/zCYfGL9M9m</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2092542874273661065?ref_src=twsrc%5Etfw">August 26, 2026</a>
+        </blockquote>
+      </div>
+
+      <!-- Embedded X/Twitter Post Card (2026.08.24) -->
+      <div class="card" data-year="2026">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="en" dir="ltr">Cool🐰🐹<br><br>🔗 <a href="https://t.co/vDBlmx2Vvf">https://t.co/vDBlmx2Vvf</a><br>🔗 <a href="https://t.co/bPz2Z5vwja">https://t.co/bPz2Z5vwja</a><br>🔗 <a href="https://t.co/w6vj1FG0EJ">https://t.co/w6vj1FG0EJ</a><a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a><a href="https://x.com/hashtag/SEOYU?src=hash&amp;ref_src=twsrc%5Etfw">#SEOYU</a> <a href="https://x.com/hashtag/%EC%84%9C%EC%9C%A0?src=hash&amp;ref_src=twsrc%5Etfw">#서유</a><a href="https://x.com/hashtag/CHAENA?src=hash&amp;ref_src=twsrc%5Etfw">#CHAENA</a> <a href="https://x.com/hashtag/%EC%B1%84%EB%82%98?src=hash&amp;ref_src=twsrc%5Etfw">#채나</a> <a href="https://t.co/RJMYxn8FX1">pic.twitter.com/RJMYxn8FX1</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2091836192304304206?ref_src=twsrc%5Etfw">August 24, 2026</a>
+        </blockquote>
+      </div>
+
+      <!-- Embedded X/Twitter Post Card (2026.08.23) -->
+      <div class="card" data-year="2026">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="en" dir="ltr">Every Time USPEER❤️‍🔥<br><br>🔗 <a href="https://t.co/5efMHyedk7">https://t.co/5efMHyedk7</a><br>🔗 <a href="https://t.co/ZTpvUMac8y">https://t.co/ZTpvUMac8y</a><br>🔗 <a href="https://t.co/HlW6e3oumr">https://t.co/HlW6e3oumr</a><a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a> <a href="https://t.co/Wx19iw0Wkk">pic.twitter.com/Wx19iw0Wkk</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2091527734224896190?ref_src=twsrc%5Etfw">August 23, 2026</a>
+        </blockquote>
+      </div>
+
+      <!-- Embedded X/Twitter Post Card (2026.08.23) -->
+      <div class="card" data-year="2026">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="en" dir="ltr">[📸] <a href="https://x.com/hashtag/USPEER_DAY?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER_DAY</a> | 260823<br>⠀<br>2026 USPEER FANMEETING 〈My Buddy〉 in Taipei<br>⠀<a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a><a href="https://x.com/hashtag/MyBuddy_in_Taipei?src=hash&amp;ref_src=twsrc%5Etfw">#MyBuddy_in_Taipei</a> <a href="https://x.com/hashtag/FANMEETING?src=hash&amp;ref_src=twsrc%5Etfw">#FANMEETING</a> <a href="https://t.co/0F6dczz5KA">pic.twitter.com/0F6dczz5KA</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2091509437546824150?ref_src=twsrc%5Etfw">August 23, 2026</a>
+        </blockquote>
+      </div>
+
+      <!-- Embedded X/Twitter Post Card (2026.08.22) -->
+      <div class="card" data-year="2026">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="en" dir="ltr">[📸] <a href="https://x.com/hashtag/USPEER_DAY?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER_DAY</a> | 260822<br>⠀<br>TAIPEI PROMOTION DAY 1<br>⠀<a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a><a href="https://x.com/hashtag/WICKEDGAME?src=hash&amp;ref_src=twsrc%5Etfw">#WICKEDGAME</a> <a href="https://x.com/hashtag/USPEER_BITEDISTRICT?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER_BITEDISTRICT</a> <a href="https://t.co/u1T6zWuWQx">pic.twitter.com/u1T6zWuWQx</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2091085560148603273?ref_src=twsrc%5Etfw">August 22, 2026</a>
+        </blockquote>
+      </div>
+
+      <!-- Embedded X/Twitter Post Card (2026.08.21) -->
+      <div class="card" data-year="2026">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="en" dir="ltr">Random Switch🎲<br><br>🔗 <a href="https://t.co/xhMzKmIaQz">https://t.co/xhMzKmIaQz</a><br>🔗 <a href="https://t.co/cJA0KZwoCA">https://t.co/cJA0KZwoCA</a><br>🔗 <a href="https://t.co/lzX2P466kM">https://t.co/lzX2P466kM</a><a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a><a href="https://x.com/hashtag/SEOYU?src=hash&amp;ref_src=twsrc%5Etfw">#SEOYU</a> <a href="https://x.com/hashtag/%EC%84%9C%EC%9C%A0?src=hash&amp;ref_src=twsrc%5Etfw">#서유</a><a href="https://x.com/hashtag/ROA?src=hash&amp;ref_src=twsrc%5Etfw">#ROA</a> <a href="https://x.com/hashtag/%EB%A1%9C%EC%95%84?src=hash&amp;ref_src=twsrc%5Etfw">#로아</a> <a href="https://t.co/WF6emnzHG7">pic.twitter.com/WF6emnzHG7</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2090796436615205317?ref_src=twsrc%5Etfw">August 21, 2026</a>
+        </blockquote>
+      </div>
+
+      <!-- Embedded X/Twitter Post Card (2026.08.21) -->
+      <div class="card" data-year="2026">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="ko" dir="ltr">[📸] <a href="https://x.com/hashtag/USPEER_DAY?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER_DAY</a> | 260821<br>⠀<br>USPEER 1st MINI ALBUM [BITE DISTRICT] 발매 기념 스페셜 미니 팬미팅<br>⠀<a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a><a href="https://x.com/hashtag/WICKEDGAME?src=hash&amp;ref_src=twsrc%5Etfw">#WICKEDGAME</a> <a href="https://x.com/hashtag/USPEER_BITEDISTRICT?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER_BITEDISTRICT</a> <a href="https://t.co/sOZCyx5HP2">pic.twitter.com/sOZCyx5HP2</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2090771150800601522?ref_src=twsrc%5Etfw">August 21, 2026</a>
+        </blockquote>
+      </div>
+
+      <!-- Embedded X/Twitter Post Card (2026.08.20) -->
+      <div class="card" data-year="2026">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="ko" dir="ltr">[📸] <a href="https://x.com/hashtag/USPEER_DAY?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER_DAY</a> | 260820<br>⠀<br>USPEER 1st MINI ALBUM [BITE DISTRICT] 발매 기념 팬사인회<br>⠀<a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a><a href="https://x.com/hashtag/WICKEDGAME?src=hash&amp;ref_src=twsrc%5Etfw">#WICKEDGAME</a> <a href="https://x.com/hashtag/USPEER_BITEDISTRICT?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER_BITEDISTRICT</a> <a href="https://t.co/0JwbNmITZZ">pic.twitter.com/0JwbNmITZZ</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2090443773625131465?ref_src=twsrc%5Etfw">August 20, 2026</a>
+        </blockquote>
+      </div>
+
+      <!-- Embedded X/Twitter Post Card (2026.08.17) -->
+      <div class="card" data-year="2026">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="ko" dir="ltr">[📸] <a href="https://x.com/hashtag/USPEER_DAY?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER_DAY</a> | 260817<br>⠀<br>USPEER 1st MINI ALBUM [BITE DISTRICT] 발매 기념 팬사인회<br>⠀<a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a><a href="https://x.com/hashtag/WICKEDGAME?src=hash&amp;ref_src=twsrc%5Etfw">#WICKEDGAME</a> <a href="https://x.com/hashtag/USPEER_BITEDISTRICT?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER_BITEDISTRICT</a> <a href="https://t.co/kGpWENNuhX">pic.twitter.com/kGpWENNuhX</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2089264891869962394?ref_src=twsrc%5Etfw">August 17, 2026</a>
+        </blockquote>
+      </div>
+
+      <!-- Embedded X/Twitter Post Card (2026.08.16) -->
+      <div class="card" data-year="2026">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="qme" dir="ltr">🐶🐾🎶<br><br>🔗 <a href="https://t.co/0XA09mIxE8">https://t.co/0XA09mIxE8</a><br>🔗 <a href="https://t.co/EulrBGYsoC">https://t.co/EulrBGYsoC</a><br>🔗 <a href="https://t.co/gI0TEV4vp0">https://t.co/gI0TEV4vp0</a><a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a><a href="https://x.com/hashtag/SEOYU?src=hash&amp;ref_src=twsrc%5Etfw">#SEOYU</a> <a href="https://x.com/hashtag/%EC%84%9C%EC%9C%A0?src=hash&amp;ref_src=twsrc%5Etfw">#서유</a><a href="https://x.com/hashtag/DAON?src=hash&amp;ref_src=twsrc%5Etfw">#DAON</a> <a href="https://x.com/hashtag/%EB%8B%A4%EC%98%A8?src=hash&amp;ref_src=twsrc%5Etfw">#다온</a> <a href="https://t.co/oujEYrEynU">pic.twitter.com/oujEYrEynU</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2088959327684227391?ref_src=twsrc%5Etfw">August 16, 2026</a>
+        </blockquote>
+      </div>
+
+      <!-- Embedded X/Twitter Post Card (2026.08.16) -->
+      <div class="card" data-year="2026">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="ko" dir="ltr">[📸] <a href="https://x.com/hashtag/USPEER_DAY?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER_DAY</a> | 260816<br>⠀<br>USPEER 1st MINI ALBUM [BITE DISTRICT] 발매 기념 팬사인회<br>⠀<a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a><a href="https://x.com/hashtag/WICKEDGAME?src=hash&amp;ref_src=twsrc%5Etfw">#WICKEDGAME</a> <a href="https://x.com/hashtag/USPEER_BITEDISTRICT?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER_BITEDISTRICT</a> <a href="https://t.co/YJD6PAQtb8">pic.twitter.com/YJD6PAQtb8</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2088895796901241128?ref_src=twsrc%5Etfw">August 16, 2026</a>
+        </blockquote>
+      </div>
+
+      <!-- Embedded X/Twitter Post Card (2026.08.14) -->
+      <div class="card" data-year="2026">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="ko" dir="ltr">[📸] <a href="https://x.com/hashtag/USPEER_DAY?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER_DAY</a> | 260814<br>⠀<br>USPEER 1st MINI ALBUM [BITE DISTRICT] 발매 기념 팬사인회<br>⠀<a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a><a href="https://x.com/hashtag/WICKEDGAME?src=hash&amp;ref_src=twsrc%5Etfw">#WICKEDGAME</a> <a href="https://x.com/hashtag/USPEER_BITEDISTRIC?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER_BITEDISTRIC</a> <a href="https://t.co/BE3oNPGspz">pic.twitter.com/BE3oNPGspz</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2088245148539043993?ref_src=twsrc%5Etfw">August 14, 2026</a>
+        </blockquote>
+      </div>
+
+      <!-- Embedded X/Twitter Post Card (2026.08.11) -->
+      <div class="card" data-year="2026">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="ko" dir="ltr">일본로그🇯🇵⭐️🖤<a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a><a href="https://x.com/hashtag/SIAN?src=hash&amp;ref_src=twsrc%5Etfw">#SIAN</a> <a href="https://x.com/hashtag/%EC%8B%9C%EC%95%88?src=hash&amp;ref_src=twsrc%5Etfw">#시안</a> <a href="https://t.co/1PmKCFlGsd">pic.twitter.com/1PmKCFlGsd</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2087162169712603387?ref_src=twsrc%5Etfw">August 11, 2026</a>
+        </blockquote>
+      </div>
+
+      <!-- Embedded X/Twitter Post Card (2026.08.11) -->
+      <div class="card" data-year="2026">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="en" dir="ltr">Call me maybe📞🖤<br><br>🔗 <a href="https://t.co/GoKaueIVGl">https://t.co/GoKaueIVGl</a><br>🔗 <a href="https://t.co/LjmHusLg9w">https://t.co/LjmHusLg9w</a><br>🔗 <a href="https://t.co/5e2eP6xMJ5">https://t.co/5e2eP6xMJ5</a><a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a> <a href="https://x.com/hashtag/SEOYU?src=hash&amp;ref_src=twsrc%5Etfw">#SEOYU</a> <a href="https://x.com/hashtag/%EC%84%9C%EC%9C%A0?src=hash&amp;ref_src=twsrc%5Etfw">#서유</a> <a href="https://t.co/Gyr71vT5k8">pic.twitter.com/Gyr71vT5k8</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2087132274391445700?ref_src=twsrc%5Etfw">August 11, 2026</a>
+        </blockquote>
+      </div>
+
+      <!-- Embedded X/Twitter Post Card (2026.08.11) -->
+      <div class="card" data-year="2026">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="ko" dir="ltr">서유의 일본🇯🇵❤️🫪⭐️😎🍱🌠<a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a> <a href="https://x.com/hashtag/SEOYU?src=hash&amp;ref_src=twsrc%5Etfw">#SEOYU</a> <a href="https://x.com/hashtag/%EC%84%9C%EC%9C%A0?src=hash&amp;ref_src=twsrc%5Etfw">#서유</a> <a href="https://t.co/JPVmMsN6Gp">pic.twitter.com/JPVmMsN6Gp</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2087078403354898598?ref_src=twsrc%5Etfw">August 11, 2026</a>
+        </blockquote>
+      </div>
+
+      <!-- Embedded X/Twitter Post Card (2026.08.10) -->
+      <div class="card" data-year="2026">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="ko" dir="ltr">[🎥]<br><br>막방 멈춰!✋🏻 | USPEER (유스피어) &#39;WICKED GAME&#39; 활동 Behind #2<br><br>🔗 <a href="https://t.co/hKBGUF1liq">https://t.co/hKBGUF1liq</a><br>⠀<a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a><a href="https://x.com/hashtag/WICKEDGAME?src=hash&amp;ref_src=twsrc%5Etfw">#WICKEDGAME</a> <a href="https://x.com/hashtag/USPEER_BITEDISTRIC?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER_BITEDISTRIC</a> <a href="https://t.co/RUP35bSHd6">pic.twitter.com/RUP35bSHd6</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2086800010260492365?ref_src=twsrc%5Etfw">August 10, 2026</a>
+        </blockquote>
+      </div>
+
+      <!-- Embedded X/Twitter Post Card (2026.08.10) -->
+      <div class="card" data-year="2026">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="en" dir="ltr">Everybody Dance Now💃<br><br>🔗 <a href="https://t.co/nNMz2fPPCz">https://t.co/nNMz2fPPCz</a><br>🔗 <a href="https://t.co/6zd8E2Nhee">https://t.co/6zd8E2Nhee</a><br>🔗 <a href="https://t.co/vF2kZ7wuLw">https://t.co/vF2kZ7wuLw</a><a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a> <a href="https://t.co/6dVpaGNHXh">pic.twitter.com/6dVpaGNHXh</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2086634030058082623?ref_src=twsrc%5Etfw">August 10, 2026</a>
+        </blockquote>
+      </div>
+
+      <!-- Embedded X/Twitter Post Card (2026.08.09) -->
+      <div class="card" data-year="2026">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="en" dir="ltr">[📸] <a href="https://x.com/hashtag/USPEER_DAY?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER_DAY</a> | 260809<br>⠀<br>JAPAN PROMOTION DAY 3<br>⠀<a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a><a href="https://x.com/hashtag/WICKEDGAME?src=hash&amp;ref_src=twsrc%5Etfw">#WICKEDGAME</a> <a href="https://x.com/hashtag/USPEER_BITEDISTRIC?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER_BITEDISTRIC</a> <a href="https://t.co/YXNbdSu5h2">pic.twitter.com/YXNbdSu5h2</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2086393550334542276?ref_src=twsrc%5Etfw">August 9, 2026</a>
+        </blockquote>
+      </div>
+
+      <!-- Embedded X/Twitter Post Card (2026.08.09) -->
+      <div class="card" data-year="2026">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="in" dir="ltr">[📸] <a href="https://x.com/hashtag/USPEER_DAY?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER_DAY</a> | 260809<br>⠀<br>WITHMUU OMOKADO POPUP<br>⠀<a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a><a href="https://x.com/hashtag/WICKEDGAME?src=hash&amp;ref_src=twsrc%5Etfw">#WICKEDGAME</a> <a href="https://x.com/hashtag/USPEER_BITEDISTRIC?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER_BITEDISTRIC</a><a href="https://x.com/hashtag/Japan?src=hash&amp;ref_src=twsrc%5Etfw">#Japan</a> <a href="https://x.com/hashtag/Tokyo?src=hash&amp;ref_src=twsrc%5Etfw">#Tokyo</a><a href="https://x.com/hashtag/WITHMUU_OMOKADO?src=hash&amp;ref_src=twsrc%5Etfw">#WITHMUU_OMOKADO</a> <a href="https://t.co/WK3bEoBg0U">pic.twitter.com/WK3bEoBg0U</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2086263694011371672?ref_src=twsrc%5Etfw">August 9, 2026</a>
+        </blockquote>
+      </div>
+
+      <!-- Embedded X/Twitter Post Card (2026.08.08) -->
+      <div class="card" data-year="2026">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="en" dir="ltr">[📸] <a href="https://x.com/hashtag/USPEER_DAY?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER_DAY</a> | 260808<br>⠀<br>JAPAN PROMOTION DAY 2<br>⠀<a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a><a href="https://x.com/hashtag/WICKEDGAME?src=hash&amp;ref_src=twsrc%5Etfw">#WICKEDGAME</a> <a href="https://x.com/hashtag/USPEER_BITEDISTRIC?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER_BITEDISTRIC</a> <a href="https://t.co/yhpO5Wj1rK">pic.twitter.com/yhpO5Wj1rK</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2086029664682975422?ref_src=twsrc%5Etfw">August 8, 2026</a>
+        </blockquote>
+      </div>
+
+      <!-- Embedded X/Twitter Post Card (2026.08.08) -->
+      <div class="card" data-year="2026">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="en" dir="ltr">[📸] <a href="https://x.com/hashtag/USPEER_DAY?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER_DAY</a> | 260808<br>⠀<br>Tower Records<br>⠀<a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a><a href="https://x.com/hashtag/WICKEDGAME?src=hash&amp;ref_src=twsrc%5Etfw">#WICKEDGAME</a> <a href="https://x.com/hashtag/USPEER_BITEDISTRIC?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER_BITEDISTRIC</a><a href="https://x.com/hashtag/TowerRecords?src=hash&amp;ref_src=twsrc%5Etfw">#TowerRecords</a><a href="https://x.com/hashtag/Japan?src=hash&amp;ref_src=twsrc%5Etfw">#Japan</a> <a href="https://x.com/hashtag/Tokyo?src=hash&amp;ref_src=twsrc%5Etfw">#Tokyo</a> <a href="https://t.co/ts172slXzt">pic.twitter.com/ts172slXzt</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2085988632511549860?ref_src=twsrc%5Etfw">August 8, 2026</a>
+        </blockquote>
+      </div>
+
+      <!-- Embedded X/Twitter Post Card (2026.08.08) -->
+      <div class="card" data-year="2026">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="qme" dir="ltr"><a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a><a href="https://x.com/hashtag/SIAN?src=hash&amp;ref_src=twsrc%5Etfw">#SIAN</a> <a href="https://x.com/hashtag/%EC%8B%9C%EC%95%88?src=hash&amp;ref_src=twsrc%5Etfw">#시안</a><a href="https://x.com/hashtag/SEOYU?src=hash&amp;ref_src=twsrc%5Etfw">#SEOYU</a> <a href="https://x.com/hashtag/%EC%84%9C%EC%9C%A0?src=hash&amp;ref_src=twsrc%5Etfw">#서유</a> <a href="https://t.co/lU23oLrhQQ">pic.twitter.com/lU23oLrhQQ</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2085908939305254984?ref_src=twsrc%5Etfw">August 8, 2026</a>
+        </blockquote>
+      </div>
+
+      <!-- Embedded X/Twitter Post Card (2026.08.07) -->
+      <div class="card" data-year="2026">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="en" dir="ltr">[📸] <a href="https://x.com/hashtag/USPEER_DAY?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER_DAY</a> | 260807<br>⠀<br>JAPAN PROMOTION DAY 1<br>⠀<a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a><a href="https://x.com/hashtag/WICKEDGAME?src=hash&amp;ref_src=twsrc%5Etfw">#WICKEDGAME</a> <a href="https://x.com/hashtag/USPEER_BITEDISTRIC?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER_BITEDISTRIC</a> <a href="https://t.co/25t1W7l6WA">pic.twitter.com/25t1W7l6WA</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2085685576418881946?ref_src=twsrc%5Etfw">August 7, 2026</a>
+        </blockquote>
+      </div>
+
+      <!-- Embedded X/Twitter Post Card (2026.08.03) -->
+      <div class="card" data-year="2026">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="ko" dir="ltr">갈비뼈 사이사이가 ⚡️찌릿찌릿⚡️한 느낌<br><br>🔗 <a href="https://t.co/MMTwdaqpnP">https://t.co/MMTwdaqpnP</a><br>🔗 <a href="https://t.co/eUjIwBVgLM">https://t.co/eUjIwBVgLM</a><br>🔗 <a href="https://t.co/hlJsZJC9Yc">https://t.co/hlJsZJC9Yc</a><a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a> <a href="https://x.com/hashtag/SEOYU?src=hash&amp;ref_src=twsrc%5Etfw">#SEOYU</a> <a href="https://x.com/hashtag/%EC%84%9C%EC%9C%A0?src=hash&amp;ref_src=twsrc%5Etfw">#서유</a> <a href="https://x.com/hashtag/CHAENA?src=hash&amp;ref_src=twsrc%5Etfw">#CHAENA</a> <a href="https://x.com/hashtag/%EC%B1%84%EB%82%98?src=hash&amp;ref_src=twsrc%5Etfw">#채나</a> <a href="https://t.co/nrYslk5kk4">pic.twitter.com/nrYslk5kk4</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2084276646635577390?ref_src=twsrc%5Etfw">August 3, 2026</a>
+        </blockquote>
+      </div>
+
+      <!-- Embedded X/Twitter Post Card (2026.08.02) -->
+      <div class="card" data-year="2026">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="en" dir="ltr">I wanna kiss n tell 💋📞<br><br>🔗 <a href="https://t.co/l9xL3YGzOg">https://t.co/l9xL3YGzOg</a><br>🔗 <a href="https://t.co/iubYQi9rnx">https://t.co/iubYQi9rnx</a><br>🔗 <a href="https://t.co/DBexCSsEqn">https://t.co/DBexCSsEqn</a><a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a> <a href="https://x.com/hashtag/SEOYU?src=hash&amp;ref_src=twsrc%5Etfw">#SEOYU</a> <a href="https://x.com/hashtag/%EC%84%9C%EC%9C%A0?src=hash&amp;ref_src=twsrc%5Etfw">#서유</a> <a href="https://t.co/bQfImlIRjb">pic.twitter.com/bQfImlIRjb</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2083811178049065003?ref_src=twsrc%5Etfw">August 2, 2026</a>
+        </blockquote>
+      </div>
+
+      <!-- Embedded X/Twitter Post Card (2026.08.02) -->
+      <div class="card" data-year="2026">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="ko" dir="ltr">[📸] <a href="https://x.com/hashtag/USPEER_DAY?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER_DAY</a> | 260802<br>⠀<br>USPEER 1st MINI ALBUM [BITE DISTRICT] 발매 기념 팬사인회<br>⠀<a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a><a href="https://x.com/hashtag/WICKEDGAME?src=hash&amp;ref_src=twsrc%5Etfw">#WICKEDGAME</a> <a href="https://x.com/hashtag/USPEER_BITEDISTRIC?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER_BITEDISTRIC</a> <a href="https://t.co/wuT8DzPQDf">pic.twitter.com/wuT8DzPQDf</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2083809308433945081?ref_src=twsrc%5Etfw">August 2, 2026</a>
+        </blockquote>
+      </div>
+
+      <!-- Embedded X/Twitter Post Card (2026.08.01) -->
+      <div class="card" data-year="2026">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="ko" dir="ltr">[📸] <a href="https://x.com/hashtag/USPEER_DAY?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER_DAY</a> | 260801<br>⠀<br>USPEER 1st MINI ALBUM [BITE DISTRICT] 발매 기념 팬사인회<br>⠀<a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a><a href="https://x.com/hashtag/WICKEDGAME?src=hash&amp;ref_src=twsrc%5Etfw">#WICKEDGAME</a> <a href="https://x.com/hashtag/USPEER_BITEDISTRIC?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER_BITEDISTRIC</a> <a href="https://t.co/fVWDYz65PV">pic.twitter.com/fVWDYz65PV</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2083462786722701415?ref_src=twsrc%5Etfw">August 1, 2026</a>
+        </blockquote>
+      </div>
+
+      
+      <!-- You can duplicate the card block above to add more tweets. 
+           Just change data-year="2026" or "2025" depending on the tweet date! -->
+
+    </div>
+  </main>
+
+  <!-- Footer / Copyright Section -->
+  <footer class="footer">
+    <p>&copy; 2026 선우의. All rights reserved.</p>
+  </footer>
+
+  <!-- Year Filter JavaScript -->
+  <script>
+    function filterSelection(year, btn) {
+      const cards = document.querySelectorAll('.card');
+      const buttons = document.querySelectorAll('.filter-btn');
+
+      buttons.forEach(b => b.classList.remove('active'));
+      if (btn) {
+        btn.classList.add('active');
+      }
+
+      cards.forEach(card => {
+        if (year === 'all' || card.getAttribute('data-year') === year) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+
+
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const tweetCards = document.querySelectorAll('.card');
+  const queue = [];
+  let scriptLoading = false;
+  let processing = false;
+
+  const CHUNK_SIZE = 3;     // how many tweets to request per wave
+  const CHUNK_DELAY = 1200; // ms between waves
+
+  function processQueue() {
+    if (processing || queue.length === 0) return;
+    if (!(window.twttr && window.twttr.widgets)) return;
+
+    processing = true;
+    const chunk = queue.splice(0, CHUNK_SIZE);
+    chunk.forEach(card => window.twttr.widgets.load(card));
+
+    setTimeout(() => {
+      processing = false;
+      processQueue();
+    }, CHUNK_DELAY);
+  }
+
+  function ensureScript() {
+    if (window.twttr && window.twttr.widgets) {
+      processQueue();
+      return;
+    }
+    if (scriptLoading) return;
+    scriptLoading = true;
+    const script = document.createElement('script');
+    script.src = "https://platform.twitter.com/widgets.js";
+    script.async = true;
+    script.charset = "utf-8";
+    script.onload = processQueue;
+    document.body.appendChild(script);
+  }
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        queue.push(entry.target);
+        obs.unobserve(entry.target);
+      }
+    });
+    ensureScript();
+  }, { rootMargin: "100px 0px" });
+
+  tweetCards.forEach(card => observer.observe(card));
+});
+</script>
+</body>
+</html>
