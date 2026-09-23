@@ -82,7 +82,7 @@
       border-color: #222;
     }
 
-    /* Dropdown Menus */
+   /* Dropdown Menus */
     .dropdown {
       position: relative;
       display: inline-block;
@@ -100,7 +100,7 @@
       width: max-content;
       box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
       border-radius: 8px;
-      overflow: visible; /* Changed from hidden so submenus can display */
+      overflow: visible;
       z-index: 10;
       padding: 6px 0;
       border: 1px solid #eee;
@@ -108,11 +108,11 @@
 
     .dropdown-content a {
       color: #333;
-      padding: 8px 16px;
+      padding: 8px 14px;
       text-decoration: none;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       font-size: 0.85rem;
       text-align: left;
       width: auto;
@@ -143,10 +143,10 @@
     .nested-content {
       display: none;
       position: absolute;
-      top: -7px; /* Pulls the menu straight up to align with the parent item */
-      left: 98%; /* Overlaps slightly so there is no gap */
+      top: -7px;
+      left: 100%; /* Snugs it right next to the parent item */
       background-color: #ffffff;
-      min-width: 130px;
+      width: max-content; /* Forces the box to wrap tightly around the text */
       box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
       border-radius: 8px;
       z-index: 20;
