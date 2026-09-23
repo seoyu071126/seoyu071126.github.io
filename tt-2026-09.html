@@ -468,6 +468,20 @@
     <p>&copy; 2026 선우의. All rights reserved.</p>
   </footer>
 
+  <!-- Script to prevent TikTok autoplay on load -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const observer = new MutationObserver(function(mutations) {
+        document.querySelectorAll('.tiktok-embed iframe').forEach(iframe => {
+          if (iframe.src && iframe.src.includes('autoplay=1')) {
+            iframe.src = iframe.src.replace('autoplay=1', 'autoplay=0');
+          }
+        });
+      });
+      observer.observe(document.body, { childList: true, subtree: true });
+    });
+  </script>
+  
   <!-- Tiktok Embed Script -->
   <script async src="https://www.tiktok.com/embed.js"></script>
 </body>
