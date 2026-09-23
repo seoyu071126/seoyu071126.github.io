@@ -100,7 +100,7 @@
       width: max-content;
       box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
       border-radius: 8px;
-      overflow: hidden;
+      overflow: visible; /* Changed from hidden so submenus can display */
       z-index: 10;
       padding: 6px 0;
       border: 1px solid #eee;
@@ -135,6 +135,30 @@
       display: block;
     }
 
+    /* --- MULTI-LEVEL NESTED DROPDOWN STYLES --- */
+    .nested-dropdown {
+      position: relative;
+    }
+
+    .nested-content {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 100%;
+      background-color: #ffffff;
+      min-width: 130px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      z-index: 20;
+      padding: 6px 0;
+      border: 1px solid #eee;
+    }
+
+    .nested-dropdown:hover > .nested-content {
+      display: block;
+    }
+    /* ------------------------------------------ */
+
     /* Content Container */
     .content-container {
       max-width: 800px;
@@ -144,20 +168,18 @@
       flex: 1;
     }
 
-    /* --- NEW SIDE-BY-SIDE & PHOTO CSS STYLES --- */
     .about-layout {
       display: flex;
-      align-items: flex-start;  /* Aligns items to the top */
-      justify-content: flex-start; /* Pushes everything to the left */
-      gap: 50px;                /* Space between the photo and text column */
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 50px;
       margin-top: 30px;
     }
 
-    /* Creates a dedicated column for the title and social links */
     .text-column {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;  /* Aligns the Korean title and links to the left */
+      align-items: flex-start;
       text-align: left;
     }
 
@@ -187,7 +209,6 @@
       border-radius: 8px;
       display: block;
     }
-    /* ------------------------------------------ */
 
     /* Social Links List Styling */
     .social-links {
@@ -239,13 +260,27 @@
     <nav class="nav-menu">
       <a href="./index.html" class="nav-link active">ABOUT</a>
 
-     <!-- X (Twitter) Menu -->
+     <!-- X (Twitter) Menu with Cascading Dropdown -->
       <div class="dropdown">
         <a href="#" class="nav-link"><i class="fa-brands fa-x-twitter" style="color: #000000; font-size: 1.1rem;"></i></a>
         <div class="dropdown-content">
-          <a href="./x.html"><i class="fa-brands fa-x-twitter" style="color: #000000;"></i> @USPEER_official</a>
-          <!-- Monthly Archive Sub-item indented underneath -->
-          <a href="./2026-08.html" style="padding-left: 34px; font-size: 0.8rem; color: #666;"><i class="fa-regular fa-calendar" style="font-size: 0.85rem; width: 16px; text-align: center;"></i> 2026.08</a>
+          <div class="nested-dropdown">
+            <a href="./x.html">
+              <i class="fa-brands fa-x-twitter" style="color: #000000;"></i> @USPEER_official 
+              <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; margin-left: auto; color: #888;"></i>
+            </a>
+            <div class="nested-content">
+              <div class="nested-dropdown">
+                <a href="#">
+                  2026 
+                  <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; margin-left: auto; color: #888;"></i>
+                </a>
+                <div class="nested-content">
+                  <a href="./2026-08.html"><i class="fa-regular fa-calendar" style="color: #000000;"></i> 2026.08</a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
