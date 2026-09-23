@@ -579,7 +579,7 @@
     <p>&copy; 2026 선우의. All rights reserved.</p>
   </footer>
 
-  <!-- Year Filter JavaScript -->
+ <!-- Year Filter JavaScript -->
   <script>
     function filterSelection(year, btn) {
       const cards = document.querySelectorAll('.card');
@@ -600,58 +600,7 @@
     }
   </script>
 
-
-  <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const tweetCards = document.querySelectorAll('.card');
-  const queue = [];
-  let scriptLoading = false;
-  let processing = false;
-
-  const CHUNK_SIZE = 3;     // how many tweets to request per wave
-  const CHUNK_DELAY = 1200; // ms between waves
-
-  function processQueue() {
-    if (processing || queue.length === 0) return;
-    if (!(window.twttr && window.twttr.widgets)) return;
-
-    processing = true;
-    const chunk = queue.splice(0, CHUNK_SIZE);
-    chunk.forEach(card => window.twttr.widgets.load(card));
-
-    setTimeout(() => {
-      processing = false;
-      processQueue();
-    }, CHUNK_DELAY);
-  }
-
-  function ensureScript() {
-    if (window.twttr && window.twttr.widgets) {
-      processQueue();
-      return;
-    }
-    if (scriptLoading) return;
-    scriptLoading = true;
-    const script = document.createElement('script');
-    script.src = "https://platform.twitter.com/widgets.js";
-    script.async = true;
-    script.charset = "utf-8";
-    script.onload = processQueue;
-    document.body.appendChild(script);
-  }
-
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        queue.push(entry.target);
-        obs.unobserve(entry.target);
-      }
-    });
-    ensureScript();
-  }, { rootMargin: "100px 0px" });
-
-  tweetCards.forEach(card => observer.observe(card));
-});
-</script>
+  <!-- Standard Twitter Widget Script (Normal Loading) -->
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
 </html>
