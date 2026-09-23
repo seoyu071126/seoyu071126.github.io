@@ -135,6 +135,30 @@
     .dropdown:hover .dropdown-content {
       display: block;
     }
+
+    /* Nested Dropdown Styling */
+    .nested-dropdown {
+      position: relative;
+    }
+
+    .nested-content {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 100%;
+      background-color: #ffffff;
+      width: max-content;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      z-index: 11;
+      padding: 6px 0;
+      border: 1px solid #eee;
+    }
+
+    .nested-dropdown:hover .nested-content {
+      display: block;
+    }
     
     /* Year Filter Buttons */
     .filter-container {
@@ -240,14 +264,20 @@
     <nav class="nav-menu">
       <a href="./index.html" class="nav-link">ABOUT</a>
 
-      <!-- X (Twitter) Menu (Active on this page) -->
+     <!-- X (Twitter) Menu -->
       <div class="dropdown">
         <a href="#" class="nav-link active"><i class="fa-brands fa-x-twitter" style="color: #000000; font-size: 1.1rem;"></i></a>
         <div class="dropdown-content">
-          <a href="./x.html"><i class="fa-brands fa-x-twitter" style="color: #000000;"></i> @USPEER_official</a>
+          <div class="nested-dropdown">
+            <!-- @USPEER_official is active here -->
+            <a href="./x.html" class="active"><i class="fa-brands fa-x-twitter" style="color: #000000;"></i> @USPEER_official <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; margin-left: auto;"></i></a>
+            <div class="nested-content">
+              <a href="./2026-08.html"><i class="fa-regular fa-calendar" style="color: #000000;"></i> 2026.08</a>
+            </div>
+          </div>
         </div>
       </div>
-
+      
       <!-- Instagram Menu -->
       <div class="dropdown">
         <a href="#" class="nav-link"><i class="fa-brands fa-instagram" style="color: #E1306C; font-size: 1.1rem;"></i></a>
