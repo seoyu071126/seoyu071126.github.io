@@ -1,1 +1,663 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026.05 - X Archive | USPEER</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    /* General Page Setup */
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Header & Titles */
+    .header {
+      text-align: center;
+      padding: 40px 20px 20px;
+    }
+
+    .site-title {
+      font-family: 'Nanum Pen Script', cursive;
+      font-size: 3.5rem;
+      font-weight: 400;
+      margin-bottom: 0px;
+      margin-top: 0px;
+    }
+
+    .site-title a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .site-subtitle {
+      font-family: 'Nanum Pen Script', cursive;
+      font-size: 2rem;
+      color: #666;
+      margin-top: 5px;
+      margin-bottom: 20px;
+    }
+
+    /* Navigation Bar */
+    .nav-menu {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: #555;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      border: 1px solid #ddd;
+      background-color: #ffffff;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .nav-link img {
+      height: 1.1rem;
+      width: auto;
+      object-fit: contain;
+      vertical-align: middle;
+      display: inline-block;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      background-color: #222;
+      color: #fff;
+      border-color: #222;
+    }
+
+   /* Dropdown Menus */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      padding-bottom: 12px;
+      margin-bottom: -12px;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #ffffff;
+      width: max-content;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      overflow: visible; /* Changed from hidden so submenus can display */
+      z-index: 10;
+      padding: 6px 0;
+      border: 1px solid #eee;
+    }
+
+    .dropdown-content a {
+      color: #333;
+      padding: 8px 16px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.85rem;
+      text-align: left;
+      width: auto;
+      white-space: nowrap;
+      transition: background 0.2s ease;
+    }
+
+    .dropdown-content a i {
+      font-size: 1rem;
+      width: 16px;
+      text-align: center;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f5f5f5;
+      color: #000;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /* --- MULTI-LEVEL NESTED DROPDOWN STYLES --- */
+    .nested-dropdown {
+      position: relative;
+    }
+
+    .nested-content {
+      display: none;
+      position: absolute;
+      top: -7px; /* Pulls the menu straight up to align with the parent item */
+      left: 98%; /* Overlaps slightly so there is no gap */
+      background-color: #ffffff;
+      min-width: 130px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      z-index: 20;
+      padding: 6px 0;
+      border: 1px solid #eee;
+    }
+
+    .nested-dropdown:hover > .nested-content {
+      display: block;
+    }
+    /* ------------------------------------------ */
+
+
+    /* Content Container & 4-Column Grid Layout */
+    .content-container {
+      max-width: 1200px;
+      margin: 30px auto 40px auto;
+      padding: 0 20px;
+      flex: 1;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    @media (max-width: 1024px) {
+      .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Individual Card Styling for Embedded Tweets */
+    .card {
+      background: #ffffff;
+      border: 1px solid #dbdbdb;
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 8px;
+      box-sizing: border-box;
+      min-height: 200px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .card .twitter-tweet {
+      margin: 0 !important;
+      width: 100% !important;
+    }
+
+    /* Footer / Copyright */
+    .footer {
+      text-align: center;
+      padding: 12px 20px;
+      font-size: 0.8rem;
+      color: #888;
+      border-top: 1px solid #eee;
+      background-color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <h1 class="site-title"><a href="./index.html" style="text-decoration: none; color: inherit;">선우의</a></h1>
+    <p class="site-subtitle">서유토낑 🐰</p>
+
+    <!-- Navigation Menu -->
+    <nav class="nav-menu">
+      <a href="./index.html" class="nav-link">ABOUT</a>
+
+      <!-- X (Twitter) Menu -->
+      <div class="dropdown">
+        <a href="#" class="nav-link active"><i class="fa-brands fa-x-twitter" style="color: #000000; font-size: 1.1rem;"></i></a>
+        <div class="dropdown-content">
+          <div class="nested-dropdown">
+            <a href="#">
+              <i class="fa-brands fa-x-twitter" style="color: #000000;"></i> @USPEER_official 
+              <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; margin-left: auto; color: #888;"></i>
+            </a>
+            <div class="nested-content">
+              
+              <!-- 2026 Year Group -->
+              <div class="nested-dropdown">
+                <a href="#">
+                  2026 
+                  <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; margin-left: auto; color: #888;"></i>
+                </a>
+                <div class="nested-content">
+                  <a href="./x-2026-09.html">2026.09</a>
+                  <a href="./x-2026-08.html">2026.08</a>
+                  <a href="./x-2026-07.html">2026.07</a>
+                  <a href="./x-2026-06.html">2026.06</a>
+                  <a href="./x-2026-05.html">2026.05</a>
+                  <a href="./x-2026-04.html">2026.04</a>
+                  <a href="./x-2026-03.html">2026.03</a>
+                  <a href="./x-2026-02.html">2026.02</a>
+                  <a href="./x-2026-01.html">2026.01</a>
+                </div>
+              </div>
+
+              <!-- 2025 Year Group -->
+              <div class="nested-dropdown">
+                <a href="#">
+                  2025 
+                  <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; margin-left: auto; color: #888;"></i>
+                </a>
+                <div class="nested-content">
+                  <a href="./x-2025-12.html" style="font-weight: bold; background: #f5f5f5;">2025.12</a>
+                  <a href="./x-2025-11.html">2025.11</a>
+                  <a href="./x-2025-10.html">2025.10</a>
+                  <a href="./x-2025-09.html">2025.09</a>
+                  <a href="./x-2025-08.html">2025.08</a>
+                  <a href="./x-2025-07.html">2025.07</a>
+                  <a href="./x-2025-06.html">2025.06</a>
+                  <a href="./x-2025-05.html">2025.05</a>
+                  <a href="./x-2025-04.html">2025.04</a>
+                  <a href="./x-2025-03.html">2025.03</a>
+                  <a href="./x-2025-02.html">2025.02</a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+     <!-- Instagram Menu with Year/Month Dropdown Hierarchy -->
+      <div class="dropdown">
+        <a href="#" class="nav-link"><i class="fa-brands fa-instagram" style="color: #E1306C; font-size: 1.1rem;"></i></a>
+        <div class="dropdown-content">
+          <div class="nested-dropdown">
+            <a href="#">
+              <i class="fa-brands fa-instagram" style="color: #E1306C;"></i> @uspeer.official 
+              <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; margin-left: auto; color: #888;"></i>
+            </a>
+            <div class="nested-content">
+            
+                 <!-- 2026 Year Group -->
+            <div class="nested-dropdown">
+              <a href="#">
+                2026 
+                <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; margin-left: auto; color: #888;"></i>
+              </a>
+              <div class="nested-content">
+                <a href="./ig-2026-09.html">2026.09</a>
+                <a href="./ig-2026-08.html">2026.08</a>
+                <a href="./ig-2026-07.html">2026.07</a>
+                <a href="./ig-2026-06.html">2026.06</a>
+                <a href="./ig-2026-05.html">2026.05</a>
+                <a href="./ig-2026-04.html">2026.04</a>
+                <a href="./ig-2026-03.html">2026.03</a>
+                <a href="./ig-2026-02.html">2026.02</a>
+                <a href="./ig-2026-01.html">2026.01</a>
+              </div>
+            </div>
+
+            <!-- 2025 Year Group -->
+            <div class="nested-dropdown">
+              <a href="#">
+                2025 
+                <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; margin-left: auto; color: #888;"></i>
+              </a>
+              <div class="nested-content">
+                <a href="./ig-2025-12.html">2025.12</a>
+                <a href="./ig-2025-11.html">2025.11</a>
+                <a href="./ig-2025-10.html">2025.10</a>
+                <a href="./ig-2025-09.html">2025.09</a>
+                <a href="./ig-2025-08.html">2025.08</a>
+                <a href="./ig-2025-07.html">2025.07</a>
+                <a href="./ig-2025-06.html">2025.06</a>
+                <a href="./ig-2025-05.html">2025.05</a>
+                <a href="./ig-2025-04.html">2025.04</a>
+                <a href="./ig-2025-03.html">2025.03</a>
+                <a href="./ig-2025-02.html">2025.02</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+      
+       <!-- YOUTUBE Menu -->
+      <div class="dropdown">
+        <a href="#" class="nav-link"><i class="fa-brands fa-youtube" style="color: #FF0000; font-size: 1.1rem;"></i></a>
+        <div class="dropdown-content">
+          <a href="./yt-uspeerofficial.html"><i class="fa-brands fa-youtube" style="color: #FF0000;"></i> @USPEER OFFICIAL</a>
+          <a href="./yt-cam.html"><i class="fa-brands fa-youtube" style="color: #FF0000;"></i> 직캠</a>
+        </div>
+      </div>
+      
+      <!-- TikTok Menu -->
+      <div class="dropdown">
+        <a href="#" class="nav-link"><i class="fa-brands fa-tiktok" style="color: #000000; font-size: 1.1rem;"></i></a>
+        <div class="dropdown-content">
+          <div class="nested-dropdown">
+            <a href="#">
+              <i class="fa-brands fa-tiktok" style="color: #000000;"></i> @uspeer.official 
+              <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; margin-left: auto; color: #888;"></i>
+            </a>
+            <div class="nested-content">
+              <!-- 2026 Folder -->
+              <div class="nested-dropdown">
+                <a href="#">
+                  2026 
+                  <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; margin-left: auto; color: #888;"></i>
+                </a>
+                <div class="nested-content">
+                  <a href="./tt-2026-09.html">2026.09</a>
+                  <a href="./tt-2026-08.html">2026.08</a>
+                  <a href="./tt-2026-07.html">2026.07</a>
+                  <a href="./tt-2026-06.html">2026.06</a>
+                  <a href="./tt-2026-05.html">2026.05</a>
+                  <a href="./tt-2026-04.html">2026.04</a>
+                  <a href="./tt-2026-03.html">2026.03</a>
+                  <a href="./tt-2026-02.html">2026.02</a>
+                  <a href="./tt-2026-01.html">2026.01</a>
+                </div>
+              </div>
+              <!-- 2025 Folder (Feb - Dec) -->
+              <div class="nested-dropdown">
+                <a href="#">
+                  2025 
+                  <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; margin-left: auto; color: #888;"></i>
+                </a>
+                <div class="nested-content">
+                  <a href="./tt-2025-12.html">2025.12</a>
+                  <a href="./tt-2025-11.html">2025.11</a>
+                  <a href="./tt-2025-10.html">2025.10</a>
+                  <a href="./tt-2025-09.html">2025.09</a>
+                  <a href="./tt-2025-08.html">2025.08</a>
+                  <a href="./tt-2025-07.html">2025.07</a>
+                  <a href="./tt-2025-06.html">2025.06</a>
+                  <a href="./tt-2025-05.html">2025.05</a>
+                  <a href="./tt-2025-04.html">2025.04</a>
+                  <a href="./tt-2025-03.html">2025.03</a>
+                  <a href="./tt-2025-02.html">2025.02</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pluschat Menu -->
+      <div class="dropdown">
+        <a href="#" class="nav-link">
+          <img src="https://i.namu.wiki/i/n6k0rEoVv5NN6cKXIxptlaonwHqJ_EAcqwRY5hF8_kn5J9v64p1azoLoyftKUNcURwuAakqpyPkfWYLDwI36Dw.svg" alt="Pluschat"></a>
+        <div class="dropdown-content">
+          <a href="./pluschat.html">떠🩷</a>
+        </div>
+      </div>
+
+       <!-- Daum Cafe Menu -->
+      <div class="dropdown">
+        <a href="#" class="nav-link">
+          <img src="https://t1.daumcdn.net/cafe_image/cafetop/2024/ico_logo.svg" alt="Daum"></a>
+        <div class="dropdown-content">
+          <a href="./daum-fromuspeer.html">From.USPEER</a>
+          <a href="./daum-uspeerdiary.html">Uspeer Diary</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="content-container">
+    <!-- Card Grid Container -->
+    <div class="card-grid">
+    
+    <!-- Embedded X/Twitter Post Card (2025.12.31) -->
+      <div class="card" data-year="2025">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="en" dir="ltr">COME ON USP ٩(^ᗜ^ )و ´-<br><br>🔗 <a href="https://t.co/VFY81wTina">https://t.co/VFY81wTina</a><br>🔗 <a href="https://t.co/RQ474sPOBB">https://t.co/RQ474sPOBB</a><br>🔗 <a href="https://t.co/vA5jjRkxKj">https://t.co/vA5jjRkxKj</a><a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a> <a href="https://t.co/Rb6a7v4IRv">pic.twitter.com/Rb6a7v4IRv</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2006290217314156942?ref_src=twsrc%5Etfw">December 31, 2025</a>
+        </blockquote>
+      </div>
+      
+    <!-- Embedded X/Twitter Post Card (2025.12.31) -->
+      <div class="card" data-year="2025">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="ko" dir="ltr">[🎥] [Play Time] 아이돌 콘텐츠에 똥쟁이의 등장이라…🤔ㅣ이미지 프라이팬 &amp; 라이어 게임ㅣUSPEER (유스피어)<br>(<a href="https://t.co/GX2UflA4NT">https://t.co/GX2UflA4NT</a>)<a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a> <a href="https://t.co/ICxq07P8rG">pic.twitter.com/ICxq07P8rG</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2006289527426670660?ref_src=twsrc%5Etfw">December 31, 2025</a>
+        </blockquote>
+      </div>
+    
+    <!-- Embedded X/Twitter Post Card (2025.12.30) -->
+      <div class="card" data-year="2025">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="qme" dir="ltr">❤<a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a><a href="https://x.com/hashtag/SEOYU?src=hash&amp;ref_src=twsrc%5Etfw">#SEOYU</a> <a href="https://x.com/hashtag/%EC%84%9C%EC%9C%A0?src=hash&amp;ref_src=twsrc%5Etfw">#서유</a> <a href="https://t.co/hggwIazWUs">pic.twitter.com/hggwIazWUs</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2005937120800539023?ref_src=twsrc%5Etfw">December 30, 2025</a>
+        </blockquote>
+      </div>
+      
+    <!-- Embedded X/Twitter Post Card (2025.12.29) -->
+      <div class="card" data-year="2025">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="en" dir="ltr">WHERE YOU AT⋆ﾟ☾ ｡⋆.ᵎᵎ<br><br>🔗 <a href="https://t.co/rga3blNuMD">https://t.co/rga3blNuMD</a><br>🔗 <a href="https://t.co/6lyyrZIMCr">https://t.co/6lyyrZIMCr</a><br>🔗 <a href="https://t.co/2X9VykLoGs">https://t.co/2X9VykLoGs</a><a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a> <a href="https://x.com/hashtag/SEOYU?src=hash&amp;ref_src=twsrc%5Etfw">#SEOYU</a> <a href="https://x.com/hashtag/%EC%84%9C%EC%9C%A0?src=hash&amp;ref_src=twsrc%5Etfw">#서유</a> <a href="https://t.co/hUWRxqlxH1">pic.twitter.com/hUWRxqlxH1</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2005549666533044348?ref_src=twsrc%5Etfw">December 29, 2025</a>
+        </blockquote>
+      </div>
+    
+    <!-- Embedded X/Twitter Post Card (2025.12.25) -->
+      <div class="card" data-year="2025">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="no" dir="ltr">Christmas gift 🎄🎁💝<br><br>🔗 <a href="https://t.co/9KOq5bE0Vg">https://t.co/9KOq5bE0Vg</a><br>🔗 <a href="https://t.co/GtWwGho9Lp">https://t.co/GtWwGho9Lp</a><br>🔗 <a href="https://t.co/69iDvSF82I">https://t.co/69iDvSF82I</a><a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a><a href="https://x.com/hashtag/SIAN?src=hash&amp;ref_src=twsrc%5Etfw">#SIAN</a> <a href="https://x.com/hashtag/%EC%8B%9C%EC%95%88?src=hash&amp;ref_src=twsrc%5Etfw">#시안</a> <a href="https://x.com/hashtag/SEOYU?src=hash&amp;ref_src=twsrc%5Etfw">#SEOYU</a> <a href="https://x.com/hashtag/%EC%84%9C%EC%9C%A0?src=hash&amp;ref_src=twsrc%5Etfw">#서유</a> <a href="https://t.co/3S4qrFMfHv">pic.twitter.com/3S4qrFMfHv</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2004145371744972844?ref_src=twsrc%5Etfw">December 25, 2025</a>
+        </blockquote>
+      </div>
+      
+    <!-- Embedded X/Twitter Post Card (2025.12.25) -->
+      <div class="card" data-year="2025">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="et" dir="ltr">Merry Christmas🎄<a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a><a href="https://x.com/hashtag/SEOYU?src=hash&amp;ref_src=twsrc%5Etfw">#SEOYU</a> <a href="https://x.com/hashtag/%EC%84%9C%EC%9C%A0?src=hash&amp;ref_src=twsrc%5Etfw">#서유</a> <a href="https://t.co/VIGaAOEA20">pic.twitter.com/VIGaAOEA20</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2004100625089581389?ref_src=twsrc%5Etfw">December 25, 2025</a>
+        </blockquote>
+      </div>
+      
+    <!-- Embedded X/Twitter Post Card (2025.12.25) -->
+      <div class="card" data-year="2025">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="ko" dir="ltr">윳피처럼 달콤하다는데 ( ៸៸ › ⩊ ‹ ៸៸)♡ 🍭<br><br>🔗 <a href="https://t.co/UlcilEEaSb">https://t.co/UlcilEEaSb</a><br>🔗 <a href="https://t.co/Mz1sfrKZY6">https://t.co/Mz1sfrKZY6</a><br>🔗 <a href="https://t.co/9NvChefeVJ">https://t.co/9NvChefeVJ</a><a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a> <a href="https://t.co/Jx1IJr9uJl">pic.twitter.com/Jx1IJr9uJl</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2004069964828103041?ref_src=twsrc%5Etfw">December 25, 2025</a>
+        </blockquote>
+      </div>
+      
+    <!-- Embedded X/Twitter Post Card (2025.12.25) -->
+      <div class="card" data-year="2025">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="en" dir="ltr">All I Want for Christmas Is You💝<br><br>🔗 <a href="https://t.co/Um5NnRfmyZ">https://t.co/Um5NnRfmyZ</a><br>🔗 <a href="https://t.co/8pTZiSxroF">https://t.co/8pTZiSxroF</a><br>🔗 <a href="https://t.co/kUaItveQI4">https://t.co/kUaItveQI4</a><a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a><a href="https://x.com/hashtag/SOEE?src=hash&amp;ref_src=twsrc%5Etfw">#SOEE</a> <a href="https://x.com/hashtag/%EC%86%8C%EC%9D%B4?src=hash&amp;ref_src=twsrc%5Etfw">#소이</a> <a href="https://x.com/hashtag/SIAN?src=hash&amp;ref_src=twsrc%5Etfw">#SIAN</a> <a href="https://x.com/hashtag/%EC%8B%9C%EC%95%88?src=hash&amp;ref_src=twsrc%5Etfw">#시안</a> <a href="https://x.com/hashtag/SEOYU?src=hash&amp;ref_src=twsrc%5Etfw">#SEOYU</a> <a href="https://x.com/hashtag/%EC%84%9C%EC%9C%A0?src=hash&amp;ref_src=twsrc%5Etfw">#서유</a> <a href="https://t.co/tfK5kkB8S9">pic.twitter.com/tfK5kkB8S9</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2004024677879128495?ref_src=twsrc%5Etfw">December 25, 2025</a>
+        </blockquote>
+      </div>
+      
+    <!-- Embedded X/Twitter Post Card (2025.12.24) -->
+      <div class="card" data-year="2025">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="ko" dir="ltr">미리 메리 크리스마스🎄🎅🏻🎁<br><br>🔗 <a href="https://t.co/kwxaE8fW8R">https://t.co/kwxaE8fW8R</a><br>🔗 <a href="https://t.co/FQ4piwYxds">https://t.co/FQ4piwYxds</a><br>🔗 <a href="https://t.co/coqd2xmibD">https://t.co/coqd2xmibD</a><a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a><a href="https://x.com/hashtag/SIAN?src=hash&amp;ref_src=twsrc%5Etfw">#SIAN</a> <a href="https://x.com/hashtag/%EC%8B%9C%EC%95%88?src=hash&amp;ref_src=twsrc%5Etfw">#시안</a> <a href="https://x.com/hashtag/SEOYU?src=hash&amp;ref_src=twsrc%5Etfw">#SEOYU</a> <a href="https://x.com/hashtag/%EC%84%9C%EC%9C%A0?src=hash&amp;ref_src=twsrc%5Etfw">#서유</a> <a href="https://x.com/hashtag/ROA?src=hash&amp;ref_src=twsrc%5Etfw">#ROA</a> <a href="https://x.com/hashtag/%EB%A1%9C%EC%95%84?src=hash&amp;ref_src=twsrc%5Etfw">#로아</a> <a href="https://t.co/79DsoN5prD">pic.twitter.com/79DsoN5prD</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2003752797309907270?ref_src=twsrc%5Etfw">December 24, 2025</a>
+        </blockquote>
+      </div>
+      
+    <!-- Embedded X/Twitter Post Card (2025.12.21) -->
+      <div class="card" data-year="2025">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="ko" dir="ltr">[<a href="https://x.com/hashtag/UPdate?src=hash&amp;ref_src=twsrc%5Etfw">#UPdate</a>] 251221 Winter LIVE 📸<br><br>우리피어 트리도 과자집도 잘 만들어요❣️<br>팬 여러분들과 함께한 윈터 라이브❄ 너무 행복했어요🥰<a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a> <a href="https://t.co/IcOeKuIkGY">pic.twitter.com/IcOeKuIkGY</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2002693867859222733?ref_src=twsrc%5Etfw">December 21, 2025</a>
+        </blockquote>
+      </div>
+      
+    <!-- Embedded X/Twitter Post Card (2025.12.21) -->
+      <div class="card" data-year="2025">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="en" dir="ltr">Underneath The Tree🎄<br><br>🔗 <a href="https://t.co/K9Xz2TPx3Z">https://t.co/K9Xz2TPx3Z</a><br>🔗 <a href="https://t.co/5Txx1k2gHe">https://t.co/5Txx1k2gHe</a><br>🔗 <a href="https://t.co/SbtYKni0dw">https://t.co/SbtYKni0dw</a><a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a> <a href="https://t.co/RIdhWFTjp7">pic.twitter.com/RIdhWFTjp7</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2002659180931584415?ref_src=twsrc%5Etfw">December 21, 2025</a>
+        </blockquote>
+      </div>
+
+    <!-- Embedded X/Twitter Post Card (2025.12.20) -->
+      <div class="card" data-year="2025">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="en" dir="ltr">𝘬𝘪𝘴𝘴 𝘮𝘺 𝘢𝘴𝘴 𝘨𝘰𝘰𝘥𝘣𝘺𝘦 🎶<br><br>🔗 <a href="https://t.co/WkB6fbJVOt">https://t.co/WkB6fbJVOt</a><br>🔗 <a href="https://t.co/Z1JRC4cs0a">https://t.co/Z1JRC4cs0a</a><br>🔗 <a href="https://t.co/5SftHU9Xci">https://t.co/5SftHU9Xci</a><a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a><a href="https://x.com/hashtag/SEOYU?src=hash&amp;ref_src=twsrc%5Etfw">#SEOYU</a> <a href="https://x.com/hashtag/%EC%84%9C%EC%9C%A0?src=hash&amp;ref_src=twsrc%5Etfw">#서유</a> <a href="https://x.com/hashtag/DAON?src=hash&amp;ref_src=twsrc%5Etfw">#DAON</a> <a href="https://x.com/hashtag/%EB%8B%A4%EC%98%A8?src=hash&amp;ref_src=twsrc%5Etfw">#다온</a> <a href="https://x.com/hashtag/CHAENA?src=hash&amp;ref_src=twsrc%5Etfw">#CHAENA</a> <a href="https://x.com/hashtag/%EC%B1%84%EB%82%98?src=hash&amp;ref_src=twsrc%5Etfw">#채나</a> <a href="https://t.co/JJ5l9nCVsu">pic.twitter.com/JJ5l9nCVsu</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2002303801894838524?ref_src=twsrc%5Etfw">December 20, 2025</a>
+        </blockquote>
+      </div>
+      
+    <!-- Embedded X/Twitter Post Card (2025.12.19) -->
+      <div class="card" data-year="2025">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="en" dir="ltr">𝗨𝗦𝗣𝗘𝗘𝗥 𝗗𝗘𝗕𝗨𝗧 𝟮𝟬𝟬𝗗𝗔𝗬𝗦<br><br>𝗛𝗔𝗣𝗣𝗬 𝗟𝗘𝗩𝗘𝗟 𝗨𝗣 𝗗𝗔𝗬˚₊‧⁺˖♡<a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a><a href="https://x.com/hashtag/USPEER_DEBUT_200DAYS?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER_DEBUT_200DAYS</a> <a href="https://t.co/1mEVrCwhDF">pic.twitter.com/1mEVrCwhDF</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2002031183975362888?ref_src=twsrc%5Etfw">December 19, 2025</a>
+        </blockquote>
+      </div>
+      
+    <!-- Embedded X/Twitter Post Card (2025.12.17) -->
+      <div class="card" data-year="2025">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="qme" dir="ltr">🤍<a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a><a href="https://x.com/hashtag/SEOYU?src=hash&amp;ref_src=twsrc%5Etfw">#SEOYU</a> <a href="https://x.com/hashtag/%EC%84%9C%EC%9C%A0?src=hash&amp;ref_src=twsrc%5Etfw">#서유</a> <a href="https://t.co/tLmhrE5E70">pic.twitter.com/tLmhrE5E70</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2001208243973185582?ref_src=twsrc%5Etfw">December 17, 2025</a>
+        </blockquote>
+      </div>
+      
+    <!-- Embedded X/Twitter Post Card (2025.12.14) -->
+      <div class="card" data-year="2025">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="ko" dir="ltr">[<a href="https://x.com/hashtag/USPEEaiR?src=hash&amp;ref_src=twsrc%5Etfw">#USPEEaiR</a>] 잠시 후 11시, 'KFN 위문열차'에 유스피어가 출연합니다 🙌 주말의 마지막 날도 유스피어와 함께 보내요 〰️❣️<a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a> <a href="https://t.co/hZdU5DwT2M">pic.twitter.com/hZdU5DwT2M</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2000015402085367837?ref_src=twsrc%5Etfw">December 14, 2025</a>
+        </blockquote>
+      </div>
+      
+    <!-- Embedded X/Twitter Post Card (2025.12.11) -->
+      <div class="card" data-year="2025">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="und" dir="ltr">🦊🐰🐍 ┈ˏˋ♥´ˎ┈<br><br>🔗 <a href="https://t.co/mXcsGSvMnM">https://t.co/mXcsGSvMnM</a><br>🔗 <a href="https://t.co/cGJtm1H79d">https://t.co/cGJtm1H79d</a><br>🔗 <a href="https://t.co/eMqTg2YD9a">https://t.co/eMqTg2YD9a</a><a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a><a href="https://x.com/hashtag/SOEE?src=hash&amp;ref_src=twsrc%5Etfw">#SOEE</a> <a href="https://x.com/hashtag/%EC%86%8C%EC%9D%B4?src=hash&amp;ref_src=twsrc%5Etfw">#소이</a> <a href="https://x.com/hashtag/SIAN?src=hash&amp;ref_src=twsrc%5Etfw">#SIAN</a> <a href="https://x.com/hashtag/%EC%8B%9C%EC%95%88?src=hash&amp;ref_src=twsrc%5Etfw">#시안</a> <a href="https://x.com/hashtag/SEOYU?src=hash&amp;ref_src=twsrc%5Etfw">#SEOYU</a> <a href="https://x.com/hashtag/%EC%84%9C%EC%9C%A0?src=hash&amp;ref_src=twsrc%5Etfw">#서유</a> <a href="https://t.co/StVg9X4pCe">pic.twitter.com/StVg9X4pCe</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/1999012990612550104?ref_src=twsrc%5Etfw">December 11, 2025</a>
+        </blockquote>
+      </div>
+      
+    <!-- Embedded X/Twitter Post Card (2025.12.06) -->
+      <div class="card" data-year="2025">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="ko" dir="ltr">[<a href="https://x.com/hashtag/USPEEaiR?src=hash&amp;ref_src=twsrc%5Etfw">#USPEEaiR</a>] 잠시 후 5시, Btv 1번 힐링 콘서트 ‘OFF DAY' 에 유스피어가 출연합니다💝 윳피들과 함께 힐링 충전하러 가볼까요~?⸜(｡˃ ᵕ ˂ )⸝ <a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a> <a href="https://t.co/0aFLG80UYb">pic.twitter.com/0aFLG80UYb</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/1997206917127852248?ref_src=twsrc%5Etfw">December 6, 2025</a>
+        </blockquote>
+      </div>
+      
+    <!-- Embedded X/Twitter Post Card (2025.12.05) -->
+      <div class="card" data-year="2025">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="und" dir="ltr">₍ᐢ..ᐢ₎♡⊹˚₊*̥<a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a><a href="https://x.com/hashtag/SEOYU?src=hash&amp;ref_src=twsrc%5Etfw">#SEOYU</a> <a href="https://x.com/hashtag/%EC%84%9C%EC%9C%A0?src=hash&amp;ref_src=twsrc%5Etfw">#서유</a> <a href="https://t.co/Qvc35LGxvd">pic.twitter.com/Qvc35LGxvd</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/1996882245794386096?ref_src=twsrc%5Etfw">December 5, 2025</a>
+        </blockquote>
+      </div>
+      
+    <!-- Embedded X/Twitter Post Card (2025.12.04) -->
+      <div class="card" data-year="2025">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="ko" dir="ltr">그래.나는.힙합.토끼🤟🏻<br><br>🔗 <a href="https://t.co/ULdvOkLJ5l">https://t.co/ULdvOkLJ5l</a><br>🔗 <a href="https://t.co/hUEP9Fe4CU">https://t.co/hUEP9Fe4CU</a><br>🔗 <a href="https://t.co/7jJEebLi5g">https://t.co/7jJEebLi5g</a><a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a><a href="https://x.com/hashtag/SEOYU?src=hash&amp;ref_src=twsrc%5Etfw">#SEOYU</a> <a href="https://x.com/hashtag/%EC%84%9C%EC%9C%A0?src=hash&amp;ref_src=twsrc%5Etfw">#서유</a> <a href="https://t.co/6FaJ1NiJY5">pic.twitter.com/6FaJ1NiJY5</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/1996460035011121162?ref_src=twsrc%5Etfw">December 4, 2025</a>
+        </blockquote>
+      </div>
+      
+    <!-- Embedded X/Twitter Post Card (2025.12.02) -->
+      <div class="card" data-year="2025">
+        <blockquote class="twitter-tweet" data-dnt="true">
+          <p lang="ko" dir="ltr">[🎥] USPEER (유스피어) ‘KIDDING’ Recording Behind (원곡 : 이세계아이돌)<br>(<a href="https://t.co/W0i4KW9vLG">https://t.co/W0i4KW9vLG</a>)<a href="https://x.com/hashtag/USPEER?src=hash&amp;ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&amp;ref_src=twsrc%5Etfw">#유스피어</a> <a href="https://t.co/k8HYTO6Vqs">pic.twitter.com/k8HYTO6Vqs</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/1995780396764819470?ref_src=twsrc%5Etfw">December 2, 2025</a>
+        </blockquote>
+      </div>  
+
+    </div>
+  </main>
+
+  <!-- Footer / Copyright Section -->
+  <footer class="footer">
+    <p>&copy; 2026 선우의. All rights reserved.</p>
+  </footer>
+
+  <!-- Lazy Loading & Twitter Widget Script Integration -->
+  <script>
+    let twitterScriptLoaded = false;
+
+    function loadTwitterScript(callback) {
+      if (twitterScriptLoaded) {
+        if (window.twttr && window.twttr.widgets) {
+          callback();
+        } else {
+          const checkInterval = setInterval(() => {
+            if (window.twttr && window.twttr.widgets) {
+              clearInterval(checkInterval);
+              callback();
+            }
+          }, 100);
+        }
+        return;
+      }
+      twitterScriptLoaded = true;
+      const script = document.createElement('script');
+      script.src = "https://platform.twitter.com/widgets.js";
+      script.charset = "utf-8";
+      script.async = true;
+      script.onload = () => {
+        if (window.twttr && window.twttr.widgets) {
+          callback();
+        }
+      };
+      document.body.appendChild(script);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const cards = document.querySelectorAll('.card');
+
+      const observerOptions = {
+        root: null,
+        rootMargin: '200px 0px', // Pre-load cards 200px before they enter viewport
+        threshold: 0.01
+      };
+
+      const observer = new IntersectionObserver((entries, observerInstance) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const card = entry.target;
+            observerInstance.unobserve(card);
+
+            const blockquote = card.querySelector('blockquote.twitter-tweet-pending');
+            if (blockquote) {
+              blockquote.className = 'twitter-tweet';
+              loadTwitterScript(() => {
+                if (window.twttr && window.twttr.widgets) {
+                  window.twttr.widgets.load(card);
+                }
+              });
+            }
+          }
+        });
+      }, observerOptions);
+
+      cards.forEach(card => observer.observe(card));
+    });
+  </script>
+
+  <!-- Twitter Widget Script -->
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</body>
+</html>
+
+
+
+
+
+
 
