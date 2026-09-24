@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>선우의 - 직캠</title>
+  <title>선우의 - ABOUT</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,6 +51,7 @@
       justify-content: center;
       gap: 10px;
       flex-wrap: wrap;
+      align-items: center;
     }
 
     .nav-link {
@@ -81,7 +82,7 @@
       border-color: #222;
     }
 
-     /* Dropdown Menus */
+   /* Dropdown Menus */
     .dropdown {
       position: relative;
       display: inline-block;
@@ -99,7 +100,7 @@
       width: max-content;
       box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
       border-radius: 8px;
-      overflow: visible; /* Changed from hidden so submenus can display */
+      overflow: visible;
       z-index: 10;
       padding: 6px 0;
       border: 1px solid #eee;
@@ -107,11 +108,11 @@
 
     .dropdown-content a {
       color: #333;
-      padding: 8px 16px;
+      padding: 8px 14px;
       text-decoration: none;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       font-size: 0.85rem;
       text-align: left;
       width: auto;
@@ -142,10 +143,10 @@
     .nested-content {
       display: none;
       position: absolute;
-      top: -7px; /* Pulls the menu straight up to align with the parent item */
-      left: 98%; /* Overlaps slightly so there is no gap */
+      top: -7px;
+      left: 100%; /* Snugs it right next to the parent item */
       background-color: #ffffff;
-      min-width: 130px;
+      width: max-content; /* Forces the box to wrap tightly around the text */
       box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
       border-radius: 8px;
       z-index: 20;
@@ -158,146 +159,84 @@
     }
     /* ------------------------------------------ */
 
-    /* Year Filter Bar */
-    .year-filter {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin: 25px 0 10px;
-    }
-
-    .year-btn {
-      background-color: transparent;
-      border: none;
-      color: #888;
-      font-size: 0.85rem;
-      font-weight: 600;
-      padding: 4px 12px;
-      cursor: pointer;
-      border-bottom: 2px solid transparent;
-      transition: all 0.2s ease;
-    }
-
-    .year-btn:hover, .year-btn.active {
-      color: #000;
-      border-bottom-color: #000;
-    }
-
-    /* Card Grid - Strict 4-column Grid to keep left-alignment and identical card sizes */
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-      max-width: 1400px;
-      margin: 20px auto 40px;
+    /* Content Container */
+    .content-container {
+      max-width: 800px;
+      margin: 40px auto;
       padding: 0 20px;
-      box-sizing: border-box;
+      text-align: center;
+      flex: 1;
     }
 
-    @media (max-width: 1024px) {
-      .card-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
+    .about-layout {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 50px;
+      margin-top: 30px;
     }
 
-    @media (max-width: 600px) {
-      .card-grid {
-        grid-template-columns: repeat(1, 1fr);
-      }
+    .text-column {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
     }
 
-    .card {
-      background: #ffffff;
-      border-radius: 12px;
-      padding: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      border: 1px solid #eee;
-      box-sizing: border-box;
-      cursor: pointer;
-      transition: transform 0.2s ease;
+    .text-column h2 {
+      margin-top: 0;
+      margin-bottom: 20px;
     }
 
-    .card:hover {
-      transform: translateY(-4px);
+    .photo-container {
+      width: 150px;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      padding: 0;
+      transform: rotate(-4deg);
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
     }
 
-    /* Helper class to hide filtered out cards properly */
-    .card.hidden {
-      display: none !important;
+    .photo-container:hover {
+      transform: rotate(0deg) scale(1.03);
     }
 
-    .card img {
+    .photo-container img {
       width: 100%;
-      aspect-ratio: 16 / 9;
-      object-fit: cover;
+      height: auto;
       border-radius: 8px;
       display: block;
     }
 
-    .card h3 {
-      font-size: 0.95rem;
-      margin: 12px 0 6px;
-      line-height: 1.4;
+    /* Social Links List Styling */
+    .social-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      text-align: left;
     }
 
-    .card p {
-      font-size: 0.85rem;
-      color: #888;
-      margin: 0;
-    }
-
-    /* Video Modal Popup Styling */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.75);
-      z-index: 1000;
-      justify-content: center;
+    .social-link-item {
+      display: flex;
       align-items: center;
-      padding: 20px;
-      box-sizing: border-box;
+      gap: 12px;
+      text-decoration: none;
+      color: #333;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: opacity 0.2s ease;
     }
 
-    .modal-content {
-      position: relative;
-      width: 100%;
-      max-width: 800px;
-      background: #000;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    .social-link-item:hover {
+      opacity: 0.7;
     }
 
-    .modal-video-container {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 9;
-    }
-
-    .modal-video-container iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 15px;
-      right: 20px;
-      background: none;
-      border: none;
-      color: #fff;
-      font-size: 2rem;
-      cursor: pointer;
-      z-index: 1010;
-      line-height: 1;
+    .social-link-item i {
+      font-size: 1.2rem;
+      width: 24px;
+      text-align: center;
     }
 
     /* Footer / Copyright */
@@ -314,14 +253,14 @@
 <body>
 
   <header class="header">
-    <h1 class="site-title"><a href="./index.html" style="text-decoration: none; color: inherit;">선우의</a></h1>
+    <h1 class="site-title"><a href="./about.html" style="text-decoration: none; color: inherit;">선우의</a></h1>
     <p class="site-subtitle">서유토낑 🐰</p>
 
-    <!-- Navigation Menu -->
-    <nav class="nav-menu">
-      <a href="./index.html" class="nav-link">ABOUT</a>
+   <!-- Navigation Menu -->
+  <nav class="nav-menu">
+    <a href="./about.html" class="nav-link active">ABOUT</a>
 
-       <!-- REPLACE YOUR ENTIRE X (TWITTER) DROPDOWN BLOCK WITH THIS: -->
+    <!-- REPLACE YOUR ENTIRE X (TWITTER) DROPDOWN BLOCK WITH THIS: -->
     <div class="dropdown">
       <a href="#" class="nav-link"><i class="fa-brands fa-x-twitter" style="color: #000000; font-size: 1.1rem;"></i></a>
       <div class="dropdown-content">
@@ -376,8 +315,8 @@
         </div>
       </div>
     </div>
-      
-      <!-- Instagram Menu with Year/Month Dropdown Hierarchy -->
+
+     <!-- Instagram Menu with Year/Month Dropdown Hierarchy -->
       <div class="dropdown">
         <a href="#" class="nav-link"><i class="fa-brands fa-instagram" style="color: #E1306C; font-size: 1.1rem;"></i></a>
         <div class="dropdown-content">
@@ -432,17 +371,17 @@
         </div>
       </div>
     </div>
-
+      
        <!-- YOUTUBE Menu -->
       <div class="dropdown">
-        <a href="#" class="nav-link active"><i class="fa-brands fa-youtube" style="color: #FF0000; font-size: 1.1rem;"></i></a>
+        <a href="#" class="nav-link"><i class="fa-brands fa-youtube" style="color: #FF0000; font-size: 1.1rem;"></i></a>
         <div class="dropdown-content">
-          <a href="./official.html"><i class="fa-brands fa-youtube" style="color: #FF0000;"></i> @USPEER OFFICIAL</a>
-          <a href="./cam.html"><i class="fa-brands fa-youtube" style="color: #FF0000;"></i> 직캠</a>
+          <a href="./yt-uspeerofficial.html"><i class="fa-brands fa-youtube" style="color: #FF0000;"></i> @USPEER OFFICIAL</a>
+          <a href="./yt-cam.html"><i class="fa-brands fa-youtube" style="color: #FF0000;"></i> 직캠</a>
         </div>
       </div>
       
-     <!-- TikTok Menu -->
+      <!-- TikTok Menu -->
       <div class="dropdown">
         <a href="#" class="nav-link"><i class="fa-brands fa-tiktok" style="color: #000000; font-size: 1.1rem;"></i></a>
         <div class="dropdown-content">
@@ -495,7 +434,7 @@
         </div>
       </div>
 
-     <!-- Pluschat Menu -->
+      <!-- Pluschat Menu -->
       <div class="dropdown">
         <a href="#" class="nav-link">
           <img src="https://i.namu.wiki/i/n6k0rEoVv5NN6cKXIxptlaonwHqJ_EAcqwRY5hF8_kn5J9v64p1azoLoyftKUNcURwuAakqpyPkfWYLDwI36Dw.svg" alt="Pluschat"></a>
@@ -507,122 +446,45 @@
        <!-- Daum Cafe Menu -->
       <div class="dropdown">
         <a href="#" class="nav-link">
-          <img src="https://t1.daumcdn.net/cafe_image/cafetop/2024/ico_logo.svg" alt="Daum"></a>
+          <img src="https://t1.daumcdn.net/cafe_image/cafetop/2024/ico_logo.svg"></a>
         <div class="dropdown-content">
-          <a href="./daumcafe.html">From.USPEER</a>
-          <a href="./uspeerdiary.html">Uspeer Diary</a>
+          <a href="./daum-fromuspeer.html">From.USPEER</a>
+          <a href="./daum-uspeerdiary.html">Uspeer Diary</a>
         </div>
       </div>
     </nav>
   </header>
 
-  <!-- Year Filter Bar -->
-  <div class="year-filter">
-    <button class="year-btn active" onclick="filterYear('all', this)">ALL</button>
-    <button class="year-btn" onclick="filterYear('2026', this)">2026</button>
-    <button class="year-btn" onclick="filterYear('2025', this)">2025</button>
-  </div>
+  <main class="content-container">
+    <div class="about-layout">
+      <!-- Tilted Photo on the Left -->
+      <div class="photo-container">
+        <img src="IMG_3449.png" alt="Sunwoo photo">
+      </div>
 
-  <!-- Fancam Video Cards Grid -->
-  <div class="card-grid">
-
-    <!-- Card 1 (2026.07.03) -->
-    <div class="card" data-year="2026" onclick="openVideo('1S2X15eTtJ0')">
-      <img src="https://img.youtube.com/vi/1S2X15eTtJ0/hqdefault.jpg" alt="Video Thumbnail">
-      <h3>[플리캠 4K] USPEER SEOYU ‘WICKED GAME’ (유스피어 서유 직캠) | Simply K-Pop EP.13 260703</h3>
-      <p>2026.07.03</p>
-    </div>
-
-    <!-- Card 2 (2026.06.23) -->
-    <div class="card" data-year="2026" onclick="openVideo('Xfu2snW76XM')">
-      <img src="https://img.youtube.com/vi/Xfu2snW76XM/hqdefault.jpg" alt="Video Thumbnail">
-      <h3>[안방1열 직캠4K] 유스피어 서유 'WICKED GAME' (USPEER SEOYU FanCam) @SBS Inkigayo 260621</h3>
-      <p>2026.06.23</p>
-    </div>
-
-    <!-- Card 3 (2026.06.18) -->
-    <div class="card" data-year="2026" onclick="openVideo('k3wer4eZqYE')">
-      <img src="https://img.youtube.com/vi/k3wer4eZqYE/hqdefault.jpg" alt="Video Thumbnail">
-      <h3>[MPD직캠] 유스피어 서유 직캠 4K 'WICKED GAME' (USPEER SEOYU FanCam) | @MCOUNTDOWN_2026.6.18</h3>
-      <p>2026.06.18</p>
-    </div>
-
-    <!-- Card 4 (2025.06.13) -->
-    <div class="card" data-year="2025" onclick="openVideo('KlJlnDW9SIw')">
-      <img src="https://img.youtube.com/vi/KlJlnDW9SIw/hqdefault.jpg" alt="Video Thumbnail">
-      <h3>[K-Fancam] 유스피어 서유 직캠 'ZOOM'(USPEER SEOYU Facecam) @뮤직뱅크(Music Bank) 250613</h3>
-      <p>2025.06.13</p>
-    </div>
-
-    <!-- Card 5 (2025.06.05) -->
-    <div class="card" data-year="2025" onclick="openVideo('1ouNUuEpLYg')">
-      <img src="https://img.youtube.com/vi/1ouNUuEpLYg/hqdefault.jpg" alt="Video Thumbnail">
-      <h3>[MPD직캠] 유스피어 서유 직캠 4K 'ZOOM' (USPEER SEOYU FanCam) | @MCOUNTDOWN_2025.6.5</h3>
-      <p>2025.06.05</p>
-    </div>
-
-  </div>
-
-  <!-- Video Modal Popup Container -->
-  <div id="videoModal" class="modal-overlay" onclick="closeVideo(event)">
-    <div class="modal-content">
-      <button class="modal-close" onclick="closeVideoForce()">&times;</button>
-      <div class="modal-video-container">
-        <iframe id="youtubeIframe" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <!-- Right Column: Korean Heading + Social Links -->
+      <div class="text-column">
+        <h2>우리 선우위해</h2>
+        
+        <div class="social-links">
+          <a href="https://twitter.com/sunwoo071126" target="_blank" class="social-link-item">
+            <i class="fa-brands fa-x-twitter" style="color: #000000;"></i> @sunwoo071126
+          </a>
+          <a href="https://instagram.com/sunwoo071126" target="_blank" class="social-link-item">
+            <i class="fa-brands fa-instagram" style="color: #E1306C;"></i> @sunwoo071126
+          </a>
+          <a href="https://youtube.com/@선우의1126" target="_blank" class="social-link-item">
+            <i class="fa-brands fa-youtube" style="color: #FF0000;"></i> @선우의1126
+          </a>
+        </div>
       </div>
     </div>
-  </div>
+  </main>
 
   <!-- Footer / Copyright Section -->
   <footer class="footer">
     <p>&copy; 2026 선우의. All rights reserved.</p>
   </footer>
-
-  <!-- JavaScript for Filtering and Modal Popup -->
-  <script>
-    function filterYear(year, btnElement) {
-      // 1. Highlight the active button
-      const buttons = document.querySelectorAll('.year-btn');
-      buttons.forEach(btn => btn.classList.remove('active'));
-      if (btnElement) {
-        btnElement.classList.add('active');
-      }
-
-      // 2. Filter cards using the .hidden class
-      const cards = document.querySelectorAll('.card');
-      cards.forEach(card => {
-        const cardYear = card.getAttribute('data-year');
-        if (year === 'all' || cardYear === year) {
-          card.classList.remove('hidden');
-        } else {
-          card.classList.add('hidden');
-        }
-      });
-    }
-
-    // Open Modal and load video embed URL
-    function openVideo(videoId) {
-      const modal = document.getElementById('videoModal');
-      const iframe = document.getElementById('youtubeIframe');
-      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-      modal.style.display = 'flex';
-    }
-
-    // Close Modal when clicking the 'X' button
-    function closeVideoForce() {
-      const modal = document.getElementById('videoModal');
-      const iframe = document.getElementById('youtubeIframe');
-      iframe.src = ''; 
-      modal.style.display = 'none';
-    }
-
-    // Close Modal when clicking outside the video container box
-    function closeVideo(event) {
-      if (event.target.id === 'videoModal') {
-        closeVideoForce();
-      }
-    }
-  </script>
 
 </body>
 </html>
