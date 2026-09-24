@@ -160,36 +160,6 @@
     }
     /* ------------------------------------------ */
 
-    /* Year Filter Buttons */
-    .filter-container {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin: 30px 0 25px 0;
-      flex-wrap: wrap;
-    }
-
-    .filter-btn {
-      background-color: #ffffff;
-      border: 1px solid #ddd;
-      color: #555;
-      padding: 6px 14px;
-      border-radius: 16px;
-      font-size: 0.85rem;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .filter-btn:hover {
-      background-color: #eee;
-    }
-
-    .filter-btn.active {
-      background-color: #222;
-      color: #fff;
-      border-color: #222;
-    }
-
     /* Content Container & 4-Column Grid Layout */
     .content-container {
       max-width: 1200px;
@@ -481,13 +451,6 @@
 
   <main class="content-container">
 
-    <!-- Year Filter Buttons -->
-    <div class="filter-container">
-      <button class="filter-btn active" onclick="filterSelection('all', this)">All</button>
-      <button class="filter-btn" style="display: none;" onclick="filterSelection('2026', this)">2026</button>
-      <button class="filter-btn" style="display: none;" onclick="filterSelection('2025', this)">2025</button>
-    </div>
-
     <!-- Card Grid Container -->
     <div class="card-grid">
 
@@ -517,26 +480,6 @@
     <p>&copy; 2026 선우의. All rights reserved.</p>
   </footer>
 
-  <!-- Year Filter JavaScript -->
-  <script>
-    function filterSelection(year, btn) {
-      const cards = document.querySelectorAll('.card');
-      const buttons = document.querySelectorAll('.filter-btn');
-
-      buttons.forEach(b => b.classList.remove('active'));
-      if (btn) {
-        btn.classList.add('active');
-      }
-
-      cards.forEach(card => {
-        if (year === 'all' || card.getAttribute('data-year') === year) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    }
-  </script>
 
 </body>
 </html>
