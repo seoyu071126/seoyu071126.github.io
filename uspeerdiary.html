@@ -26,7 +26,8 @@
     /* Header & Titles */
     .header {
       text-align: center;
-      padding: 40px 20px 20px;
+      padding: 40px 20px 30px 20px;
+      margin-bottom: 20px;
     }
 
     .site-title {
@@ -42,7 +43,7 @@
       font-size: 2rem;
       color: #666;
       margin-top: 5px;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
     }
 
     /* Navigation Bar */
@@ -52,6 +53,7 @@
       gap: 10px;
       flex-wrap: wrap;
       align-items: center;
+      padding-bottom: 10px;
     }
 
     .nav-link {
@@ -68,7 +70,6 @@
       gap: 4px;
     }
 
-    /* Daum Logo Navbar Styling */
     .nav-link img {
       height: 1.1rem;
       width: auto;
@@ -101,7 +102,7 @@
       width: max-content;
       box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
       border-radius: 8px;
-      overflow: visible; /* Changed from hidden so submenus can display */
+      overflow: visible;
       z-index: 10;
       padding: 6px 0;
       border: 1px solid #eee;
@@ -136,7 +137,7 @@
       display: block;
     }
 
-    /* --- MULTI-LEVEL NESTED DROPDOWN STYLES --- */
+    /* Nested Dropdown Styling */
     .nested-dropdown {
       position: relative;
     }
@@ -144,8 +145,8 @@
     .nested-content {
       display: none;
       position: absolute;
-      top: -7px; /* Pulls the menu straight up to align with the parent item */
-      left: 98%; /* Overlaps slightly so there is no gap */
+      top: -7px;
+      left: 98%;
       background-color: #ffffff;
       min-width: 130px;
       box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
@@ -158,12 +159,11 @@
     .nested-dropdown:hover > .nested-content {
       display: block;
     }
-    /* ------------------------------------------ */
 
-    /* Content Container & 4-Column Grid Layout */
+    /* Content Container & Grid */
     .content-container {
       max-width: 1200px;
-      margin: 0 auto 40px auto;
+      margin: 20px auto 40px auto;
       padding: 0 20px;
       flex: 1;
       width: 100%;
@@ -175,7 +175,6 @@
       gap: 20px;
     }
 
-    /* Responsive adjustment for smaller screens */
     @media (max-width: 1024px) {
       .card-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -188,7 +187,7 @@
       }
     }
 
-    /* Individual Card Styling */
+    /* Card Item */
     .card {
       background: #ffffff;
       border: 1px solid #dbdbdb;
@@ -233,7 +232,7 @@
       margin: 0;
     }
 
-    /* Footer / Copyright */
+    /* Footer */
     .footer {
       text-align: center;
       padding: 12px 20px;
@@ -254,119 +253,97 @@
     <nav class="nav-menu">
       <a href="./index.html" class="nav-link">ABOUT</a>
 
-       <!-- X (Twitter) Dropdown Block -->
-    <div class="dropdown">
-      <a href="#" class="nav-link"><i class="fa-brands fa-x-twitter" style="color: #000000; font-size: 1.1rem;"></i></a>
-      <div class="dropdown-content">
-        <div class="nested-dropdown">
-          <a href="#">
-            <i class="fa-brands fa-x-twitter" style="color: #000000;"></i> @USPEER_official 
-            <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; margin-left: auto; color: #888;"></i>
-          </a>
-          <div class="nested-content">
-            
-            <!-- 2026 Year Group -->
-            <div class="nested-dropdown">
-              <a href="#">
-                2026 
-                <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; margin-left: auto; color: #888;"></i>
-              </a>
-              <div class="nested-content">
-                <a href="./2026-09.html">2026.09</a>
-                <a href="./2026-08.html">2026.08</a>
-                <a href="./2026-07.html">2026.07</a>
-                <a href="./2026-06.html">2026.06</a>
-                <a href="./2026-05.html">2026.05</a>
-                <a href="./2026-04.html">2026.04</a>
-                <a href="./2026-03.html">2026.03</a>
-                <a href="./2026-02.html">2026.02</a>
-                <a href="./2026-01.html">2026.01</a>
+      <!-- X (Twitter) Dropdown Block -->
+      <div class="dropdown">
+        <a href="#" class="nav-link"><i class="fa-brands fa-x-twitter" style="color: #000000; font-size: 1.1rem;"></i></a>
+        <div class="dropdown-content">
+          <div class="nested-dropdown">
+            <a href="#">
+              <i class="fa-brands fa-x-twitter" style="color: #000000;"></i> @USPEER_official 
+              <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; margin-left: auto; color: #888;"></i>
+            </a>
+            <div class="nested-content">
+              <div class="nested-dropdown">
+                <a href="#">2026 <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; margin-left: auto; color: #888;"></i></a>
+                <div class="nested-content">
+                  <a href="./2026-09.html">2026.09</a>
+                  <a href="./2026-08.html">2026.08</a>
+                  <a href="./2026-07.html">2026.07</a>
+                  <a href="./2026-06.html">2026.06</a>
+                  <a href="./2026-05.html">2026.05</a>
+                  <a href="./2026-04.html">2026.04</a>
+                  <a href="./2026-03.html">2026.03</a>
+                  <a href="./2026-02.html">2026.02</a>
+                  <a href="./2026-01.html">2026.01</a>
+                </div>
+              </div>
+              <div class="nested-dropdown">
+                <a href="#">2025 <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; margin-left: auto; color: #888;"></i></a>
+                <div class="nested-content">
+                  <a href="./2025-12.html">2025.12</a>
+                  <a href="./2025-11.html">2025.11</a>
+                  <a href="./2025-10.html">2025.10</a>
+                  <a href="./2025-09.html">2025.09</a>
+                  <a href="./2025-08.html">2025.08</a>
+                  <a href="./2025-07.html">2025.07</a>
+                  <a href="./2025-06.html">2025.06</a>
+                  <a href="./2025-05.html">2025.05</a>
+                  <a href="./2025-04.html">2025.04</a>
+                  <a href="./2025-03.html">2025.03</a>
+                  <a href="./2025-02.html">2025.02</a>
+                </div>
               </div>
             </div>
-
-            <!-- 2025 Year Group -->
-            <div class="nested-dropdown">
-              <a href="#">
-                2025 
-                <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; margin-left: auto; color: #888;"></i>
-              </a>
-              <div class="nested-content">
-                <a href="./2025-12.html">2025.12</a>
-                <a href="./2025-11.html">2025.11</a>
-                <a href="./2025-10.html">2025.10</a>
-                <a href="./2025-09.html">2025.09</a>
-                <a href="./2025-08.html">2025.08</a>
-                <a href="./2025-07.html">2025.07</a>
-                <a href="./2025-06.html">2025.06</a>
-                <a href="./2025-05.html">2025.05</a>
-                <a href="./2025-04.html">2025.04</a>
-                <a href="./2025-03.html">2025.03</a>
-                <a href="./2025-02.html">2025.02</a>
-              </div>
-            </div>
-
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Instagram Menu with Year/Month Dropdown Hierarchy -->
-    <div class="dropdown">
-      <a href="#" class="nav-link"><i class="fa-brands fa-instagram" style="color: #E1306C; font-size: 1.1rem;"></i></a>
-      <div class="dropdown-content">
-        <div class="nested-dropdown">
-          <a href="#">
-            <i class="fa-brands fa-instagram" style="color: #E1306C;"></i> @uspeer.official 
-            <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; margin-left: auto; color: #888;"></i>
-          </a>
-          <div class="nested-content">
-          
-            <!-- 2026 Year Group -->
-            <div class="nested-dropdown">
-              <a href="#">
-                2026 
-                <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; margin-left: auto; color: #888;"></i>
-              </a>
-              <div class="nested-content">
-                <a href="./ig-2026-09.html">2026.09</a>
-                <a href="./ig-2026-08.html">2026.08</a>
-                <a href="./ig-2026-07.html">2026.07</a>
-                <a href="./ig-2026-06.html">2026.06</a>
-                <a href="./ig-2026-05.html">2026.05</a>
-                <a href="./ig-2026-04.html">2026.04</a>
-                <a href="./ig-2026-03.html">2026.03</a>
-                <a href="./ig-2026-02.html">2026.02</a>
-                <a href="./ig-2026-01.html">2026.01</a>
+      <!-- Instagram Menu -->
+      <div class="dropdown">
+        <a href="#" class="nav-link"><i class="fa-brands fa-instagram" style="color: #E1306C; font-size: 1.1rem;"></i></a>
+        <div class="dropdown-content">
+          <div class="nested-dropdown">
+            <a href="#">
+              <i class="fa-brands fa-instagram" style="color: #E1306C;"></i> @uspeer.official 
+              <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; margin-left: auto; color: #888;"></i>
+            </a>
+            <div class="nested-content">
+              <div class="nested-dropdown">
+                <a href="#">2026 <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; margin-left: auto; color: #888;"></i></a>
+                <div class="nested-content">
+                  <a href="./ig-2026-09.html">2026.09</a>
+                  <a href="./ig-2026-08.html">2026.08</a>
+                  <a href="./ig-2026-07.html">2026.07</a>
+                  <a href="./ig-2026-06.html">2026.06</a>
+                  <a href="./ig-2026-05.html">2026.05</a>
+                  <a href="./ig-2026-04.html">2026.04</a>
+                  <a href="./ig-2026-03.html">2026.03</a>
+                  <a href="./ig-2026-02.html">2026.02</a>
+                  <a href="./ig-2026-01.html">2026.01</a>
+                </div>
+              </div>
+              <div class="nested-dropdown">
+                <a href="#">2025 <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; margin-left: auto; color: #888;"></i></a>
+                <div class="nested-content">
+                  <a href="./ig-2025-12.html">2025.12</a>
+                  <a href="./ig-2025-11.html">2025.11</a>
+                  <a href="./ig-2025-10.html">2025.10</a>
+                  <a href="./ig-2025-09.html">2025.09</a>
+                  <a href="./ig-2025-08.html">2025.08</a>
+                  <a href="./ig-2025-07.html">2025.07</a>
+                  <a href="./ig-2025-06.html">2025.06</a>
+                  <a href="./ig-2025-05.html">2025.05</a>
+                  <a href="./ig-2025-04.html">2025.04</a>
+                  <a href="./ig-2025-03.html">2025.03</a>
+                  <a href="./ig-2025-02.html">2025.02</a>
+                </div>
               </div>
             </div>
-
-            <!-- 2025 Year Group -->
-            <div class="nested-dropdown">
-              <a href="#">
-                2025 
-                <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; margin-left: auto; color: #888;"></i>
-              </a>
-              <div class="nested-content">
-                <a href="./ig-2025-12.html">2025.12</a>
-                <a href="./ig-2025-11.html">2025.11</a>
-                <a href="./ig-2025-10.html">2025.10</a>
-                <a href="./ig-2025-09.html">2025.09</a>
-                <a href="./ig-2025-08.html">2025.08</a>
-                <a href="./ig-2025-07.html">2025.07</a>
-                <a href="./ig-2025-06.html">2025.06</a>
-                <a href="./ig-2025-05.html">2025.05</a>
-                <a href="./ig-2025-04.html">2025.04</a>
-                <a href="./ig-2025-03.html">2025.03</a>
-                <a href="./ig-2025-02.html">2025.02</a>
-              </div>
-            </div>
-
           </div>
         </div>
       </div>
-    </div>
       
-       <!-- YOUTUBE Menu -->
+      <!-- YouTube Menu -->
       <div class="dropdown">
         <a href="#" class="nav-link"><i class="fa-brands fa-youtube" style="color: #FF0000; font-size: 1.1rem;"></i></a>
         <div class="dropdown-content">
@@ -375,7 +352,7 @@
         </div>
       </div>
       
-        <!-- TikTok Menu -->
+      <!-- TikTok Menu -->
       <div class="dropdown">
         <a href="#" class="nav-link"><i class="fa-brands fa-tiktok" style="color: #000000; font-size: 1.1rem;"></i></a>
         <div class="dropdown-content">
@@ -385,12 +362,8 @@
               <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; margin-left: auto; color: #888;"></i>
             </a>
             <div class="nested-content">
-              <!-- 2026 Folder -->
               <div class="nested-dropdown">
-                <a href="#">
-                  2026 
-                  <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; margin-left: auto; color: #888;"></i>
-                </a>
+                <a href="#">2026 <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; margin-left: auto; color: #888;"></i></a>
                 <div class="nested-content">
                   <a href="./tt-2026-09.html">2026.09</a>
                   <a href="./tt-2026-08.html">2026.08</a>
@@ -403,12 +376,8 @@
                   <a href="./tt-2026-01.html">2026.01</a>
                 </div>
               </div>
-              <!-- 2025 Folder (Feb - Dec) -->
               <div class="nested-dropdown">
-                <a href="#">
-                  2025 
-                  <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; margin-left: auto; color: #888;"></i>
-                </a>
+                <a href="#">2025 <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; margin-left: auto; color: #888;"></i></a>
                 <div class="nested-content">
                   <a href="./tt-2025-12.html">2025.12</a>
                   <a href="./tt-2025-11.html">2025.11</a>
@@ -431,16 +400,18 @@
       <!-- Pluschat Menu -->
       <div class="dropdown">
         <a href="#" class="nav-link">
-          <img src="https://i.namu.wiki/i/n6k0rEoVv5NN6cKXIxptlaonwHqJ_EAcqwRY5hF8_kn5J9v64p1azoLoyftKUNcURwuAakqpyPkfWYLDwI36Dw.svg" alt="Pluschat"></a>
+          <img src="https://i.namu.wiki/i/n6k0rEoVv5NN6cKXIxptlaonwHqJ_EAcqwRY5hF8_kn5J9v64p1azoLoyftKUNcURwuAakqpyPkfWYLDwI36Dw.svg" alt="Pluschat">
+        </a>
         <div class="dropdown-content">
           <a href="./pluschat.html">떠🩷</a>
         </div>
       </div>
 
-       <!-- Daum Cafe Menu -->
+      <!-- Daum Cafe Menu -->
       <div class="dropdown">
         <a href="#" class="nav-link active">
-  <img src="https://t1.daumcdn.net/cafe_image/cafetop/2024/ico_logo.svg" alt="Daum"></a>
+          <img src="https://t1.daumcdn.net/cafe_image/cafetop/2024/ico_logo.svg" alt="Daum">
+        </a>
         <div class="dropdown-content">
           <a href="./daumcafe.html">From.USPEER</a>
           <a href="./uspeerdiary.html">Uspeer Diary</a>
@@ -450,12 +421,9 @@
   </header>
 
   <main class="content-container">
-
-    <!-- Card Grid Container -->
     <div class="card-grid">
-
-     <!-- Uspeer Diary Post 6 -->
-      <div class="card daum-wc6j-6" data-year="2025">
+      <!-- Uspeer Diary Post 6 -->
+      <div class="card" data-year="2025">
         <a href="https://cafe.daum.net/USPEER/WC6j/6" target="_blank">
           <img src="https://img1.daumcdn.net/thumb/C200x200/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fcafeattach%2F1ZjLA%2Fbe6d8c507d7d82001223343583bdd93409fbf41d" alt="Uspeer Diary">
         </a>
@@ -464,22 +432,19 @@
       </div>
 
       <!-- Uspeer Diary Post 4 -->
-      <div class="card daum-wc6j-4" data-year="2025">
+      <div class="card" data-year="2025">
         <a href="https://cafe.daum.net/USPEER/WC6j/4" target="_blank">
           <img src="https://img1.daumcdn.net/thumb/C200x200/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fcafeattach%2F1ZjLA%2Fb9d246bbbc2ce21cab08bde5cb113140f7ad62c4" alt="Uspeer Diary">
         </a>
         <h3>Diary EP.4 #USPEER_DEBUT_100DAYS</h3>
         <p>2025.09.11</p>
       </div>
-
     </div>
   </main>
 
-  <!-- Footer / Copyright Section -->
   <footer class="footer">
     <p>&copy; 2026 선우의. All rights reserved.</p>
   </footer>
-
 
 </body>
 </html>
