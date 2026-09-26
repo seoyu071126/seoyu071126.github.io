@@ -592,7 +592,65 @@
     <p>&copy; 2026 선우의. All rights reserved.</p>
   </footer>
 
-  <!-- Instagram Embed Script -->
-  <script async src="//www.instagram.com/embed.js"></script>
+  <!-- Lazy Loading & Instagram Widget Script Integration -->
+<script>
+let instagramScriptLoaded = false;
+
+function loadInstagramScript(callback) {
+  if (instagramScriptLoaded) {
+    if (window.instgrm && window.instgrm.Embeds) {
+      callback();
+    } else {
+      const checkInterval = setInterval(() => {
+        if (window.instgrm && window.instgrm.Embeds) {
+          clearInterval(checkInterval);
+          callback();
+        }
+      }, 100);
+    }
+    return;
+  }
+  instagramScriptLoaded = true;
+  const script = document.createElement('script');
+  script.src = "https://www.instagram.com/embed.js";
+  script.async = true;
+  script.onload = () => {
+    if (window.instgrm && window.instgrm.Embeds) {
+      callback();
+    }
+  };
+  document.body.appendChild(script);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll('.card');
+
+  const observerOptions = {
+    root: null,
+    rootMargin: '200px 0px', // Pre-load cards 200px before they enter viewport
+    threshold: 0.01
+  };
+
+  const observer = new IntersectionObserver((entries, observerInstance) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const card = entry.target;
+        observerInstance.unobserve(card);
+
+        const blockquote = card.querySelector('blockquote.instagram-media');
+        if (blockquote) {
+          loadInstagramScript(() => {
+            if (window.instgrm && window.instgrm.Embeds) {
+              window.instgrm.Embeds.process(); // Instagram doesn't support per-node process like Twitter, so it re-scans the page
+            }
+          });
+        }
+      }
+    });
+  }, observerOptions);
+
+  cards.forEach(card => observer.observe(card));
+});
+</script>
 </body>
 </html>
