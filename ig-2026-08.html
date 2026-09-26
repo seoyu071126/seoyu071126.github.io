@@ -673,5 +673,10 @@ document.addEventListener("DOMContentLoaded", () => {
   cards.forEach(card => observer.observe(card));
 });
 </script>
+
+setTimeout(() => {
+  if (window.instgrm) window.instgrm.Embeds.process();
+}, 2000);
+
 </body>
 </html>
