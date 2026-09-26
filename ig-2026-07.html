@@ -50,6 +50,46 @@
       margin-bottom: 20px;
     }
 
+    /* Individual Card Styling for Embedded Instagram Posts */
+    .card {
+      position: relative;
+      min-height: 620px; /* Ensures space for multi-image carousels */
+      background: #ffffff;
+      border: 1px solid #dbdbdb;
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch; /* Stretch content to fill card width */
+      justify-content: space-between;
+      padding: 0; /* Remove padding so the post fits edge-to-edge */
+      box-sizing: border-box;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Force Instagram embed to fit perfectly inside the card container */
+    .card .instagram-media {
+      margin: 0 !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      border: none !important;
+      box-shadow: none !important;
+      border-radius: 0 !important;
+    }
+
+    /* Style for the date text at the bottom of the card */
+    .card p {
+      margin: 12px 0;
+      font-size: 0.85rem;
+      color: #666;
+      text-align: center;
+    }
+
     /* Navigation Bar */
     .nav-menu {
       display: flex;
