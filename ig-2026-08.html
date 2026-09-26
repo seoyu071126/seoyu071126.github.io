@@ -50,20 +50,17 @@
       margin-bottom: 20px;
     }
 
-    /* Force correct spacing for Instagram embeds and prevent overlay text clipping */
+    /* Fix for Instagram carousel post iframe overlap */
+.card {
+  position: relative;
+  min-height: 620px; /* Forces enough vertical space for multi-image carousels */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .card .instagram-media {
-  max-width: 540px !important;
   width: 100% !important;
-}
-
-/* Push down the inner layout wrapper where Instagram injects its dynamic iframe */
-.card .instagram-media div {
-  height: auto !important;
-}
-
-/* Ensure the fallback blockquote contents don't collapse over the image */
-.card blockquote.instagram-media > div:first-child {
-  padding-bottom: 60px !important;
 }
 
     /* Navigation Bar */
