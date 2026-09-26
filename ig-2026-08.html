@@ -50,13 +50,20 @@
       margin-bottom: 20px;
     }
 
-    /* Fix for Instagram multi-image post overlay covering the photo */
+    /* Force correct spacing for Instagram embeds and prevent overlay text clipping */
 .card .instagram-media {
-  min-width: 100% !important;
+  max-width: 540px !important;
+  width: 100% !important;
 }
 
-.card .instagram-media div[style*="padding: 19% 0;"] {
-  padding: 8% 0 !important;
+/* Push down the inner layout wrapper where Instagram injects its dynamic iframe */
+.card .instagram-media div {
+  height: auto !important;
+}
+
+/* Ensure the fallback blockquote contents don't collapse over the image */
+.card blockquote.instagram-media > div:first-child {
+  padding-bottom: 60px !important;
 }
 
     /* Navigation Bar */
