@@ -53,18 +53,20 @@
     /* Individual Card Styling for Embedded Instagram Posts */
     .card {
       position: relative;
-      min-height: 620px; /* Ensures space for multi-image carousels */
       background: #ffffff;
       border: 1px solid #dbdbdb;
       border-radius: 8px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      align-items: stretch; /* Stretch content to fill card width */
-      justify-content: space-between;
-      padding: 0; /* Remove padding so the post fits edge-to-edge */
+      align-items: center; /* Center the embed horizontally */
+      justify-content: flex-start;
+      padding: 0;
       box-sizing: border-box;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
+      /* Remove fixed min-height if it causes unwanted stretching, 
+         or keep it if you need space for multi-image carousels before they load */
+      min-height: auto; 
     }
 
     .card:hover {
@@ -72,14 +74,23 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     }
 
-    /* Force Instagram embed to fit perfectly inside the card container */
+    /* Force Instagram embed and its inner iframe to fit the card width precisely */
     .card .instagram-media {
-      margin: 0 !important;
       width: 100% !important;
       max-width: 100% !important;
+      min-width: 0 !important;
+      margin: 0 !important;
       border: none !important;
       box-shadow: none !important;
       border-radius: 0 !important;
+    }
+
+    /* Target the iframe created by Instagram's script */
+    .card .instagram-media iframe {
+      width: 100% !important;
+      max-width: 100% !important;
+      left: 0 !important;
+      right: 0 !important;
     }
 
     /* Style for the date text at the bottom of the card */
