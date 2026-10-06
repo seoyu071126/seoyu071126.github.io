@@ -50,56 +50,6 @@
       margin-bottom: 20px;
     }
 
-    /* Individual Card Styling for Embedded Instagram Posts */
-    .card {
-      position: relative;
-      background: #ffffff;
-      border: 1px solid #dbdbdb;
-      border-radius: 8px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      align-items: center; /* Center the embed horizontally */
-      justify-content: flex-start;
-      padding: 0;
-      box-sizing: border-box;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      /* Remove fixed min-height if it causes unwanted stretching, 
-         or keep it if you need space for multi-image carousels before they load */
-      min-height: auto; 
-    }
-
-    .card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    }
-
-    /* Force Instagram embed and its inner iframe to fit the card width precisely */
-    .card .instagram-media {
-      width: 100% !important;
-      max-width: 100% !important;
-      min-width: 0 !important;
-      margin: 0 !important;
-      border: none !important;
-      box-shadow: none !important;
-      border-radius: 0 !important;
-    }
-
-    /* Target the iframe created by Instagram's script */
-    .card .instagram-media iframe {
-      width: 100% !important;
-      max-width: 100% !important;
-      left: 0 !important;
-      right: 0 !important;
-    }
-
-    /* Style for the date text at the bottom of the card */
-    .card p {
-      margin: 12px 0;
-      font-size: 0.85rem;
-      color: #666;
-      text-align: center;
-    }
 
     /* Navigation Bar */
     .nav-menu {
@@ -224,9 +174,9 @@
       box-sizing: border-box;
     }
 
-    .card-grid {
+   .card-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
   gap: 20px;
   max-width: 1450px;
   margin: 30px auto;
@@ -234,54 +184,41 @@
   flex: 1;
   width: 100%;
   box-sizing: border-box;
-  align-items: start; /* ADD THIS LINE */
+  align-items: start;
 }
 
-    @media (max-width: 1024px) {
-      .card-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
+.card {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #dbdbdb;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  box-sizing: border-box;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
-    @media (max-width: 600px) {
-      .card-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
 
-    /* Individual Card Styling for Embedded Instagram Posts */
-    .card {
-      position: relative;
-      min-height: 620px; /* Forces enough vertical space for multi-image carousels & prevents overlap */
-      background: #ffffff;
-      border: 1px solid #dbdbdb;
-      border-radius: 8px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px 12px 8px 12px;
-      box-sizing: border-box;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
+.card .instagram-media {
+  margin: 0 auto !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
 
-    .card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    }
-
-    .card .instagram-media {
-      margin: 0 !important;
-      width: 100% !important;
-    }
-
-    .card p {
-      margin: 8px 0 0 0;
-      font-size: 0.85rem;
-      color: #666;
-      text-align: center;
-    }
+.card > p {
+  margin: 12px 0;
+  font-size: 0.85rem;
+  color: #666;
+  text-align: center;
+}
+    
 
     /* Footer / Copyright */
     .footer {
