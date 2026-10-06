@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>선우의 - Instagram 2025.02</title>
+  <title>선우의 - X - 2026.09</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -105,7 +105,7 @@
       width: max-content;
       box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
       border-radius: 8px;
-      overflow: visible;
+      overflow: visible; /* Changed from hidden so submenus can display */
       z-index: 10;
       padding: 6px 0;
       border: 1px solid #eee;
@@ -148,8 +148,8 @@
     .nested-content {
       display: none;
       position: absolute;
-      top: -7px;
-      left: 98%;
+      top: -7px; /* Pulls the menu straight up to align with the parent item */
+      left: 98%; /* Overlaps slightly so there is no gap */
       background-color: #ffffff;
       width: max-content; 
       box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
@@ -162,7 +162,9 @@
     .nested-dropdown:hover > .nested-content {
       display: block;
     }
+    /* ------------------------------------------ */
 
+    
     /* Content Container & 4-Column Grid Layout */
     .content-container {
       max-width: 1200px;
@@ -177,12 +179,6 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 20px;
-      max-width: 1450px;
-      margin: 30px auto;
-      padding: 0 20px;
-      flex: 1;
-      width: 100%;
-      box-sizing: border-box;
     }
 
     @media (max-width: 1024px) {
@@ -197,7 +193,7 @@
       }
     }
 
-    /* Individual Card Styling for Embedded Instagram Posts */
+    /* Individual Card Styling for Embedded Tweets */
     .card {
       background: #ffffff;
       border: 1px solid #dbdbdb;
@@ -205,9 +201,11 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
+      justify-content: flex-start;
       align-items: center;
-      padding: 12px 12px 8px 12px;
+      padding: 8px;
       box-sizing: border-box;
+      min-height: 200px;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
@@ -216,45 +214,35 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     }
 
-    .card .instagram-media {
+    .card .twitter-tweet {
       margin: 0 !important;
       width: 100% !important;
-    }
-
-    .card p {
-      margin: 8px 0 0 0;
-      font-size: 0.85rem;
-      color: #666;
-      text-align: center;
     }
 
     /* Footer / Copyright */
     .footer {
       text-align: center;
-      padding: 20px 20px;
+      padding: 12px 20px;
       font-size: 0.8rem;
       color: #888;
       border-top: 1px solid #eee;
       background-color: #fff;
-      margin-top: auto; /* Keeps footer pinned to bottom */
-      width: 100%;
-      box-sizing: border-box;
     }
   </style>
 </head>
 <body>
 
   <header class="header">
-    <h1 class="site-title"><a href="./index.html">선우의</a></h1>
+    <h1 class="site-title"><a href="./index.html" style="text-decoration: none; color: inherit;">선우의</a></h1>
     <p class="site-subtitle">서유토낑 🐰</p>
 
     <!-- Navigation Menu -->
     <nav class="nav-menu">
       <a href="./index.html" class="nav-link">ABOUT</a>
 
-     <!-- REPLACE YOUR ENTIRE X (TWITTER) DROPDOWN BLOCK WITH THIS: -->
+    <!-- REPLACE YOUR ENTIRE X (TWITTER) DROPDOWN BLOCK WITH THIS: -->
     <div class="dropdown">
-      <a href="#" class="nav-link"><i class="fa-brands fa-x-twitter" style="color: #000000; font-size: 1.1rem;"></i></a>
+      <a href="#" class="nav-link active"><i class="fa-brands fa-x-twitter" style="color: #000000; font-size: 1.1rem;"></i></a>
       <div class="dropdown-content">
         <div class="nested-dropdown">
           <a href="#">
@@ -270,7 +258,7 @@
                 <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; margin-left: auto; color: #888;"></i>
               </a>
               <div class="nested-content">
-                <a href="./x-2026-10.html">2026.10</a>
+                <a href="./x-2026-10.html" style="font-weight: bold; background: #f5f5f5;">2026.10</a>
                 <a href="./x-2026-09.html">2026.09</a>
                 <a href="./x-2026-08.html">2026.08</a>
                 <a href="./x-2026-07.html">2026.07</a>
@@ -310,7 +298,7 @@
 
       <!-- Instagram Menu with Year/Month Dropdown Hierarchy -->
       <div class="dropdown">
-        <a href="#" class="nav-link active"><i class="fa-brands fa-instagram" style="color: #E1306C; font-size: 1.1rem;"></i></a>
+        <a href="#" class="nav-link"><i class="fa-brands fa-instagram" style="color: #E1306C; font-size: 1.1rem;"></i></a>
         <div class="dropdown-content">
           <div class="nested-dropdown">
             <a href="#">
@@ -355,7 +343,7 @@
                 <a href="./ig-2025-05.html">2025.05</a>
                 <a href="./ig-2025-04.html">2025.04</a>
                 <a href="./ig-2025-03.html">2025.03</a>
-                <a href="./ig-2025-02.html" style="font-weight: bold; background: #f5f5f5;">2025.02</a>
+                <a href="./ig-2025-02.html">2025.02</a>
               </div>
             </div>
 
@@ -364,7 +352,7 @@
       </div>
     </div>
       
-      <!-- YOUTUBE Menu -->
+       <!-- YOUTUBE Menu -->
       <div class="dropdown">
         <a href="#" class="nav-link"><i class="fa-brands fa-youtube" style="color: #FF0000; font-size: 1.1rem;"></i></a>
         <div class="dropdown-content">
@@ -450,28 +438,57 @@
     </nav>
   </header>
 
-  <!-- Instagram Post Cards Grid -->
-  <main class="card-grid">
+  <main class="content-container">
+    <!-- Card Grid Container -->
+    <div class="card-grid">
+      
+    <!-- Embedded X/Twitter Post Card (2026.10.05) -->
+      <div class="card" data-year="2026">
+<blockquote class="twitter-tweet" data-dnt="true">
+<p lang="ko" dir="ltr">[📸] <a href="https://x.com/hashtag/USPEER_DAY?src=hash&ref_src=twsrc%5Etfw">#USPEER_DAY</a> | 261005<br>⠀<br>USPEER 1st MINI ALBUM [BITE DISTRICT] 발매 기념 팬사인회<br>⠀<a href="https://x.com/hashtag/USPEER?src=hash&ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&ref_src=twsrc%5Etfw">#유스피어</a><br><a href="https://x.com/hashtag/WICKEDGAME?src=hash&ref_src=twsrc%5Etfw">#WICKEDGAME</a> <a href="https://x.com/hashtag/USPEER_BITEDISTRICT?src=hash&ref_src=twsrc%5Etfw">#USPEER_BITEDISTRICT</a> <a href="https://t.co/HNAnvcMPnn">pic.twitter.com/HNAnvcMPnn</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2107016760583217522?ref_src=twsrc%5Etfw">October 5, 2026</a>
+</blockquote>
+</div>
+    
+        <!-- Embedded X/Twitter Post Card (2026.10.04) -->
+      <div class="card" data-year="2026">
+<blockquote class="twitter-tweet" data-dnt="true">
+<p lang="en" dir="ltr">:¨ ·.· ¨: *            <br> `· . :¨ ·.· ¨: <br>        `· . ♡ ˚ ₊˚ unit dump <br><br><a href="https://x.com/hashtag/USPEER?src=hash&ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&ref_src=twsrc%5Etfw">#유스피어</a> <br><a href="https://x.com/hashtag/SEOYU?src=hash&ref_src=twsrc%5Etfw">#SEOYU</a> <a href="https://x.com/hashtag/%EC%84%9C%EC%9C%A0?src=hash&ref_src=twsrc%5Etfw">#서유</a> <br><a href="https://x.com/hashtag/CHAENA?src=hash&ref_src=twsrc%5Etfw">#CHAENA</a> <a href="https://x.com/hashtag/%EC%B1%84%EB%82%98?src=hash&ref_src=twsrc%5Etfw">#채나</a> <a href="https://t.co/FpMHwYEwce">pic.twitter.com/FpMHwYEwce</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2106659672170394073?ref_src=twsrc%5Etfw">October 4, 2026</a>
+</blockquote>
+</div>
+    
+        <!-- Embedded X/Twitter Post Card (2026.10.03) -->
+      <div class="card" data-year="2026">
+<blockquote class="twitter-tweet" data-dnt="true">
+<p lang="ko" dir="ltr">[📸] <a href="https://x.com/hashtag/USPEER_DAY?src=hash&ref_src=twsrc%5Etfw">#USPEER_DAY</a> | 261003<br>⠀<br>USPEER 1st MINI ALBUM [BITE DISTRICT] 발매 기념 팬사인회<br>⠀<a href="https://x.com/hashtag/USPEER?src=hash&ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&ref_src=twsrc%5Etfw">#유스피어</a><br><a href="https://x.com/hashtag/WICKEDGAME?src=hash&ref_src=twsrc%5Etfw">#WICKEDGAME</a> <a href="https://x.com/hashtag/USPEER_BITEDISTRICT?src=hash&ref_src=twsrc%5Etfw">#USPEER_BITEDISTRICT</a> <a href="https://t.co/1QMRfP83uS">pic.twitter.com/1QMRfP83uS</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2106284039854575627?ref_src=twsrc%5Etfw">October 3, 2026</a>
+</blockquote>
+</div>
+     
+        <!-- Embedded X/Twitter Post Card (2026.10.01) -->
+      <div class="card" data-year="2026">
+<blockquote class="twitter-tweet" data-dnt="true">
+<p lang="ko" dir="ltr">USPEER ♥ 몰티즈 앤 리트리버<br>⠀<br>🔗 <a href="https://t.co/MEqffB3tCa">https://t.co/MEqffB3tCa</a><br>🔗 <a href="https://t.co/rJuostvdqZ">https://t.co/rJuostvdqZ</a><br>🔗 <a href="https://t.co/Dnlxcc3eCj">https://t.co/Dnlxcc3eCj</a><br><br><a href="https://x.com/hashtag/USPEER?src=hash&ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&ref_src=twsrc%5Etfw">#유스피어</a><br><a href="https://x.com/hashtag/%EB%AA%B0%ED%8B%B0%EC%A6%88%EC%95%A4%EB%A6%AC%ED%8A%B8%EB%A6%AC%EB%B2%84?src=hash&ref_src=twsrc%5Etfw">#몰티즈앤리트리버</a> <br><a href="https://x.com/hashtag/%E7%BA%BF%E6%9D%A1%E5%B0%8F%E7%8B%97?src=hash&ref_src=twsrc%5Etfw">#线条小狗</a> <a href="https://x.com/hashtag/%E9%A9%AC%E5%B0%94%E6%B5%8E%E6%96%AF?src=hash&ref_src=twsrc%5Etfw">#马尔济斯</a> <br><a href="https://x.com/hashtag/%E5%B0%8F%E9%87%91%E6%AF%9B?src=hash&ref_src=twsrc%5Etfw">#小金毛</a> <a href="https://x.com/hashtag/%E7%8B%97%E7%8B%97%E6%8B%AF%E6%95%91%E4%B8%96%E7%95%8C?src=hash&ref_src=twsrc%5Etfw">#狗狗拯救世界</a> <br><a href="https://x.com/hashtag/%E3%83%9E%E3%83%AB%E3%83%81%E3%83%BC%E3%82%BA%E3%82%A2%E3%83%B3%E3%83%89%E3%83%AC%E3%83%88%E3%83%AA%E3%83%90?src=hash&ref_src=twsrc%5Etfw">#マルチーズアンドレトリバ</a> <br><a href="https://x.com/hashtag/%E3%81%8B%E3%82%8F%E3%81%84%E3%81%84%E7%8A%AC?src=hash&ref_src=twsrc%5Etfw">#かわいい犬</a> <a href="https://t.co/DFZcxv8kIh">pic.twitter.com/DFZcxv8kIh</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2105601977849889015?ref_src=twsrc%5Etfw">October 1, 2026</a>
+</blockquote>
+</div>
 
-    <!-- Instagram Reel Embed Card 1 -->
-    <div class="card" data-year="2026">
-      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DdQw7nTB169/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
-        <div style="padding:16px;"> 
-          <a href="https://www.instagram.com/reel/DdQw7nTB169/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> 
-            <div style=" display: flex; flex-direction: row; align-items: center;"> 
-              <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> 
-              <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> 
-                <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> 
-                <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div>
-              </div>
-            </div>
-            <div style="padding: 19% 0;"></div> 
-          </a>
-        </div>
-      </blockquote>
-      <p>2026.09.14</p>
+     <!-- Embedded X/Twitter Post Card (2026.10.01) -->
+      <div class="card" data-year="2026">
+<blockquote class="twitter-tweet" data-dnt="true">
+<p lang="und" dir="ltr">0⪩. .⪨ /•᷅•᷄\੭₍ᐢ..ᐢ₎♡7<br><br><a href="https://x.com/hashtag/USPEER?src=hash&ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&ref_src=twsrc%5Etfw">#유스피어</a> <br><a href="https://x.com/hashtag/SOEE?src=hash&ref_src=twsrc%5Etfw">#SOEE</a> <a href="https://x.com/hashtag/%EC%86%8C%EC%9D%B4?src=hash&ref_src=twsrc%5Etfw">#소이</a><br><a href="https://x.com/hashtag/SIAN?src=hash&ref_src=twsrc%5Etfw">#SIAN</a> <a href="https://x.com/hashtag/%EC%8B%9C%EC%95%88?src=hash&ref_src=twsrc%5Etfw">#시안</a> <br><a href="https://x.com/hashtag/SEOYU?src=hash&ref_src=twsrc%5Etfw">#SEOYU</a> <a href="https://x.com/hashtag/%EC%84%9C%EC%9C%A0?src=hash&ref_src=twsrc%5Etfw">#서유</a> <a href="https://t.co/zROD05Ixym">pic.twitter.com/zROD05Ixym</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2105580980593696797?ref_src=twsrc%5Etfw">October 1, 2026</a>
+</blockquote>
+</div>
+     
+        <!-- Embedded X/Twitter Post Card (2026.10.01) -->
+      <div class="card" data-year="2026">
+<blockquote class="twitter-tweet" data-dnt="true">
+<p lang="ko" dir="ltr">[📸] <a href="https://x.com/hashtag/USPEER_DAY?src=hash&ref_src=twsrc%5Etfw">#USPEER_DAY</a> | 261001<br>⠀<br>더웍스 페스타 in 성수<br>⠀<a href="https://x.com/hashtag/USPEER?src=hash&ref_src=twsrc%5Etfw">#USPEER</a> <a href="https://x.com/hashtag/%EC%9C%A0%EC%8A%A4%ED%94%BC%EC%96%B4?src=hash&ref_src=twsrc%5Etfw">#유스피어</a><br><a href="https://x.com/hashtag/%EB%AA%B0%ED%8B%B0%EC%A6%88%EC%95%A4%EB%A6%AC%ED%8A%B8%EB%A6%AC%EB%B2%84?src=hash&ref_src=twsrc%5Etfw">#몰티즈앤리트리버</a> <br><a href="https://x.com/hashtag/%E7%BA%BF%E6%9D%A1%E5%B0%8F%E7%8B%97?src=hash&ref_src=twsrc%5Etfw">#线条小狗</a> <a href="https://x.com/hashtag/%E9%A9%AC%E5%B0%94%E6%B5%8E%E6%96%AF?src=hash&ref_src=twsrc%5Etfw">#马尔济斯</a> <br><a href="https://x.com/hashtag/%E5%B0%8F%E9%87%91%E6%AF%9B?src=hash&ref_src=twsrc%5Etfw">#小金毛</a> <a href="https://x.com/hashtag/%E7%8B%97%E7%8B%97%E6%8B%AF%E6%95%91%E4%B8%96%E7%95%8C?src=hash&ref_src=twsrc%5Etfw">#狗狗拯救世界</a> <br><a href="https://x.com/hashtag/%E3%83%9E%E3%83%AB%E3%83%81%E3%83%BC%E3%82%BA%E3%82%A2%E3%83%B3%E3%83%89%E3%83%AC%E3%83%88%E3%83%AA%E3%83%90?src=hash&ref_src=twsrc%5Etfw">#マルチーズアンドレトリバ</a> <br><a href="https://x.com/hashtag/%E3%81%8B%E3%82%8F%E3%81%84%E3%81%84%E7%8A%AC?src=hash&ref_src=twsrc%5Etfw">#かわいい犬</a> <a href="https://t.co/NikKsDgPku">pic.twitter.com/NikKsDgPku</a></p>&mdash; USPEER_official (@USPEER_official) <a href="https://x.com/USPEER_official/status/2105544980832071939?ref_src=twsrc%5Etfw">October 1, 2026</a>
+</blockquote>
+</div>
+     
+
+     
+    
+   
     </div>
-
   </main>
 
   <!-- Footer / Copyright Section -->
@@ -479,9 +496,71 @@
     <p>&copy; 2026 선우의. All rights reserved.</p>
   </footer>
 
-  <!-- Instagram Embed Script -->
-  <script async src="//www.instagram.com/embed.js"></script>
+  <!-- Lazy Loading & Twitter Widget Script Integration -->
+  <script>
+    let twitterScriptLoaded = false;
+
+    function loadTwitterScript(callback) {
+      if (twitterScriptLoaded) {
+        if (window.twttr && window.twttr.widgets) {
+          callback();
+        } else {
+          const checkInterval = setInterval(() => {
+            if (window.twttr && window.twttr.widgets) {
+              clearInterval(checkInterval);
+              callback();
+            }
+          }, 100);
+        }
+        return;
+      }
+      twitterScriptLoaded = true;
+      const script = document.createElement('script');
+      script.src = "https://platform.twitter.com/widgets.js";
+      script.charset = "utf-8";
+      script.async = true;
+      script.onload = () => {
+        if (window.twttr && window.twttr.widgets) {
+          callback();
+        }
+      };
+      document.body.appendChild(script);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const cards = document.querySelectorAll('.card');
+
+      const observerOptions = {
+        root: null,
+        rootMargin: '200px 0px', // Pre-load cards 200px before they enter viewport
+        threshold: 0.01
+      };
+
+      const observer = new IntersectionObserver((entries, observerInstance) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const card = entry.target;
+            observerInstance.unobserve(card);
+
+            const blockquote = card.querySelector('blockquote.twitter-tweet-pending');
+            if (blockquote) {
+              blockquote.className = 'twitter-tweet';
+              loadTwitterScript(() => {
+                if (window.twttr && window.twttr.widgets) {
+                  window.twttr.widgets.load(card);
+                }
+              });
+            }
+          }
+        });
+      }, observerOptions);
+
+      cards.forEach(card => observer.observe(card));
+    });
+  </script>
+
+  <!-- Twitter Widget Script -->
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
 </html>
-
 
